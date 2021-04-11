@@ -2,6 +2,7 @@ package logic;
 
 import common.ValidationException;
 import dal.BloodDonationDAL;
+import entity.BloodBank;
 import entity.BloodDonation;
 import entity.BloodGroup;
 import entity.RhesusFactor;
@@ -15,7 +16,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- *
+ * BONUS: This class implements updateEntity to allow for the updating of BloodDonation entities
  * @author Shariar (Shawn) Emami, Matthew Ellero
  */
 public class BloodDonationLogic extends GenericLogic<BloodDonation, BloodDonationDAL> {
@@ -108,6 +109,61 @@ public class BloodDonationLogic extends GenericLogic<BloodDonation, BloodDonatio
         entity.setRhd(rhd);
         
         return entity;
+    }
+    
+    /**
+     * this method is only needed for bonus. this method needs to be overridden if the entity has dependencies. within
+     * the method other logic's can be created to manipulate the dependencies. by default this method does the exact
+     * same thing as createEntity method.
+     *
+     * @param parameterMap - new data with which to update an entity
+     *
+     * @return an updated entity with given requestData
+     */
+    @Override
+    public BloodDonation updateEntity( Map<String, String[]> parameterMap ) {
+        // Dependency logic
+        BloodBankLogic bbLogic = LogicFactory.getFor("BloodBank");
+        // Main logic
+        BloodDonationLogic bdLogic = LogicFactory.getFor( "BloodDonation" );
+        
+        Integer id = Integer.parseInt(parameterMap.get(ID)[0]);
+        Integer newMilliliters = Integer.parseInt(parameterMap.get(MILLILITERS)[0]);
+        BloodGroup newBloodGroup = BloodGroup.valueOf(parameterMap.get(BLOOD_GROUP)[0]);
+        RhesusFactor newRHD = RhesusFactor.getRhesusFactor(parameterMap.get(RHESUS_FACTOR)[0]);
+        
+        
+        //getwithid(id) get the current entity from db
+        BloodDonation originalBD = bdLogic.getWithId(id);
+        //check data from map against entity and udpate it
+        if (originalBD.getMilliliters() != newMilliliters) {
+            originalBD.setMilliliters(newMilliliters);
+        }
+        if (originalBD.getBloodGroup() != newBloodGroup) {
+            originalBD.setBloodGroup(newBloodGroup);
+        }
+        if (originalBD.getRhd() != newRHD) {
+            originalBD.setRhd(newRHD);
+        }
+        //check if depdendecy has changed, if so update it using depedency logic
+
+        try {
+            int bankId = Integer.parseInt(parameterMap.get(BloodDonationLogic.BANK_ID)[0]);
+            BloodBank bloodBank = bbLogic.getWithId(bankId);
+            if (bloodBank == null) {
+                throw new IllegalArgumentException("Bank ID not found");
+            }
+            
+            if (originalBD.getBloodBank() != bloodBank) {
+                originalBD.setBloodBank(bloodBank);
+                bdLogic.update( originalBD );
+            }
+            
+        } catch( NumberFormatException ex ) {
+            Logger.getLogger( BloodDonationLogic.class.getName() ).log( Level.SEVERE, null, ex );
+        }
+        
+        return originalBD;
     }
 
     /**

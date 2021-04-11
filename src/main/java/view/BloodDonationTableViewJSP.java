@@ -30,7 +30,7 @@ public class BloodDonationTableViewJSP extends HttpServlet {
         req.setAttribute( "request", toStringMap( req.getParameterMap() ) );
         req.setAttribute( "path", path );
         req.setAttribute( "title", path.substring( 1 ) );
-        req.getRequestDispatcher( "/jsp/ShowTable-BloodDonation.jsp" ).forward( req, resp );
+        req.getRequestDispatcher( "/jsp/ShowTable-Entity.jsp" ).forward( req, resp );
     }
 
     private List<?> extractTableData( HttpServletRequest req ) {
@@ -144,7 +144,7 @@ public class BloodDonationTableViewJSP extends HttpServlet {
      */
     @Override
     public String getServletInfo() {
-        return "Smaple of BloodDonation Table using JSP";
+        return "Sample of BloodDonation Table using JSP";
     }
 
     private static final boolean DEBUG = true;

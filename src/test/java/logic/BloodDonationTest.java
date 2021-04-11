@@ -30,7 +30,7 @@ import org.junit.jupiter.api.Test;
  * This class is has the example of how to add dependency when working with junit. it is commented because some
  * components need to be made first. You will have to import everything you need.
  *
- * @author Shariar (Shawn) Emami
+ * @author Shariar (Shawn) Emami, Matthew Ellero
  */
 class BloodDonationTest {
 
