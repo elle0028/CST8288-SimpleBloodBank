@@ -6,7 +6,7 @@
     <artifactId>SimpleBloodBank-Skeleton</artifactId>
     <version>1</version>
     <packaging>war</packaging>
-    <name>SimpleBloodBank-Skeleton</name>
+    <name>CST8288-SimpleBloodBank</name>
 
     <properties>
         <!-- maven properties -->
