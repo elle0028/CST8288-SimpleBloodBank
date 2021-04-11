@@ -18,6 +18,7 @@ dal\DataAccessLayer.class
 entity\RhesusFactorConvertor.class
 common\FileUtility.class
 entity\BloodGroup.class
+view\DonateBloodForm.class
 dal\BloodDonationDAL.class
 entity\Person.class
 view\BloodDonationTableViewJSP.class

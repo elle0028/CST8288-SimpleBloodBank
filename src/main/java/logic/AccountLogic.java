@@ -173,6 +173,7 @@ public class AccountLogic extends GenericLogic<Account, AccountDAL> {
      */
     @Override
     public List<?> extractDataAsList( Account e ) {
-        return Arrays.asList( e.getId(), e.getName(), e.getNickname(), e.getUsername(), e.getPassword() );
+        return Arrays.asList( e.getId(), e.getName(), e.getNickname(), 
+                e.getUsername(), e.getPassword() );
     }
 }

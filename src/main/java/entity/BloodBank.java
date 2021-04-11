@@ -40,7 +40,6 @@ import javax.validation.constraints.Size;
     @NamedQuery( name = "BloodBank.findByEmployeeCount", query = "SELECT b FROM BloodBank b WHERE b.employeeCount = :employeeCount" ) } )
 public class BloodBank implements Serializable {
 
-    private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue( strategy = GenerationType.IDENTITY )
     @Basic( optional = false )
