@@ -58,6 +58,9 @@ public class CreateBloodBank extends HttpServlet {
             out.println( "OwnerID:<br>" );
             out.printf( "<input type=\"text\" name=\"%s\" value=\"\"><br>", BloodBankLogic.OWNER_ID );
             out.println( "<br>" );
+            out.println( "Established:<br>" );
+            out.printf( "<input type=\"datetime-local\" name=\"%s\" value=\"\"><br>", BloodBankLogic.ESTABLISHED );
+            out.println( "<br>" );
             out.println( "<input type=\"submit\" name=\"view\" value=\"Add and View\">" );
             out.println( "<input type=\"submit\" name=\"add\" value=\"Add\">" );
             out.println( "</form>" );

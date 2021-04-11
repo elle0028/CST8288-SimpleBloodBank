@@ -109,32 +109,38 @@ public class BloodBankLogic extends GenericLogic <BloodBank, BloodBankDAL> {
         
         // ------------------------------------------------------
         String privatelyOwned = parameterMap.get(PRIVATELY_OWNED)[0];
-        String name = parameterMap.get(NAME)[0];        
+        String name = parameterMap.get(NAME)[0];  
+        String established = parameterMap.get(ESTABLISHED)[0];
         
+        //TODO : may be some weirdness here, will have to wait for PersonLogic to find out
         String ownerID = null;
-        if( ownerID != null && parameterMap.containsKey( OWNER_ID ) ){
+        if( parameterMap.containsKey( OWNER_ID ) ){
             ownerID = parameterMap.get(OWNER_ID)[0];
-            validator.accept( ownerID, 45 );
+            if (ownerID != null)
+                validator.accept( ownerID, 45 );
         }        
 
         //validate the data
         validator.accept( employeeCount, 45 );        
         validator.accept( privatelyOwned, 45 );
         validator.accept( name, 45 );
-                
+        validator.accept( established, 45);
+        
+        /* this is no longer necessary (was temporary until form set up)     
         LocalDate today = LocalDate.now();
         String day = today.toString();
         day = day.replace("-", "/");        
+        */
         
         //set values on entity
         entity.setEmployeeCount( Integer.parseInt(employeeCount) );
         // Date is deprecated, but the project is set up to use it
-        entity.setEstablished( new Date(day));
+        entity.setEstablished( new Date(established));
         entity.setPrivatelyOwned( Boolean.parseBoolean(privatelyOwned) );
         entity.setName( name );
         
-        //TODO
-        //entity.setOwner(); // this needs PersonLogic.getWithID(ownerID)
+        if (ownerID == null)
+            entity.setOwner(null); // this needs PersonLogic.getWithID(ownerID)
 
         return entity;
     }
