@@ -3,6 +3,7 @@ package logic;
 import common.ValidationException;
 import dal.BloodBankDAL;
 import entity.BloodBank;
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.Arrays;
 import java.util.List;
@@ -104,28 +105,31 @@ public class BloodBankLogic extends GenericLogic <BloodBank, BloodBankDAL> {
         //stored in an array of String; almost always the value is at
         //index zero unless you have used duplicated key/name somewhere.
         
-        String employeeCount = parameterMap.get(EMPLOYEE_COUNT)[0];
-        String established = parameterMap.get(ESTABLISHED)[0];
+        String employeeCount = parameterMap.get(EMPLOYEE_COUNT)[0];        
+        
+        // ------------------------------------------------------
         String privatelyOwned = parameterMap.get(PRIVATELY_OWNED)[0];
         String name = parameterMap.get(NAME)[0];        
         
         String ownerID = null;
-        if( parameterMap.containsKey( NAME ) ){
+        if( ownerID != null && parameterMap.containsKey( OWNER_ID ) ){
             ownerID = parameterMap.get(OWNER_ID)[0];
             validator.accept( ownerID, 45 );
-        }
-        
+        }        
 
         //validate the data
-        validator.accept( employeeCount, 45 );
-        validator.accept( established, 45 );
+        validator.accept( employeeCount, 45 );        
         validator.accept( privatelyOwned, 45 );
         validator.accept( name, 45 );
-
+                
+        LocalDate today = LocalDate.now();
+        String day = today.toString();
+        day = day.replace("-", "/");        
+        
         //set values on entity
         entity.setEmployeeCount( Integer.parseInt(employeeCount) );
         // Date is deprecated, but the project is set up to use it
-        entity.setEstablished( new Date(established) );
+        entity.setEstablished( new Date(day));
         entity.setPrivatelyOwned( Boolean.parseBoolean(privatelyOwned) );
         entity.setName( name );
         

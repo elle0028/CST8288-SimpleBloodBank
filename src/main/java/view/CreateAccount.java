@@ -49,16 +49,16 @@ public class CreateAccount extends HttpServlet {
             //instead of typing the name of column manualy use the static vraiable in logic
             //use the same name as column id of the table. will use this name to get date
             //from parameter map.
-            out.printf("<input type=\"text\" name=\"%s\" value=\"\"><br>", AccountLogic.NAME );
+            out.printf( "<input type=\"text\" name=\"%s\" value=\"\"><br>", AccountLogic.NAME );
             out.println( "<br>" );
             out.println( "Nickname:<br>" );
-            out.printf("<input type=\"text\" name=\"%s\" value=\"\"><br>", AccountLogic.NICKNAME );
+            out.printf( "<input type=\"text\" name=\"%s\" value=\"\"><br>", AccountLogic.NICKNAME );
             out.println( "<br>" );
             out.println( "User:<br>" );
-            out.printf("<input type=\"text\" name=\"%s\" value=\"\"><br>", AccountLogic.USERNAME );
+            out.printf( "<input type=\"text\" name=\"%s\" value=\"\"><br>", AccountLogic.USERNAME );
             out.println( "<br>" );
             out.println( "Password:<br>" );
-            out.printf("<input type=\"password\" name=\"%s\" value=\"\"><br>", AccountLogic.PASSWORD );
+            out.printf( "<input type=\"password\" name=\"%s\" value=\"\"><br>", AccountLogic.PASSWORD );
             out.println( "<br>" );
             out.println( "<input type=\"submit\" name=\"view\" value=\"Add and View\">" );
             out.println( "<input type=\"submit\" name=\"add\" value=\"Add\">" );
@@ -125,7 +125,7 @@ public class CreateAccount extends HttpServlet {
             throws ServletException, IOException {
         log( "POST" );
         AccountLogic aLogic = LogicFactory.getFor( "Account" );
-        String username = request.getParameter(AccountLogic.USERNAME );
+        String username = request.getParameter( AccountLogic.USERNAME );
         if( aLogic.getAccountWithUsername( username ) == null ){
             try {
                 Account account = aLogic.createEntity( request.getParameterMap() );
