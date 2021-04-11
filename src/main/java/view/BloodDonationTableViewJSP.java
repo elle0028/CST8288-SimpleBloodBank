@@ -17,8 +17,8 @@ import logic.BloodDonationLogic;
 import logic.LogicFactory;
 
 /**
- *
- * @author Shariar (Shawn) Emami
+ * BONUS: This class also allows for updating and deleting of entities from the JSP view.
+ * @author Shariar (Shawn) Emami, Matthew Ellero
  */
 @WebServlet( name = "BloodDonationTableJSP", urlPatterns = { "/BloodDonationTableJSP" } )
 public class BloodDonationTableViewJSP extends HttpServlet {
@@ -30,7 +30,7 @@ public class BloodDonationTableViewJSP extends HttpServlet {
         req.setAttribute( "request", toStringMap( req.getParameterMap() ) );
         req.setAttribute( "path", path );
         req.setAttribute( "title", path.substring( 1 ) );
-        req.getRequestDispatcher( "/jsp/ShowTable-BloodDonation.jsp" ).forward( req, resp );
+        req.getRequestDispatcher( "/jsp/ShowTable-Entity.jsp" ).forward( req, resp );
     }
 
     private List<?> extractTableData( HttpServletRequest req ) {
@@ -144,7 +144,7 @@ public class BloodDonationTableViewJSP extends HttpServlet {
      */
     @Override
     public String getServletInfo() {
-        return "Smaple of BloodDonation Table using JSP";
+        return "Sample of BloodDonation Table using JSP";
     }
 
     private static final boolean DEBUG = true;

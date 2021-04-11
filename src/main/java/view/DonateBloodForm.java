@@ -18,11 +18,11 @@ import logic.LogicFactory;
 
 /**
  *
- * @author Shariar (Shawn) Emami
+ * @author Shariar (Shawn) Emami, Matthew Ellero
  */
 @WebServlet( name = "DonateBloodForm", urlPatterns = { "/DonateBloodForm" } )
 public class DonateBloodForm extends HttpServlet {
-    private String errorMessage = null;
+    private String errorMessage = null; // TODO: Needed?
     
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
