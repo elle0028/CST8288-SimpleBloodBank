@@ -20,7 +20,8 @@ h3 {
     "lf lfi lfi lfi rf rfi rfi rfi";
 }
 
-.fn { grid-area: lf; }
-.fni { grid-area: lfi; }
-.ln { grid-area: rf; }
-.lni { grid-area: rfi; }
+/* */
+.lf { grid-area: lf; }
+.lfi { grid-area: lfi; }
+.rf { grid-area: rf; }
+.rfi { grid-area: rfi; }
