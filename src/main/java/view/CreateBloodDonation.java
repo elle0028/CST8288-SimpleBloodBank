@@ -63,7 +63,7 @@ public class CreateBloodDonation extends HttpServlet {
             out.printf("<input type=\"text\" name=\"%s\" value=\"\"><br>", BloodDonationLogic.RHESUS_FACTOR );
             out.println( "<br>" );
             out.println( "Created:<br>" );
-            out.printf("<input type=\"datetime-local\" name=\"%s\" value=\"\"><br>", BloodDonationLogic.CREATED );
+            out.printf("<input type=\"datetime-local\" step=\"1\" name=\"%s\" value=\"\"><br>", BloodDonationLogic.CREATED );
             out.println( "<br>" );
             out.println( "<input type=\"submit\" name=\"view\" value=\"Add and View\">" );
             out.println( "<input type=\"submit\" name=\"add\" value=\"Add\">" );
