@@ -113,12 +113,15 @@ public class BloodBankLogic extends GenericLogic <BloodBank, BloodBankDAL> {
         String established = parameterMap.get(ESTABLISHED)[0];
         
         //TODO : may be some weirdness here, will have to wait for PersonLogic to find out
-        String ownerID = null;
+        /* I have some things to fix regarging owner, Person, and ownerID
+         // for now owner is always null
+        String ownerID = "";
         if( parameterMap.containsKey( OWNER_ID ) ){
             ownerID = parameterMap.get(OWNER_ID)[0];
-            if (ownerID != null)
+            if (ownerID != null && !ownerID.equals(""))
                 validator.accept( ownerID, 45 );
         }        
+        */
 
         //validate the data
         validator.accept( employeeCount, 45 );        
@@ -139,8 +142,8 @@ public class BloodBankLogic extends GenericLogic <BloodBank, BloodBankDAL> {
         entity.setPrivatelyOwned( Boolean.parseBoolean(privatelyOwned) );
         entity.setName( name );
         
-        if (ownerID == null)
-            entity.setOwner(null); // this needs PersonLogic.getWithID(ownerID)
+        // TODO : this needs fixing  
+        entity.setOwner(null); // this needs PersonLogic.getWithID(ownerID)
 
         return entity;
     }

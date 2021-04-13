@@ -29,11 +29,8 @@ import entity.Person;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
+import org.junit.jupiter.api.Disabled;
 
-/**
- *
- * @author dynonomous
- */
 public class BloodBankTest {
     private BloodBankLogic logic;
     private BloodBank expectedEntity;

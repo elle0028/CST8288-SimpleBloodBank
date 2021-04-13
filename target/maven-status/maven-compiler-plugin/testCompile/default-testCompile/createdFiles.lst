@@ -2,4 +2,3 @@ logic\AccountLogicTest.class
 logic\BloodBankTest.class
 common\EmbededTomcatBuilder.class
 common\TomcatStartUp.class
-logic\BloodDonationTest.class
