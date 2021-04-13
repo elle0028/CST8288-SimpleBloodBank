@@ -19,9 +19,3 @@ h3 {
   grid-template-areas:
     "lf lfi lfi lfi rf rfi rfi rfi";
 }
-
-/* */
-.lf { grid-area: lf; }
-.lfi { grid-area: lfi; }
-.rf { grid-area: rf; }
-.rfi { grid-area: rfi; }
