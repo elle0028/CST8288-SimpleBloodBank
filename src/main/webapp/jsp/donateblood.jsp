@@ -86,7 +86,7 @@
 
                     <fieldset class="field">
                         <label for="${BloodDonationLogic.CREATED}" class="lf">Date</label>
-                        <input type="datetime-local" name="${BloodDonationLogic.CREATED}" min="1900-01-01" class="lfi">
+                        <input type="datetime-local" step="1" name="${BloodDonationLogic.CREATED}" min="1900-01-01" class="lfi">
                         <label for="bloodbank" class="lf">Blood Bank</label>
                         <select name="bloodbank" class="lfi">
                             <option>Some Option</option>

@@ -36,7 +36,6 @@ class BloodDonationTest {
 
     private BloodDonationLogic logic;
     private BloodDonation expectedEntity;
-    private BloodBank testBloodBank; // Dependency
     private int bbId = 1;
     private final BloodGroup testBloodGroup = BloodGroup.AB;
     private final int testMilliliters = 100;
@@ -63,11 +62,11 @@ class BloodDonationTest {
         //start a Transaction
         em.getTransaction().begin();
         //check if the depdendecy exists on DB already
-        //em.find takes two arguments, the class type of return result and the primery key.
-        testBloodBank = em.find( BloodBank.class, 1 );
+        //em.find takes two arguments, the class type of return result and the primary key.
+        BloodBank testBloodBank = em.find( BloodBank.class, bbId );
         //if result is null create the entity and persist it
         if( testBloodBank == null ){
-            //cearet object
+            //create object
             testBloodBank = new BloodBank();
             testBloodBank.setName( "JUNIT" );
             testBloodBank.setPrivatelyOwned( true );
@@ -103,6 +102,19 @@ class BloodDonationTest {
         if( expectedEntity != null ){
             logic.delete( expectedEntity );
         }
+        //get an instance of EntityManager
+        EntityManager em = EMFactory.getEMF().createEntityManager();
+        //start a Transaction
+        em.getTransaction().begin();
+        
+        BloodBank testBloodBank = em.find( BloodBank.class, bbId );
+        if (testBloodBank != null) {
+            em.remove(testBloodBank);
+        }
+        //commit the changes
+        em.getTransaction().commit();
+        //close EntityManager
+        em.close();
     }
 
     @Test
@@ -201,25 +213,25 @@ class BloodDonationTest {
             assertEquals(expectedEntity.getRhd(), bloodDonation.getRhd());
         });
     }
-
-    @Test
-    final void testSearch() {
-//        int foundFull = 0;
-//        //search for a substring of one of the fields in the expectedBloodDonation
-//        String searchString = expectedEntity.getBloodGroup().substring( 3 );
-//        //in account we only search for display name and user, this is completely based on your design for other entities.
-//        List<BloodDonation> returnedBloodDonations = logic.search( searchString );
-//        for( BloodDonation account: returnedBloodDonations ) {
-//            //all accounts must contain the substring
-//            assertTrue( account.getNickname().contains( searchString ) || account.getUsername().contains( searchString ) );
-//            //exactly one account must be the same
-//            if( account.getId().equals( expectedEntity.getId() ) ){
-//                assertBloodDonationEquals( expectedEntity, account );
-//                foundFull++;
-//            }
-//        }
-//        assertEquals( 1, foundFull, "if zero means not found, if more than one means duplicate" );
-    }
+//
+//    @Test
+//    final void testSearch() {
+////        int foundFull = 0;
+////        //search for a substring of one of the fields in the expectedBloodDonation
+////        String searchString = expectedEntity.getBloodGroup().substring( 3 );
+////        //in account we only search for display name and user, this is completely based on your design for other entities.
+////        List<BloodDonation> returnedBloodDonations = logic.search( searchString );
+////        for( BloodDonation account: returnedBloodDonations ) {
+////            //all accounts must contain the substring
+////            assertTrue( account.getNickname().contains( searchString ) || account.getUsername().contains( searchString ) );
+////            //exactly one account must be the same
+////            if( account.getId().equals( expectedEntity.getId() ) ){
+////                assertBloodDonationEquals( expectedEntity, account );
+////                foundFull++;
+////            }
+////        }
+////        assertEquals( 1, foundFull, "if zero means not found, if more than one means duplicate" );
+//    }
 
     @Test
     final void testCreateEntityAndAdd() {
@@ -229,29 +241,25 @@ class BloodDonationTest {
         sampleMap.put( BloodDonationLogic.RHESUS_FACTOR, new String[]{ testRhd.toString() } );
         sampleMap.put( BloodDonationLogic.CREATED, new String[]{ logic.convertDateToString(testDate) } );
         
-        BloodDonation returnedBloodDonation = logic.createEntity( sampleMap );
+        BloodDonation createdBloodDonation = logic.createEntity( sampleMap );
         // Add Blood Bank dependency
-        returnedBloodDonation.setBloodBank(
+        createdBloodDonation.setBloodBank(
                 EMFactory.getEMF().createEntityManager().find( BloodBank.class,  bbId)
         );
         
-        logic.add( returnedBloodDonation );
+        logic.add( createdBloodDonation );
 
-        returnedBloodDonation = 
-                logic.getBloodDonationsWithBloodBank(returnedBloodDonation.getBloodBank().getId())
+        BloodDonation returnedBloodDonation = 
+                logic.getBloodDonationsWithBloodBank(createdBloodDonation.getBloodBank().getId())
                      .get(0);
 
-        assertEquals( bbId, returnedBloodDonation.getBloodBank().getId());
-        assertEquals( Integer.valueOf(sampleMap.get( BloodDonationLogic.MILLILITERS )[ 0 ]), 
-                      returnedBloodDonation.getMilliliters());
-        assertEquals( BloodGroup.valueOf(sampleMap.get( BloodDonationLogic.BLOOD_GROUP )[ 0 ]), 
-                      returnedBloodDonation.getBloodGroup());
-        assertEquals( RhesusFactor.getRhesusFactor(sampleMap.get( BloodDonationLogic.RHESUS_FACTOR )[ 0 ]), 
-                      returnedBloodDonation.getRhd() );
-        assertEquals( logic.convertStringToDate(sampleMap.get( BloodDonationLogic.CREATED )[ 0 ]), 
-                      returnedBloodDonation.getCreated() );
+        assertEquals( createdBloodDonation.getBloodBank().getId(), returnedBloodDonation.getBloodBank().getId());
+        assertEquals( createdBloodDonation.getMilliliters(), returnedBloodDonation.getMilliliters());
+        assertEquals( createdBloodDonation.getBloodGroup(), returnedBloodDonation.getBloodGroup());
+        assertEquals( createdBloodDonation.getRhd(), returnedBloodDonation.getRhd() );
+        assertEquals( createdBloodDonation.getCreated(), returnedBloodDonation.getCreated() );
 
-        logic.delete( returnedBloodDonation );
+        logic.delete( createdBloodDonation );
     }
 
     @Test

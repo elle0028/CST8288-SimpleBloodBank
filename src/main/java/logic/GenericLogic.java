@@ -87,10 +87,8 @@ abstract class GenericLogic< E, T extends DataAccessLayer<E>> implements Logic<E
      * @return
      */
     public Date convertStringToDate( String date ) {
-        String newdate = date;
         try {
-            newdate = newdate.replace("T", " ");
-            return FORMATTER.parse( newdate + ":00" );
+            return FORMATTER.parse(date.replace("T", " "));
         } catch( ParseException ex ) {
             Logger.getLogger( GenericLogic.class.getName() ).log( Level.SEVERE, null, ex );
             throw new ValidationException( "failed to format String=\"" + date + "\" to a date object", ex );
