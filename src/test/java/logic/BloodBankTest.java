@@ -1,9 +1,7 @@
 package logic;
 
-
 import common.EMFactory;
 import common.TomcatStartUp;
-
 
 import java.util.Arrays;
 import java.util.HashMap;
@@ -49,13 +47,7 @@ public class BloodBankTest {
     @BeforeEach
     final void setUp() throws Exception {
 
-        logic = LogicFactory.getFor( "BloodBank" );
-        /* **********************************
-         * ***********IMPORTANT**************
-         * **********************************/
-        //we only do this for the test.
-        //always create Entity using logic.
-        //we manually make the account to not rely on any logic functionality , just for testing
+        logic = LogicFactory.getFor( "BloodBank" );             
 
         //get an instance of EntityManager
         EntityManager em = EMFactory.getEMF().createEntityManager();
@@ -64,8 +56,7 @@ public class BloodBankTest {
 
         // add two empty donations to the donation set
         donations = new HashSet<BloodDonation>();
-        donations.add(new BloodDonation());
-        
+        donations.add(new BloodDonation());        
         
         BloodBank entity = new BloodBank();
         entity.setName( "BloodBank Test" );
@@ -74,7 +65,6 @@ public class BloodBankTest {
         entity.setEmployeeCount(5);
         entity.setOwner(null);        
         entity.setBloodDonationSet(donations);
-
 
         //add an account to hibernate, account is now managed.
         //we use merge instead of add so we can get the updated generated ID.
@@ -269,17 +259,40 @@ public class BloodBankTest {
     @Test
     final void testCreateEntity() {
         Map<String, String[]> sampleMap = new HashMap<>();
-        sampleMap.put( BloodBankLogic.PRIVATELY_OWNED, new String[]{ "false" } );
-        sampleMap.put( BloodBankLogic.ESTABLISHED, new String[]{ "Wed Dec 12 00:00:00 EST 1212" } );
-        sampleMap.put( BloodBankLogic.OWNER_ID, new String[]{ null } );
-        sampleMap.put( BloodBankLogic.NAME, new String[]{ "BloodBank Test" } );
-        sampleMap.put( BloodBankLogic.EMPLOYEE_COUNT, new String[]{ "5" } );
+        sampleMap.put( BloodBankLogic.PRIVATELY_OWNED, new String[]{ Boolean.toString(expectedEntity.getPrivatelyOwned()) } );
+        sampleMap.put( BloodBankLogic.ESTABLISHED, new String[]{ expectedEntity.getEstablished().toString() } );
+        if (expectedEntity.getOwner() != null) 
+            sampleMap.put( BloodBankLogic.OWNER_ID, new String[]{ expectedEntity.getOwner().getId().toString() } );
+        sampleMap.put( BloodBankLogic.NAME, new String[]{ expectedEntity.getName() } );
+        sampleMap.put( BloodBankLogic.EMPLOYEE_COUNT, new String[]{ Integer.toString(expectedEntity.getEmployeeCount()) } );
 
         BloodBank returnedAccount = logic.createEntity( sampleMap );
 
         assertBloodBanksEqual( expectedEntity, returnedAccount );
     }
     
+    /*
+    @Test
+    final void testCreateEntityNullAndEmptyValues() {
+        Map<String, String[]> sampleMap = new HashMap<>();
+        Consumer<Map<String, String[]>> fillMap = ( Map<String, String[]> map ) -> {
+            map.clear();
+            map.put(BloodBankLogic.ID, new String[]{ Integer.toString(expectedEntity.getId()) });
+            map.put(BloodBankLogic.ID, new String[]{ Integer.toString(expectedEntity.getId()) });
+        }; 
+    }
+    */
+    
+    @Test
+    final void testExtractDataAsList() {
+        List<?> list = logic.extractDataAsList( expectedEntity );
+       assertEquals( expectedEntity.getId(), list.get( 0 ) );
+       assertEquals( expectedEntity.getEmployeeCount(), list.get( 1 ) );  
+       assertEquals( expectedEntity.getName(), list.get( 2 ) );
+       assertEquals( expectedEntity.getEstablished(), list.get( 3 ) );
+       assertEquals( expectedEntity.getPrivatelyOwned(), list.get( 4 ) );        
+       assertEquals( expectedEntity.getOwner(), list.get( 5 ) );
+    }
     
     @Test
     final void testGetColumnNames() {
@@ -293,8 +306,7 @@ public class BloodBankTest {
         List<String> list = logic.getColumnCodes();
         assertEquals( Arrays.asList( BloodBankLogic.ID, BloodBankLogic.EMPLOYEE_COUNT, BloodBankLogic.NAME, BloodBankLogic.ESTABLISHED,
                 BloodBankLogic.PRIVATELY_OWNED, BloodBankLogic.OWNER_ID ), list );
-    }
-    
+    }    
     
     /* TODO: Can't do this without Person code
     @Test
