@@ -1,6 +1,7 @@
 package dal;
 
 import common.EMFactory;
+import entity.DonationRecord;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
@@ -83,7 +84,11 @@ abstract class GenericDAL<T> implements DataAccessLayer<T> {
      * @param entity - entity object to be saved before commit
      */
     public void save( T entity ) {
-        em.persist( entity );
+        // if entity donation record then use merge else persist
+        if(entity instanceof DonationRecord){
+            em.merge(entity);
+        } else 
+            em.persist( entity );
     }
 
     /**

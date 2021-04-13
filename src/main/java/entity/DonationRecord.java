@@ -22,7 +22,7 @@ import javax.validation.constraints.Size;
 
 /**
  *
- * @author Shariar
+ * @author Akshay 
  */
 @Entity
 @Table( name = "donation_record", catalog = "simplebloodbank", schema = "", uniqueConstraints = {
@@ -166,4 +166,7 @@ public class DonationRecord implements Serializable {
         return "entity.DonationRecord[ recordId=" + recordId + " ]";
     }
 
+    public void setName(String junit_5_Test) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }
