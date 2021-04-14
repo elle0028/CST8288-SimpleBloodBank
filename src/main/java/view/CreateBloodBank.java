@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import logic.BloodBankLogic;
 import logic.LogicFactory;
+import logic.PersonLogic;
 
 /**
  *
@@ -124,7 +125,14 @@ public class CreateBloodBank extends HttpServlet {
         if( bbLogic.getBloodBankWithName( name ) == null ){
             try {
                 BloodBank bloodbank = bbLogic.createEntity( request.getParameterMap() );
+                                
+                if (bloodbank.getPrivatelyOwned() == true) {
+                    int ownerID = Integer.parseInt(request.getParameter(BloodBankLogic.OWNER_ID));
+                    PersonLogic pl = LogicFactory.getFor("Person");
+                    bloodbank.setOwner(pl.getWithId(ownerID));
+                }
                 bbLogic.add( bloodbank );
+                
             } catch( Exception ex ) {
                 errorMessage = ex.getMessage();
             }

@@ -3,6 +3,7 @@ package logic;
 import common.ValidationException;
 import dal.BloodBankDAL;
 import entity.BloodBank;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.util.Date;
 import java.util.Arrays;
@@ -10,6 +11,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.function.ObjIntConsumer;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -110,24 +113,33 @@ public class BloodBankLogic extends GenericLogic <BloodBank, BloodBankDAL> {
         // ------------------------------------------------------
         String privatelyOwned = parameterMap.get(PRIVATELY_OWNED)[0];
         String name = parameterMap.get(NAME)[0];  
-        String established = parameterMap.get(ESTABLISHED)[0];
+        String establishedStr = "";
         
-        //TODO : may be some weirdness here, will have to wait for PersonLogic to find out
-        /* I have some things to fix regarging owner, Person, and ownerID
-         // for now owner is always null
-        String ownerID = "";
-        if( parameterMap.containsKey( OWNER_ID ) ){
-            ownerID = parameterMap.get(OWNER_ID)[0];
-            if (ownerID != null && !ownerID.equals(""))
-                validator.accept( ownerID, 45 );
-        }        
-        */
+        // this code was poached from Matt Ellero's BloodDonationLogic
+        // handle an incorrectly formatted date
+        Date established = new Date();
+        try {
+           establishedStr = parameterMap.get(ESTABLISHED)[0];
+        } catch (ValidationException e) {
+            Logger.getLogger( BloodDonationLogic.class.getName() ).log( Level.SEVERE, null, e );
+            established = convertStringToDate(new SimpleDateFormat( "yyyy-MM-dd kk:mm:ss" ).format(establishedStr));
+        }
+        
+        if (!establishedStr.equals("")) {
+            try {
+                established = new Date(establishedStr);
+            }
+            catch(IllegalArgumentException e) {
+                // if the date given is invalid, make it todays date
+                established = new Date();
+            } 
+        }
 
         //validate the data
         validator.accept( employeeCount, 45 );        
         validator.accept( privatelyOwned, 45 );
         validator.accept( name, 45 );
-        validator.accept( established, 45);
+        validator.accept( establishedStr, 45);
         
         /* this is no longer necessary (was temporary until form set up)     
         LocalDate today = LocalDate.now();
@@ -138,12 +150,9 @@ public class BloodBankLogic extends GenericLogic <BloodBank, BloodBankDAL> {
         //set values on entity
         entity.setEmployeeCount( Integer.parseInt(employeeCount) );
         // Date is deprecated, but the project is set up to use it
-        entity.setEstablished( new Date(established));
+        entity.setEstablished( established );
         entity.setPrivatelyOwned( Boolean.parseBoolean(privatelyOwned) );
-        entity.setName( name );
-        
-        // TODO : this needs fixing  
-        entity.setOwner(null); // this needs PersonLogic.getWithID(ownerID)
+        entity.setName( name );           
 
         return entity;
     }
@@ -164,7 +173,8 @@ public class BloodBankLogic extends GenericLogic <BloodBank, BloodBankDAL> {
 
     @Override
     public List<?> extractDataAsList( BloodBank e ) {
+        int ownerId = e.getOwner() == null ? 0 : e.getOwner().getId();
         return Arrays.asList( e.getId(), e.getEmployeeCount(), e.getName(), e.getEstablished(),
-                e.getPrivatelyOwned(), e.getOwner() ); // getOwner not OwnerID?
+                e.getPrivatelyOwned(), ownerId ); // getOwner not OwnerID?
     }
 }
