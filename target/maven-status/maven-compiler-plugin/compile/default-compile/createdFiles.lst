@@ -37,4 +37,5 @@ logic\GenericLogic.class
 logic\Logic.class
 view\CreateBloodDonation.class
 view\AccountTableViewJSP.class
+view\BloodBankTableViewJSP.class
 common\ValidationException.class

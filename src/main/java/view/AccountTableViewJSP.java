@@ -31,7 +31,7 @@ public class AccountTableViewJSP extends HttpServlet {
         req.setAttribute( "path", path );
         req.setAttribute( "title", path.substring( 1 ) );
         req.getRequestDispatcher( "/jsp/ShowTable-Account.jsp" ).forward( req, resp );
-    }
+    }  
 
     private List<?> extractTableData( HttpServletRequest req ) {
         String search = req.getParameter( "searchText" );

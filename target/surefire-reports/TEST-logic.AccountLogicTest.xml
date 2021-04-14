@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="logic.AccountLogicTest" time="4.524" tests="16" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="logic.AccountLogicTest" time="4.446" tests="16" errors="0" skipped="0" failures="0">
   <properties>
     <property name="sun.desktop" value="windows"/>
     <property name="awt.toolkit" value="sun.awt.windows.WToolkit"/>
@@ -19,7 +19,7 @@
     <property name="user.country" value="CA"/>
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="sun.boot.library.path" value="C:\Program Files\AdoptOpenJDK\jdk-11.0.9.101-hotspot\bin"/>
-    <property name="sun.java.command" value="C:\Users\andre\AppData\Local\Temp\surefire10953794809829555933\surefirebooter10685061657684059642.jar C:\Users\andre\AppData\Local\Temp\surefire10953794809829555933 2021-04-14T16-44-33_763-jvmRun1 surefire12622718308982751637tmp surefire_05268833995921799420tmp"/>
+    <property name="sun.java.command" value="C:\Users\andre\AppData\Local\Temp\surefire7069777180022819102\surefirebooter16636902602928898392.jar C:\Users\andre\AppData\Local\Temp\surefire7069777180022819102 2021-04-14T17-22-12_829-jvmRun1 surefire13659189814926018224tmp surefire_015383557841641924073tmp"/>
     <property name="jdk.debug" value="release"/>
     <property name="surefire.test.class.path" value="C:\Users\andre\Documents\NetBeansProjects\SimpleBloodBank\target\test-classes;C:\Users\andre\Documents\NetBeansProjects\SimpleBloodBank\target\classes;C:\Users\andre\.m2\repository\org\junit\jupiter\junit-jupiter\5.7.0\junit-jupiter-5.7.0.jar;C:\Users\andre\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.7.0\junit-jupiter-api-5.7.0.jar;C:\Users\andre\.m2\repository\org\apiguardian\apiguardian-api\1.1.0\apiguardian-api-1.1.0.jar;C:\Users\andre\.m2\repository\org\opentest4j\opentest4j\1.2.0\opentest4j-1.2.0.jar;C:\Users\andre\.m2\repository\org\junit\platform\junit-platform-commons\1.7.0\junit-platform-commons-1.7.0.jar;C:\Users\andre\.m2\repository\org\junit\jupiter\junit-jupiter-params\5.7.0\junit-jupiter-params-5.7.0.jar;C:\Users\andre\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.7.0\junit-jupiter-engine-5.7.0.jar;C:\Users\andre\.m2\repository\org\junit\platform\junit-platform-engine\1.7.0\junit-platform-engine-1.7.0.jar;C:\Users\andre\.m2\repository\org\hamcrest\hamcrest\2.2\hamcrest-2.2.jar;C:\Users\andre\.m2\repository\org\hamcrest\hamcrest-library\2.2\hamcrest-library-2.2.jar;C:\Users\andre\.m2\repository\org\hamcrest\hamcrest-core\2.2\hamcrest-core-2.2.jar;C:\Users\andre\.m2\repository\org\apache\logging\log4j\log4j-api\2.14.0\log4j-api-2.14.0.jar;C:\Users\andre\.m2\repository\org\apache\logging\log4j\log4j-core\2.14.0\log4j-core-2.14.0.jar;C:\Users\andre\.m2\repository\org\hibernate\hibernate-core\5.4.27.Final\hibernate-core-5.4.27.Final.jar;C:\Users\andre\.m2\repository\org\jboss\logging\jboss-logging\3.4.1.Final\jboss-logging-3.4.1.Final.jar;C:\Users\andre\.m2\repository\javax\persistence\javax.persistence-api\2.2\javax.persistence-api-2.2.jar;C:\Users\andre\.m2\repository\org\javassist\javassist\3.27.0-GA\javassist-3.27.0-GA.jar;C:\Users\andre\.m2\repository\net\bytebuddy\byte-buddy\1.10.17\byte-buddy-1.10.17.jar;C:\Users\andre\.m2\repository\antlr\antlr\2.7.7\antlr-2.7.7.jar;C:\Users\andre\.m2\repository\org\jboss\spec\javax\transaction\jboss-transaction-api_1.2_spec\1.1.1.Final\jboss-transaction-api_1.2_spec-1.1.1.Final.jar;C:\Users\andre\.m2\repository\org\jboss\jandex\2.1.3.Final\jandex-2.1.3.Final.jar;C:\Users\andre\.m2\repository\com\fasterxml\classmate\1.5.1\classmate-1.5.1.jar;C:\Users\andre\.m2\repository\javax\activation\javax.activation-api\1.2.0\javax.activation-api-1.2.0.jar;C:\Users\andre\.m2\repository\org\dom4j\dom4j\2.1.3\dom4j-2.1.3.jar;C:\Users\andre\.m2\repository\org\hibernate\common\hibernate-commons-annotations\5.1.2.Final\hibernate-commons-annotations-5.1.2.Final.jar;C:\Users\andre\.m2\repository\javax\xml\bind\jaxb-api\2.3.1\jaxb-api-2.3.1.jar;C:\Users\andre\.m2\repository\org\glassfish\jaxb\jaxb-runtime\2.3.1\jaxb-runtime-2.3.1.jar;C:\Users\andre\.m2\repository\org\glassfish\jaxb\txw2\2.3.1\txw2-2.3.1.jar;C:\Users\andre\.m2\repository\com\sun\istack\istack-commons-runtime\3.0.7\istack-commons-runtime-3.0.7.jar;C:\Users\andre\.m2\repository\org\jvnet\staxex\stax-ex\1.8\stax-ex-1.8.jar;C:\Users\andre\.m2\repository\com\sun\xml\fastinfoset\FastInfoset\1.2.15\FastInfoset-1.2.15.jar;C:\Users\andre\.m2\repository\org\apache\tomcat\embed\tomcat-embed-core\9.0.44\tomcat-embed-core-9.0.44.jar;C:\Users\andre\.m2\repository\org\apache\tomcat\tomcat-annotations-api\9.0.44\tomcat-annotations-api-9.0.44.jar;C:\Users\andre\.m2\repository\org\apache\tomcat\embed\tomcat-embed-jasper\9.0.44\tomcat-embed-jasper-9.0.44.jar;C:\Users\andre\.m2\repository\org\apache\tomcat\embed\tomcat-embed-el\9.0.44\tomcat-embed-el-9.0.44.jar;C:\Users\andre\.m2\repository\org\eclipse\jdt\ecj\3.18.0\ecj-3.18.0.jar;C:\Users\andre\.m2\repository\org\apache\tomcat\tomcat-jdbc\9.0.44\tomcat-jdbc-9.0.44.jar;C:\Users\andre\.m2\repository\org\apache\tomcat\tomcat-juli\9.0.44\tomcat-juli-9.0.44.jar;C:\Users\andre\.m2\repository\jakarta\platform\jakarta.jakartaee-api\8.0.0\jakarta.jakartaee-api-8.0.0.jar;C:\Users\andre\.m2\repository\org\glassfish\web\jakarta.servlet.jsp.jstl\1.2.6\jakarta.servlet.jsp.jstl-1.2.6.jar;C:\Users\andre\.m2\repository\jakarta\servlet\jsp\jstl\jakarta.servlet.jsp.jstl-api\1.2.4\jakarta.servlet.jsp.jstl-api-1.2.4.jar;C:\Users\andre\.m2\repository\jakarta\servlet\jakarta.servlet-api\4.0.2\jakarta.servlet-api-4.0.2.jar;C:\Users\andre\.m2\repository\jakarta\el\jakarta.el-api\3.0.2\jakarta.el-api-3.0.2.jar;C:\Users\andre\.m2\repository\mysql\mysql-connector-java\8.0.23\mysql-connector-java-8.0.23.jar;C:\Users\andre\.m2\repository\com\google\protobuf\protobuf-java\3.11.4\protobuf-java-3.11.4.jar;"/>
     <property name="sun.cpu.endian" value="little"/>
@@ -36,7 +36,7 @@
     <property name="java.specification.name" value="Java Platform API Specification"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.awt.graphicsenv" value="sun.awt.Win32GraphicsEnvironment"/>
-    <property name="surefire.real.class.path" value="C:\Users\andre\AppData\Local\Temp\surefire10953794809829555933\surefirebooter10685061657684059642.jar"/>
+    <property name="surefire.real.class.path" value="C:\Users\andre\AppData\Local\Temp\surefire7069777180022819102\surefirebooter16636902602928898392.jar"/>
     <property name="user.script" value=""/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="java.runtime.version" value="11.0.9.1+1"/>
@@ -67,145 +67,145 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="55.0"/>
   </properties>
-  <testcase name="testCreateEntity" classname="logic.AccountLogicTest" time="0.141">
-    <system-out><![CDATA[2021-04-14T16:44:36,954|[DEBUG] ServletListener - Initializing EMF
-2021-04-14T16:44:36,969|[DEBUG] EMFactory - initializeing EntityManagerFactory
-2021-04-14T16:44:36,969|[DEBUG] EMFactory - creating EntityManagerFactory
-2021-04-14T16:44:36,985|[DEBUG] logging - Logging Provider: org.jboss.logging.Log4j2LoggerProvider
-2021-04-14T16:44:37,094|[INFO ] LogHelper - HHH000204: Processing PersistenceUnitInfo [name: simplebloodbank-PU-test]
-2021-04-14T16:44:37,141|[INFO ] Version - HHH000412: Hibernate ORM core version 5.4.27.Final
-2021-04-14T16:44:37,282|[INFO ] Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
-2021-04-14T16:44:37,299|[DEBUG] BasicTypeRegistry - Adding type registration boolean -> org.hibernate.type.BooleanType@564d5883
-2021-04-14T16:44:37,299|[DEBUG] BasicTypeRegistry - Adding type registration boolean -> org.hibernate.type.BooleanType@564d5883
-2021-04-14T16:44:37,299|[DEBUG] BasicTypeRegistry - Adding type registration java.lang.Boolean -> org.hibernate.type.BooleanType@564d5883
-2021-04-14T16:44:37,299|[DEBUG] BasicTypeRegistry - Adding type registration numeric_boolean -> org.hibernate.type.NumericBooleanType@438cb294
-2021-04-14T16:44:37,299|[DEBUG] BasicTypeRegistry - Adding type registration true_false -> org.hibernate.type.TrueFalseType@12025b72
-2021-04-14T16:44:37,299|[DEBUG] BasicTypeRegistry - Adding type registration yes_no -> org.hibernate.type.YesNoType@5b4c2959
-2021-04-14T16:44:37,299|[DEBUG] BasicTypeRegistry - Adding type registration byte -> org.hibernate.type.ByteType@14f03098
-2021-04-14T16:44:37,299|[DEBUG] BasicTypeRegistry - Adding type registration byte -> org.hibernate.type.ByteType@14f03098
-2021-04-14T16:44:37,299|[DEBUG] BasicTypeRegistry - Adding type registration java.lang.Byte -> org.hibernate.type.ByteType@14f03098
-2021-04-14T16:44:37,299|[DEBUG] BasicTypeRegistry - Adding type registration character -> org.hibernate.type.CharacterType@1e60dce7
-2021-04-14T16:44:37,299|[DEBUG] BasicTypeRegistry - Adding type registration char -> org.hibernate.type.CharacterType@1e60dce7
-2021-04-14T16:44:37,299|[DEBUG] BasicTypeRegistry - Adding type registration java.lang.Character -> org.hibernate.type.CharacterType@1e60dce7
-2021-04-14T16:44:37,299|[DEBUG] BasicTypeRegistry - Adding type registration short -> org.hibernate.type.ShortType@687fa4d0
-2021-04-14T16:44:37,299|[DEBUG] BasicTypeRegistry - Adding type registration short -> org.hibernate.type.ShortType@687fa4d0
-2021-04-14T16:44:37,299|[DEBUG] BasicTypeRegistry - Adding type registration java.lang.Short -> org.hibernate.type.ShortType@687fa4d0
-2021-04-14T16:44:37,299|[DEBUG] BasicTypeRegistry - Adding type registration integer -> org.hibernate.type.IntegerType@33a1bff8
-2021-04-14T16:44:37,299|[DEBUG] BasicTypeRegistry - Adding type registration int -> org.hibernate.type.IntegerType@33a1bff8
-2021-04-14T16:44:37,299|[DEBUG] BasicTypeRegistry - Adding type registration java.lang.Integer -> org.hibernate.type.IntegerType@33a1bff8
-2021-04-14T16:44:37,299|[DEBUG] BasicTypeRegistry - Adding type registration long -> org.hibernate.type.LongType@7020deaa
-2021-04-14T16:44:37,299|[DEBUG] BasicTypeRegistry - Adding type registration long -> org.hibernate.type.LongType@7020deaa
-2021-04-14T16:44:37,299|[DEBUG] BasicTypeRegistry - Adding type registration java.lang.Long -> org.hibernate.type.LongType@7020deaa
-2021-04-14T16:44:37,314|[DEBUG] BasicTypeRegistry - Adding type registration float -> org.hibernate.type.FloatType@21e00efb
-2021-04-14T16:44:37,314|[DEBUG] BasicTypeRegistry - Adding type registration float -> org.hibernate.type.FloatType@21e00efb
-2021-04-14T16:44:37,314|[DEBUG] BasicTypeRegistry - Adding type registration java.lang.Float -> org.hibernate.type.FloatType@21e00efb
-2021-04-14T16:44:37,314|[DEBUG] BasicTypeRegistry - Adding type registration double -> org.hibernate.type.DoubleType@1222d0e4
-2021-04-14T16:44:37,314|[DEBUG] BasicTypeRegistry - Adding type registration double -> org.hibernate.type.DoubleType@1222d0e4
-2021-04-14T16:44:37,314|[DEBUG] BasicTypeRegistry - Adding type registration java.lang.Double -> org.hibernate.type.DoubleType@1222d0e4
-2021-04-14T16:44:37,314|[DEBUG] BasicTypeRegistry - Adding type registration big_decimal -> org.hibernate.type.BigDecimalType@2f930be7
-2021-04-14T16:44:37,314|[DEBUG] BasicTypeRegistry - Adding type registration java.math.BigDecimal -> org.hibernate.type.BigDecimalType@2f930be7
-2021-04-14T16:44:37,314|[DEBUG] BasicTypeRegistry - Adding type registration big_integer -> org.hibernate.type.BigIntegerType@7be55279
-2021-04-14T16:44:37,314|[DEBUG] BasicTypeRegistry - Adding type registration java.math.BigInteger -> org.hibernate.type.BigIntegerType@7be55279
-2021-04-14T16:44:37,314|[DEBUG] BasicTypeRegistry - Adding type registration string -> org.hibernate.type.StringType@54e8f10a
-2021-04-14T16:44:37,314|[DEBUG] BasicTypeRegistry - Adding type registration java.lang.String -> org.hibernate.type.StringType@54e8f10a
-2021-04-14T16:44:37,314|[DEBUG] BasicTypeRegistry - Adding type registration nstring -> org.hibernate.type.StringNVarcharType@53fa89e6
-2021-04-14T16:44:37,314|[DEBUG] BasicTypeRegistry - Adding type registration ncharacter -> org.hibernate.type.CharacterNCharType@9bd7c1
-2021-04-14T16:44:37,314|[DEBUG] BasicTypeRegistry - Adding type registration url -> org.hibernate.type.UrlType@e86c9a5
-2021-04-14T16:44:37,314|[DEBUG] BasicTypeRegistry - Adding type registration java.net.URL -> org.hibernate.type.UrlType@e86c9a5
-2021-04-14T16:44:37,314|[DEBUG] BasicTypeRegistry - Adding type registration Duration -> org.hibernate.type.DurationType@32cbb8c6
-2021-04-14T16:44:37,314|[DEBUG] BasicTypeRegistry - Adding type registration java.time.Duration -> org.hibernate.type.DurationType@32cbb8c6
-2021-04-14T16:44:37,330|[DEBUG] BasicTypeRegistry - Adding type registration Instant -> org.hibernate.type.InstantType@771047b4
-2021-04-14T16:44:37,330|[DEBUG] BasicTypeRegistry - Adding type registration java.time.Instant -> org.hibernate.type.InstantType@771047b4
-2021-04-14T16:44:37,330|[DEBUG] BasicTypeRegistry - Adding type registration LocalDateTime -> org.hibernate.type.LocalDateTimeType@575dab37
-2021-04-14T16:44:37,330|[DEBUG] BasicTypeRegistry - Adding type registration java.time.LocalDateTime -> org.hibernate.type.LocalDateTimeType@575dab37
-2021-04-14T16:44:37,330|[DEBUG] BasicTypeRegistry - Adding type registration LocalDate -> org.hibernate.type.LocalDateType@3693deae
-2021-04-14T16:44:37,330|[DEBUG] BasicTypeRegistry - Adding type registration java.time.LocalDate -> org.hibernate.type.LocalDateType@3693deae
-2021-04-14T16:44:37,330|[DEBUG] BasicTypeRegistry - Adding type registration LocalTime -> org.hibernate.type.LocalTimeType@6622f6b4
-2021-04-14T16:44:37,330|[DEBUG] BasicTypeRegistry - Adding type registration java.time.LocalTime -> org.hibernate.type.LocalTimeType@6622f6b4
-2021-04-14T16:44:37,330|[DEBUG] BasicTypeRegistry - Adding type registration OffsetDateTime -> org.hibernate.type.OffsetDateTimeType@7892d7a7
-2021-04-14T16:44:37,330|[DEBUG] BasicTypeRegistry - Adding type registration java.time.OffsetDateTime -> org.hibernate.type.OffsetDateTimeType@7892d7a7
-2021-04-14T16:44:37,330|[DEBUG] BasicTypeRegistry - Adding type registration OffsetTime -> org.hibernate.type.OffsetTimeType@242270ae
-2021-04-14T16:44:37,330|[DEBUG] BasicTypeRegistry - Adding type registration java.time.OffsetTime -> org.hibernate.type.OffsetTimeType@242270ae
-2021-04-14T16:44:37,330|[DEBUG] BasicTypeRegistry - Adding type registration ZonedDateTime -> org.hibernate.type.ZonedDateTimeType@4a100df
-2021-04-14T16:44:37,330|[DEBUG] BasicTypeRegistry - Adding type registration java.time.ZonedDateTime -> org.hibernate.type.ZonedDateTimeType@4a100df
-2021-04-14T16:44:37,330|[DEBUG] BasicTypeRegistry - Adding type registration date -> org.hibernate.type.DateType@4c1ce13a
-2021-04-14T16:44:37,330|[DEBUG] BasicTypeRegistry - Adding type registration java.sql.Date -> org.hibernate.type.DateType@4c1ce13a
-2021-04-14T16:44:37,330|[DEBUG] BasicTypeRegistry - Adding type registration time -> org.hibernate.type.TimeType@70915da3
-2021-04-14T16:44:37,330|[DEBUG] BasicTypeRegistry - Adding type registration java.sql.Time -> org.hibernate.type.TimeType@70915da3
-2021-04-14T16:44:37,330|[DEBUG] BasicTypeRegistry - Adding type registration timestamp -> org.hibernate.type.TimestampType@6fe37577
-2021-04-14T16:44:37,330|[DEBUG] BasicTypeRegistry - Adding type registration java.sql.Timestamp -> org.hibernate.type.TimestampType@6fe37577
-2021-04-14T16:44:37,330|[DEBUG] BasicTypeRegistry - Adding type registration java.util.Date -> org.hibernate.type.TimestampType@6fe37577
-2021-04-14T16:44:37,330|[DEBUG] BasicTypeRegistry - Adding type registration dbtimestamp -> org.hibernate.type.DbTimestampType@6d0937e
-2021-04-14T16:44:37,330|[DEBUG] BasicTypeRegistry - Adding type registration calendar -> org.hibernate.type.CalendarType@726bbe64
-2021-04-14T16:44:37,330|[DEBUG] BasicTypeRegistry - Adding type registration java.util.Calendar -> org.hibernate.type.CalendarType@726bbe64
-2021-04-14T16:44:37,330|[DEBUG] BasicTypeRegistry - Adding type registration java.util.GregorianCalendar -> org.hibernate.type.CalendarType@726bbe64
-2021-04-14T16:44:37,330|[DEBUG] BasicTypeRegistry - Adding type registration calendar_date -> org.hibernate.type.CalendarDateType@33dbd53
-2021-04-14T16:44:37,330|[DEBUG] BasicTypeRegistry - Adding type registration calendar_time -> org.hibernate.type.CalendarTimeType@3e7de165
-2021-04-14T16:44:37,330|[DEBUG] BasicTypeRegistry - Adding type registration locale -> org.hibernate.type.LocaleType@11675922
-2021-04-14T16:44:37,330|[DEBUG] BasicTypeRegistry - Adding type registration java.util.Locale -> org.hibernate.type.LocaleType@11675922
-2021-04-14T16:44:37,330|[DEBUG] BasicTypeRegistry - Adding type registration currency -> org.hibernate.type.CurrencyType@21ec7946
-2021-04-14T16:44:37,330|[DEBUG] BasicTypeRegistry - Adding type registration java.util.Currency -> org.hibernate.type.CurrencyType@21ec7946
-2021-04-14T16:44:37,330|[DEBUG] BasicTypeRegistry - Adding type registration timezone -> org.hibernate.type.TimeZoneType@543eacd5
-2021-04-14T16:44:37,330|[DEBUG] BasicTypeRegistry - Adding type registration java.util.TimeZone -> org.hibernate.type.TimeZoneType@543eacd5
-2021-04-14T16:44:37,330|[DEBUG] BasicTypeRegistry - Adding type registration class -> org.hibernate.type.ClassType@234a8c1f
-2021-04-14T16:44:37,330|[DEBUG] BasicTypeRegistry - Adding type registration java.lang.Class -> org.hibernate.type.ClassType@234a8c1f
-2021-04-14T16:44:37,330|[DEBUG] BasicTypeRegistry - Adding type registration uuid-binary -> org.hibernate.type.UUIDBinaryType@164fba04
-2021-04-14T16:44:37,330|[DEBUG] BasicTypeRegistry - Adding type registration java.util.UUID -> org.hibernate.type.UUIDBinaryType@164fba04
-2021-04-14T16:44:37,330|[DEBUG] BasicTypeRegistry - Adding type registration uuid-char -> org.hibernate.type.UUIDCharType@13d7410a
-2021-04-14T16:44:37,345|[DEBUG] BasicTypeRegistry - Adding type registration binary -> org.hibernate.type.BinaryType@66716c60
-2021-04-14T16:44:37,345|[DEBUG] BasicTypeRegistry - Adding type registration byte[] -> org.hibernate.type.BinaryType@66716c60
-2021-04-14T16:44:37,345|[DEBUG] BasicTypeRegistry - Adding type registration [B -> org.hibernate.type.BinaryType@66716c60
-2021-04-14T16:44:37,345|[DEBUG] BasicTypeRegistry - Adding type registration wrapper-binary -> org.hibernate.type.WrapperBinaryType@3b60efd8
-2021-04-14T16:44:37,345|[DEBUG] BasicTypeRegistry - Adding type registration Byte[] -> org.hibernate.type.WrapperBinaryType@3b60efd8
-2021-04-14T16:44:37,345|[DEBUG] BasicTypeRegistry - Adding type registration [Ljava.lang.Byte; -> org.hibernate.type.WrapperBinaryType@3b60efd8
-2021-04-14T16:44:37,345|[DEBUG] BasicTypeRegistry - Adding type registration row_version -> org.hibernate.type.RowVersionType@22e3d222
-2021-04-14T16:44:37,345|[DEBUG] BasicTypeRegistry - Adding type registration image -> org.hibernate.type.ImageType@564c0e38
-2021-04-14T16:44:37,345|[DEBUG] BasicTypeRegistry - Adding type registration characters -> org.hibernate.type.CharArrayType@10683f87
-2021-04-14T16:44:37,345|[DEBUG] BasicTypeRegistry - Adding type registration char[] -> org.hibernate.type.CharArrayType@10683f87
-2021-04-14T16:44:37,345|[DEBUG] BasicTypeRegistry - Adding type registration [C -> org.hibernate.type.CharArrayType@10683f87
-2021-04-14T16:44:37,345|[DEBUG] BasicTypeRegistry - Adding type registration wrapper-characters -> org.hibernate.type.CharacterArrayType@14cd9288
-2021-04-14T16:44:37,345|[DEBUG] BasicTypeRegistry - Adding type registration [Ljava.lang.Character; -> org.hibernate.type.CharacterArrayType@14cd9288
-2021-04-14T16:44:37,345|[DEBUG] BasicTypeRegistry - Adding type registration Character[] -> org.hibernate.type.CharacterArrayType@14cd9288
-2021-04-14T16:44:37,345|[DEBUG] BasicTypeRegistry - Adding type registration text -> org.hibernate.type.TextType@ff18823
-2021-04-14T16:44:37,345|[DEBUG] BasicTypeRegistry - Adding type registration ntext -> org.hibernate.type.NTextType@6edbf6ed
-2021-04-14T16:44:37,345|[DEBUG] BasicTypeRegistry - Adding type registration blob -> org.hibernate.type.BlobType@2b360641
-2021-04-14T16:44:37,345|[DEBUG] BasicTypeRegistry - Adding type registration java.sql.Blob -> org.hibernate.type.BlobType@2b360641
-2021-04-14T16:44:37,345|[DEBUG] BasicTypeRegistry - Adding type registration materialized_blob -> org.hibernate.type.MaterializedBlobType@bcfe4ba
-2021-04-14T16:44:37,345|[DEBUG] BasicTypeRegistry - Adding type registration clob -> org.hibernate.type.ClobType@3cb1a148
-2021-04-14T16:44:37,345|[DEBUG] BasicTypeRegistry - Adding type registration java.sql.Clob -> org.hibernate.type.ClobType@3cb1a148
-2021-04-14T16:44:37,345|[DEBUG] BasicTypeRegistry - Adding type registration nclob -> org.hibernate.type.NClobType@72b1ee4b
-2021-04-14T16:44:37,345|[DEBUG] BasicTypeRegistry - Adding type registration java.sql.NClob -> org.hibernate.type.NClobType@72b1ee4b
-2021-04-14T16:44:37,345|[DEBUG] BasicTypeRegistry - Adding type registration materialized_clob -> org.hibernate.type.MaterializedClobType@7033c58a
-2021-04-14T16:44:37,345|[DEBUG] BasicTypeRegistry - Adding type registration materialized_nclob -> org.hibernate.type.MaterializedNClobType@2bba7b40
-2021-04-14T16:44:37,345|[DEBUG] BasicTypeRegistry - Adding type registration serializable -> org.hibernate.type.SerializableType@4ad3f113
-2021-04-14T16:44:37,345|[DEBUG] BasicTypeRegistry - Adding type registration object -> org.hibernate.type.ObjectType@5b8ee649
-2021-04-14T16:44:37,345|[DEBUG] BasicTypeRegistry - Adding type registration java.lang.Object -> org.hibernate.type.ObjectType@5b8ee649
-2021-04-14T16:44:37,345|[DEBUG] BasicTypeRegistry - Adding type registration imm_date -> org.hibernate.type.AdaptedImmutableType@5d5f010a
-2021-04-14T16:44:37,345|[DEBUG] BasicTypeRegistry - Adding type registration imm_time -> org.hibernate.type.AdaptedImmutableType@7b8d2b32
-2021-04-14T16:44:37,345|[DEBUG] BasicTypeRegistry - Adding type registration imm_timestamp -> org.hibernate.type.AdaptedImmutableType@7e24d565
-2021-04-14T16:44:37,345|[DEBUG] BasicTypeRegistry - Adding type registration imm_dbtimestamp -> org.hibernate.type.AdaptedImmutableType@778c5658
-2021-04-14T16:44:37,345|[DEBUG] BasicTypeRegistry - Adding type registration imm_calendar -> org.hibernate.type.AdaptedImmutableType@52fe4ef2
-2021-04-14T16:44:37,345|[DEBUG] BasicTypeRegistry - Adding type registration imm_calendar_date -> org.hibernate.type.AdaptedImmutableType@40383b24
-2021-04-14T16:44:37,345|[DEBUG] BasicTypeRegistry - Adding type registration imm_binary -> org.hibernate.type.AdaptedImmutableType@186f51bb
-2021-04-14T16:44:37,345|[DEBUG] BasicTypeRegistry - Adding type registration imm_serializable -> org.hibernate.type.AdaptedImmutableType@dc4fa78
-2021-04-14T16:44:37,470|[INFO ] Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
-2021-04-14T16:44:37,534|[DEBUG] TypeConfiguration$Scope - Scoping TypeConfiguration [org.hibernate.type.spi.TypeConfiguration@979c3cb] to MetadataBuildingContext [org.hibernate.boot.internal.MetadataBuildingContextRootImpl@6ca96aef]
-2021-04-14T16:44:37,643|[INFO ] beans - HHH10005002: No explicit CDI BeanManager reference was passed to Hibernate, but CDI is available on the Hibernate ClassLoader.
-2021-04-14T16:44:37,643|[DEBUG] JavaTypeDescriptorRegistry - Could not find matching scoped JavaTypeDescriptor for requested Java class [entity.RhesusFactorConvertor]; falling back to static registry
-2021-04-14T16:44:37,659|[DEBUG] JavaTypeDescriptorRegistry - Could not find matching scoped JavaTypeDescriptor for requested Java class [java.lang.String]; falling back to static registry
-2021-04-14T16:44:37,659|[DEBUG] AttributeConverterTypeAdapter - Created AttributeConverterTypeAdapter -> converted::entity.RhesusFactorConvertor
-2021-04-14T16:44:37,675|[DEBUG] EnumType - Using NAMED-based conversion for Enum entity.BloodGroup
-2021-04-14T16:44:37,753|[DEBUG] TypeConfiguration$Scope - Scoping TypeConfiguration [org.hibernate.type.spi.TypeConfiguration@979c3cb] to SessionFactoryImpl [org.hibernate.internal.SessionFactoryImpl@1894071]
-2021-04-14T16:44:38,081|[INFO ] SchemaCreatorImpl - HHH000476: Executing import script 'file:/C:/Users/andre/Documents/NetBeansProjects/SimpleBloodBank/target/classes/META-INF/sql/simplebloodbank-drop.sql'
-2021-04-14T16:44:38,096|[DEBUG] SQL - 
+  <testcase name="testCreateEntity" classname="logic.AccountLogicTest" time="0.14">
+    <system-out><![CDATA[2021-04-14T17:22:15,906|[DEBUG] ServletListener - Initializing EMF
+2021-04-14T17:22:15,906|[DEBUG] EMFactory - initializeing EntityManagerFactory
+2021-04-14T17:22:15,906|[DEBUG] EMFactory - creating EntityManagerFactory
+2021-04-14T17:22:15,922|[DEBUG] logging - Logging Provider: org.jboss.logging.Log4j2LoggerProvider
+2021-04-14T17:22:16,015|[INFO ] LogHelper - HHH000204: Processing PersistenceUnitInfo [name: simplebloodbank-PU-test]
+2021-04-14T17:22:16,047|[INFO ] Version - HHH000412: Hibernate ORM core version 5.4.27.Final
+2021-04-14T17:22:16,172|[INFO ] Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-04-14T17:22:16,203|[DEBUG] BasicTypeRegistry - Adding type registration boolean -> org.hibernate.type.BooleanType@564d5883
+2021-04-14T17:22:16,203|[DEBUG] BasicTypeRegistry - Adding type registration boolean -> org.hibernate.type.BooleanType@564d5883
+2021-04-14T17:22:16,203|[DEBUG] BasicTypeRegistry - Adding type registration java.lang.Boolean -> org.hibernate.type.BooleanType@564d5883
+2021-04-14T17:22:16,203|[DEBUG] BasicTypeRegistry - Adding type registration numeric_boolean -> org.hibernate.type.NumericBooleanType@438cb294
+2021-04-14T17:22:16,203|[DEBUG] BasicTypeRegistry - Adding type registration true_false -> org.hibernate.type.TrueFalseType@12025b72
+2021-04-14T17:22:16,203|[DEBUG] BasicTypeRegistry - Adding type registration yes_no -> org.hibernate.type.YesNoType@5b4c2959
+2021-04-14T17:22:16,203|[DEBUG] BasicTypeRegistry - Adding type registration byte -> org.hibernate.type.ByteType@14f03098
+2021-04-14T17:22:16,203|[DEBUG] BasicTypeRegistry - Adding type registration byte -> org.hibernate.type.ByteType@14f03098
+2021-04-14T17:22:16,203|[DEBUG] BasicTypeRegistry - Adding type registration java.lang.Byte -> org.hibernate.type.ByteType@14f03098
+2021-04-14T17:22:16,203|[DEBUG] BasicTypeRegistry - Adding type registration character -> org.hibernate.type.CharacterType@1e60dce7
+2021-04-14T17:22:16,203|[DEBUG] BasicTypeRegistry - Adding type registration char -> org.hibernate.type.CharacterType@1e60dce7
+2021-04-14T17:22:16,203|[DEBUG] BasicTypeRegistry - Adding type registration java.lang.Character -> org.hibernate.type.CharacterType@1e60dce7
+2021-04-14T17:22:16,203|[DEBUG] BasicTypeRegistry - Adding type registration short -> org.hibernate.type.ShortType@687fa4d0
+2021-04-14T17:22:16,203|[DEBUG] BasicTypeRegistry - Adding type registration short -> org.hibernate.type.ShortType@687fa4d0
+2021-04-14T17:22:16,203|[DEBUG] BasicTypeRegistry - Adding type registration java.lang.Short -> org.hibernate.type.ShortType@687fa4d0
+2021-04-14T17:22:16,219|[DEBUG] BasicTypeRegistry - Adding type registration integer -> org.hibernate.type.IntegerType@33a1bff8
+2021-04-14T17:22:16,219|[DEBUG] BasicTypeRegistry - Adding type registration int -> org.hibernate.type.IntegerType@33a1bff8
+2021-04-14T17:22:16,219|[DEBUG] BasicTypeRegistry - Adding type registration java.lang.Integer -> org.hibernate.type.IntegerType@33a1bff8
+2021-04-14T17:22:16,219|[DEBUG] BasicTypeRegistry - Adding type registration long -> org.hibernate.type.LongType@7020deaa
+2021-04-14T17:22:16,219|[DEBUG] BasicTypeRegistry - Adding type registration long -> org.hibernate.type.LongType@7020deaa
+2021-04-14T17:22:16,219|[DEBUG] BasicTypeRegistry - Adding type registration java.lang.Long -> org.hibernate.type.LongType@7020deaa
+2021-04-14T17:22:16,219|[DEBUG] BasicTypeRegistry - Adding type registration float -> org.hibernate.type.FloatType@21e00efb
+2021-04-14T17:22:16,219|[DEBUG] BasicTypeRegistry - Adding type registration float -> org.hibernate.type.FloatType@21e00efb
+2021-04-14T17:22:16,219|[DEBUG] BasicTypeRegistry - Adding type registration java.lang.Float -> org.hibernate.type.FloatType@21e00efb
+2021-04-14T17:22:16,219|[DEBUG] BasicTypeRegistry - Adding type registration double -> org.hibernate.type.DoubleType@1222d0e4
+2021-04-14T17:22:16,219|[DEBUG] BasicTypeRegistry - Adding type registration double -> org.hibernate.type.DoubleType@1222d0e4
+2021-04-14T17:22:16,219|[DEBUG] BasicTypeRegistry - Adding type registration java.lang.Double -> org.hibernate.type.DoubleType@1222d0e4
+2021-04-14T17:22:16,219|[DEBUG] BasicTypeRegistry - Adding type registration big_decimal -> org.hibernate.type.BigDecimalType@2f930be7
+2021-04-14T17:22:16,219|[DEBUG] BasicTypeRegistry - Adding type registration java.math.BigDecimal -> org.hibernate.type.BigDecimalType@2f930be7
+2021-04-14T17:22:16,219|[DEBUG] BasicTypeRegistry - Adding type registration big_integer -> org.hibernate.type.BigIntegerType@7be55279
+2021-04-14T17:22:16,219|[DEBUG] BasicTypeRegistry - Adding type registration java.math.BigInteger -> org.hibernate.type.BigIntegerType@7be55279
+2021-04-14T17:22:16,219|[DEBUG] BasicTypeRegistry - Adding type registration string -> org.hibernate.type.StringType@54e8f10a
+2021-04-14T17:22:16,219|[DEBUG] BasicTypeRegistry - Adding type registration java.lang.String -> org.hibernate.type.StringType@54e8f10a
+2021-04-14T17:22:16,219|[DEBUG] BasicTypeRegistry - Adding type registration nstring -> org.hibernate.type.StringNVarcharType@53fa89e6
+2021-04-14T17:22:16,219|[DEBUG] BasicTypeRegistry - Adding type registration ncharacter -> org.hibernate.type.CharacterNCharType@9bd7c1
+2021-04-14T17:22:16,219|[DEBUG] BasicTypeRegistry - Adding type registration url -> org.hibernate.type.UrlType@e86c9a5
+2021-04-14T17:22:16,219|[DEBUG] BasicTypeRegistry - Adding type registration java.net.URL -> org.hibernate.type.UrlType@e86c9a5
+2021-04-14T17:22:16,219|[DEBUG] BasicTypeRegistry - Adding type registration Duration -> org.hibernate.type.DurationType@32cbb8c6
+2021-04-14T17:22:16,219|[DEBUG] BasicTypeRegistry - Adding type registration java.time.Duration -> org.hibernate.type.DurationType@32cbb8c6
+2021-04-14T17:22:16,219|[DEBUG] BasicTypeRegistry - Adding type registration Instant -> org.hibernate.type.InstantType@771047b4
+2021-04-14T17:22:16,219|[DEBUG] BasicTypeRegistry - Adding type registration java.time.Instant -> org.hibernate.type.InstantType@771047b4
+2021-04-14T17:22:16,219|[DEBUG] BasicTypeRegistry - Adding type registration LocalDateTime -> org.hibernate.type.LocalDateTimeType@575dab37
+2021-04-14T17:22:16,219|[DEBUG] BasicTypeRegistry - Adding type registration java.time.LocalDateTime -> org.hibernate.type.LocalDateTimeType@575dab37
+2021-04-14T17:22:16,219|[DEBUG] BasicTypeRegistry - Adding type registration LocalDate -> org.hibernate.type.LocalDateType@3693deae
+2021-04-14T17:22:16,219|[DEBUG] BasicTypeRegistry - Adding type registration java.time.LocalDate -> org.hibernate.type.LocalDateType@3693deae
+2021-04-14T17:22:16,234|[DEBUG] BasicTypeRegistry - Adding type registration LocalTime -> org.hibernate.type.LocalTimeType@6622f6b4
+2021-04-14T17:22:16,234|[DEBUG] BasicTypeRegistry - Adding type registration java.time.LocalTime -> org.hibernate.type.LocalTimeType@6622f6b4
+2021-04-14T17:22:16,234|[DEBUG] BasicTypeRegistry - Adding type registration OffsetDateTime -> org.hibernate.type.OffsetDateTimeType@7892d7a7
+2021-04-14T17:22:16,234|[DEBUG] BasicTypeRegistry - Adding type registration java.time.OffsetDateTime -> org.hibernate.type.OffsetDateTimeType@7892d7a7
+2021-04-14T17:22:16,234|[DEBUG] BasicTypeRegistry - Adding type registration OffsetTime -> org.hibernate.type.OffsetTimeType@242270ae
+2021-04-14T17:22:16,234|[DEBUG] BasicTypeRegistry - Adding type registration java.time.OffsetTime -> org.hibernate.type.OffsetTimeType@242270ae
+2021-04-14T17:22:16,234|[DEBUG] BasicTypeRegistry - Adding type registration ZonedDateTime -> org.hibernate.type.ZonedDateTimeType@4a100df
+2021-04-14T17:22:16,234|[DEBUG] BasicTypeRegistry - Adding type registration java.time.ZonedDateTime -> org.hibernate.type.ZonedDateTimeType@4a100df
+2021-04-14T17:22:16,234|[DEBUG] BasicTypeRegistry - Adding type registration date -> org.hibernate.type.DateType@4c1ce13a
+2021-04-14T17:22:16,234|[DEBUG] BasicTypeRegistry - Adding type registration java.sql.Date -> org.hibernate.type.DateType@4c1ce13a
+2021-04-14T17:22:16,234|[DEBUG] BasicTypeRegistry - Adding type registration time -> org.hibernate.type.TimeType@70915da3
+2021-04-14T17:22:16,234|[DEBUG] BasicTypeRegistry - Adding type registration java.sql.Time -> org.hibernate.type.TimeType@70915da3
+2021-04-14T17:22:16,234|[DEBUG] BasicTypeRegistry - Adding type registration timestamp -> org.hibernate.type.TimestampType@6fe37577
+2021-04-14T17:22:16,234|[DEBUG] BasicTypeRegistry - Adding type registration java.sql.Timestamp -> org.hibernate.type.TimestampType@6fe37577
+2021-04-14T17:22:16,234|[DEBUG] BasicTypeRegistry - Adding type registration java.util.Date -> org.hibernate.type.TimestampType@6fe37577
+2021-04-14T17:22:16,234|[DEBUG] BasicTypeRegistry - Adding type registration dbtimestamp -> org.hibernate.type.DbTimestampType@6d0937e
+2021-04-14T17:22:16,234|[DEBUG] BasicTypeRegistry - Adding type registration calendar -> org.hibernate.type.CalendarType@726bbe64
+2021-04-14T17:22:16,234|[DEBUG] BasicTypeRegistry - Adding type registration java.util.Calendar -> org.hibernate.type.CalendarType@726bbe64
+2021-04-14T17:22:16,234|[DEBUG] BasicTypeRegistry - Adding type registration java.util.GregorianCalendar -> org.hibernate.type.CalendarType@726bbe64
+2021-04-14T17:22:16,234|[DEBUG] BasicTypeRegistry - Adding type registration calendar_date -> org.hibernate.type.CalendarDateType@33dbd53
+2021-04-14T17:22:16,234|[DEBUG] BasicTypeRegistry - Adding type registration calendar_time -> org.hibernate.type.CalendarTimeType@3e7de165
+2021-04-14T17:22:16,234|[DEBUG] BasicTypeRegistry - Adding type registration locale -> org.hibernate.type.LocaleType@11675922
+2021-04-14T17:22:16,234|[DEBUG] BasicTypeRegistry - Adding type registration java.util.Locale -> org.hibernate.type.LocaleType@11675922
+2021-04-14T17:22:16,234|[DEBUG] BasicTypeRegistry - Adding type registration currency -> org.hibernate.type.CurrencyType@21ec7946
+2021-04-14T17:22:16,234|[DEBUG] BasicTypeRegistry - Adding type registration java.util.Currency -> org.hibernate.type.CurrencyType@21ec7946
+2021-04-14T17:22:16,250|[DEBUG] BasicTypeRegistry - Adding type registration timezone -> org.hibernate.type.TimeZoneType@543eacd5
+2021-04-14T17:22:16,250|[DEBUG] BasicTypeRegistry - Adding type registration java.util.TimeZone -> org.hibernate.type.TimeZoneType@543eacd5
+2021-04-14T17:22:16,250|[DEBUG] BasicTypeRegistry - Adding type registration class -> org.hibernate.type.ClassType@234a8c1f
+2021-04-14T17:22:16,250|[DEBUG] BasicTypeRegistry - Adding type registration java.lang.Class -> org.hibernate.type.ClassType@234a8c1f
+2021-04-14T17:22:16,250|[DEBUG] BasicTypeRegistry - Adding type registration uuid-binary -> org.hibernate.type.UUIDBinaryType@164fba04
+2021-04-14T17:22:16,250|[DEBUG] BasicTypeRegistry - Adding type registration java.util.UUID -> org.hibernate.type.UUIDBinaryType@164fba04
+2021-04-14T17:22:16,250|[DEBUG] BasicTypeRegistry - Adding type registration uuid-char -> org.hibernate.type.UUIDCharType@13d7410a
+2021-04-14T17:22:16,250|[DEBUG] BasicTypeRegistry - Adding type registration binary -> org.hibernate.type.BinaryType@66716c60
+2021-04-14T17:22:16,250|[DEBUG] BasicTypeRegistry - Adding type registration byte[] -> org.hibernate.type.BinaryType@66716c60
+2021-04-14T17:22:16,250|[DEBUG] BasicTypeRegistry - Adding type registration [B -> org.hibernate.type.BinaryType@66716c60
+2021-04-14T17:22:16,250|[DEBUG] BasicTypeRegistry - Adding type registration wrapper-binary -> org.hibernate.type.WrapperBinaryType@3b60efd8
+2021-04-14T17:22:16,250|[DEBUG] BasicTypeRegistry - Adding type registration Byte[] -> org.hibernate.type.WrapperBinaryType@3b60efd8
+2021-04-14T17:22:16,250|[DEBUG] BasicTypeRegistry - Adding type registration [Ljava.lang.Byte; -> org.hibernate.type.WrapperBinaryType@3b60efd8
+2021-04-14T17:22:16,250|[DEBUG] BasicTypeRegistry - Adding type registration row_version -> org.hibernate.type.RowVersionType@22e3d222
+2021-04-14T17:22:16,250|[DEBUG] BasicTypeRegistry - Adding type registration image -> org.hibernate.type.ImageType@564c0e38
+2021-04-14T17:22:16,250|[DEBUG] BasicTypeRegistry - Adding type registration characters -> org.hibernate.type.CharArrayType@10683f87
+2021-04-14T17:22:16,250|[DEBUG] BasicTypeRegistry - Adding type registration char[] -> org.hibernate.type.CharArrayType@10683f87
+2021-04-14T17:22:16,250|[DEBUG] BasicTypeRegistry - Adding type registration [C -> org.hibernate.type.CharArrayType@10683f87
+2021-04-14T17:22:16,250|[DEBUG] BasicTypeRegistry - Adding type registration wrapper-characters -> org.hibernate.type.CharacterArrayType@14cd9288
+2021-04-14T17:22:16,250|[DEBUG] BasicTypeRegistry - Adding type registration [Ljava.lang.Character; -> org.hibernate.type.CharacterArrayType@14cd9288
+2021-04-14T17:22:16,250|[DEBUG] BasicTypeRegistry - Adding type registration Character[] -> org.hibernate.type.CharacterArrayType@14cd9288
+2021-04-14T17:22:16,250|[DEBUG] BasicTypeRegistry - Adding type registration text -> org.hibernate.type.TextType@ff18823
+2021-04-14T17:22:16,250|[DEBUG] BasicTypeRegistry - Adding type registration ntext -> org.hibernate.type.NTextType@6edbf6ed
+2021-04-14T17:22:16,250|[DEBUG] BasicTypeRegistry - Adding type registration blob -> org.hibernate.type.BlobType@2b360641
+2021-04-14T17:22:16,250|[DEBUG] BasicTypeRegistry - Adding type registration java.sql.Blob -> org.hibernate.type.BlobType@2b360641
+2021-04-14T17:22:16,250|[DEBUG] BasicTypeRegistry - Adding type registration materialized_blob -> org.hibernate.type.MaterializedBlobType@bcfe4ba
+2021-04-14T17:22:16,250|[DEBUG] BasicTypeRegistry - Adding type registration clob -> org.hibernate.type.ClobType@3cb1a148
+2021-04-14T17:22:16,250|[DEBUG] BasicTypeRegistry - Adding type registration java.sql.Clob -> org.hibernate.type.ClobType@3cb1a148
+2021-04-14T17:22:16,250|[DEBUG] BasicTypeRegistry - Adding type registration nclob -> org.hibernate.type.NClobType@72b1ee4b
+2021-04-14T17:22:16,250|[DEBUG] BasicTypeRegistry - Adding type registration java.sql.NClob -> org.hibernate.type.NClobType@72b1ee4b
+2021-04-14T17:22:16,250|[DEBUG] BasicTypeRegistry - Adding type registration materialized_clob -> org.hibernate.type.MaterializedClobType@7033c58a
+2021-04-14T17:22:16,250|[DEBUG] BasicTypeRegistry - Adding type registration materialized_nclob -> org.hibernate.type.MaterializedNClobType@2bba7b40
+2021-04-14T17:22:16,250|[DEBUG] BasicTypeRegistry - Adding type registration serializable -> org.hibernate.type.SerializableType@4ad3f113
+2021-04-14T17:22:16,250|[DEBUG] BasicTypeRegistry - Adding type registration object -> org.hibernate.type.ObjectType@5b8ee649
+2021-04-14T17:22:16,250|[DEBUG] BasicTypeRegistry - Adding type registration java.lang.Object -> org.hibernate.type.ObjectType@5b8ee649
+2021-04-14T17:22:16,250|[DEBUG] BasicTypeRegistry - Adding type registration imm_date -> org.hibernate.type.AdaptedImmutableType@5d5f010a
+2021-04-14T17:22:16,250|[DEBUG] BasicTypeRegistry - Adding type registration imm_time -> org.hibernate.type.AdaptedImmutableType@7b8d2b32
+2021-04-14T17:22:16,250|[DEBUG] BasicTypeRegistry - Adding type registration imm_timestamp -> org.hibernate.type.AdaptedImmutableType@7e24d565
+2021-04-14T17:22:16,250|[DEBUG] BasicTypeRegistry - Adding type registration imm_dbtimestamp -> org.hibernate.type.AdaptedImmutableType@778c5658
+2021-04-14T17:22:16,250|[DEBUG] BasicTypeRegistry - Adding type registration imm_calendar -> org.hibernate.type.AdaptedImmutableType@52fe4ef2
+2021-04-14T17:22:16,250|[DEBUG] BasicTypeRegistry - Adding type registration imm_calendar_date -> org.hibernate.type.AdaptedImmutableType@40383b24
+2021-04-14T17:22:16,250|[DEBUG] BasicTypeRegistry - Adding type registration imm_binary -> org.hibernate.type.AdaptedImmutableType@186f51bb
+2021-04-14T17:22:16,250|[DEBUG] BasicTypeRegistry - Adding type registration imm_serializable -> org.hibernate.type.AdaptedImmutableType@dc4fa78
+2021-04-14T17:22:16,390|[INFO ] Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2021-04-14T17:22:16,453|[DEBUG] TypeConfiguration$Scope - Scoping TypeConfiguration [org.hibernate.type.spi.TypeConfiguration@8c2bb88] to MetadataBuildingContext [org.hibernate.boot.internal.MetadataBuildingContextRootImpl@4fe256c0]
+2021-04-14T17:22:16,578|[INFO ] beans - HHH10005002: No explicit CDI BeanManager reference was passed to Hibernate, but CDI is available on the Hibernate ClassLoader.
+2021-04-14T17:22:16,578|[DEBUG] JavaTypeDescriptorRegistry - Could not find matching scoped JavaTypeDescriptor for requested Java class [entity.RhesusFactorConvertor]; falling back to static registry
+2021-04-14T17:22:16,578|[DEBUG] JavaTypeDescriptorRegistry - Could not find matching scoped JavaTypeDescriptor for requested Java class [java.lang.String]; falling back to static registry
+2021-04-14T17:22:16,578|[DEBUG] AttributeConverterTypeAdapter - Created AttributeConverterTypeAdapter -> converted::entity.RhesusFactorConvertor
+2021-04-14T17:22:16,609|[DEBUG] EnumType - Using NAMED-based conversion for Enum entity.BloodGroup
+2021-04-14T17:22:16,672|[DEBUG] TypeConfiguration$Scope - Scoping TypeConfiguration [org.hibernate.type.spi.TypeConfiguration@8c2bb88] to SessionFactoryImpl [org.hibernate.internal.SessionFactoryImpl@56ed0511]
+2021-04-14T17:22:16,985|[INFO ] SchemaCreatorImpl - HHH000476: Executing import script 'file:/C:/Users/andre/Documents/NetBeansProjects/SimpleBloodBank/target/classes/META-INF/sql/simplebloodbank-drop.sql'
+2021-04-14T17:22:17,001|[DEBUG] SQL - 
     
     DROP SCHEMA IF EXISTS `simplebloodbank`
-2021-04-14T16:44:38,194|[INFO ] SchemaCreatorImpl - HHH000476: Executing import script 'file:/C:/Users/andre/Documents/NetBeansProjects/SimpleBloodBank/target/classes/META-INF/sql/simplebloodbank-create.sql'
-2021-04-14T16:44:38,209|[DEBUG] SQL - CREATE SCHEMA IF NOT EXISTS `simplebloodbank` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci
-2021-04-14T16:44:38,209|[DEBUG] SQL - 
+2021-04-14T17:22:17,079|[INFO ] SchemaCreatorImpl - HHH000476: Executing import script 'file:/C:/Users/andre/Documents/NetBeansProjects/SimpleBloodBank/target/classes/META-INF/sql/simplebloodbank-create.sql'
+2021-04-14T17:22:17,095|[DEBUG] SQL - CREATE SCHEMA IF NOT EXISTS `simplebloodbank` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci
+2021-04-14T17:22:17,095|[DEBUG] SQL - 
     
     USE `simplebloodbank`
-2021-04-14T16:44:38,209|[DEBUG] SQL - 
+2021-04-14T17:22:17,095|[DEBUG] SQL - 
     
     CREATE TABLE IF NOT EXISTS `simplebloodbank`.`person` (
           `id` INT NOT NULL AUTO_INCREMENT,
@@ -217,7 +217,7 @@
           PRIMARY KEY (`id`),
           UNIQUE INDEX `id_UNIQUE` (`id` ASC) VISIBLE
     ) ENGINE = InnoDB AUTO_INCREMENT = 2 DEFAULT CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci
-2021-04-14T16:44:38,272|[DEBUG] SQL - 
+2021-04-14T17:22:17,188|[DEBUG] SQL - 
     
     CREATE TABLE IF NOT EXISTS `simplebloodbank`.`blood_bank` (
           `bank_id` INT NOT NULL AUTO_INCREMENT,
@@ -232,7 +232,7 @@
           INDEX `fk_blood_bank_person1_idx` (`owner` ASC) VISIBLE,
           CONSTRAINT `fk_blood_bank_person1`     FOREIGN KEY (`owner`)     REFERENCES `simplebloodbank`.`person` (`id`)     ON DELETE NO ACTION     ON UPDATE NO ACTION
     ) ENGINE = InnoDB DEFAULT CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci
-2021-04-14T16:44:38,319|[DEBUG] SQL - 
+2021-04-14T17:22:17,235|[DEBUG] SQL - 
     
     CREATE TABLE IF NOT EXISTS `simplebloodbank`.`blood_donation` (
           `donation_id` INT NOT NULL AUTO_INCREMENT,
@@ -246,7 +246,7 @@
           UNIQUE INDEX `donation_id_UNIQUE` (`donation_id` ASC) VISIBLE,
           CONSTRAINT `fk_blood_donation_blood_bank1`     FOREIGN KEY (`bank_id`)     REFERENCES `simplebloodbank`.`blood_bank` (`bank_id`)
     ) ENGINE = InnoDB DEFAULT CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci
-2021-04-14T16:44:38,365|[DEBUG] SQL - 
+2021-04-14T17:22:17,282|[DEBUG] SQL - 
     
     CREATE TABLE IF NOT EXISTS `simplebloodbank`.`donation_record` (
           `record_id` INT NOT NULL AUTO_INCREMENT,
@@ -263,7 +263,7 @@
           CONSTRAINT `fk_donation_record_blood_donation1`     FOREIGN KEY (`donation_id`)     REFERENCES `simplebloodbank`.`blood_donation` (`donation_id`),
           CONSTRAINT `fk_donation_record_person1`     FOREIGN KEY (`person_id`)     REFERENCES `simplebloodbank`.`person` (`id`)
     ) ENGINE = InnoDB DEFAULT CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci
-2021-04-14T16:44:38,397|[DEBUG] SQL - 
+2021-04-14T17:22:17,313|[DEBUG] SQL - 
     
     CREATE TABLE IF NOT EXISTS `simplebloodbank`.`account` (
           `id` INT NOT NULL AUTO_INCREMENT,
@@ -275,11 +275,11 @@
           UNIQUE INDEX `name_UNIQUE` (`name` ASC) VISIBLE,
           UNIQUE INDEX `username_UNIQUE` (`username` ASC) VISIBLE
     ) ENGINE = InnoDB
-2021-04-14T16:44:38,459|[INFO ] JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2021-04-14T16:44:38,553|[DEBUG] ServletListener - EMF initialized
-2021-04-14T16:44:38,772|[DEBUG] EMFactory - getting EntityManagerFactory
-2021-04-14T16:44:38,772|[DEBUG] EMFactory - initializeing EntityManagerFactory
-2021-04-14T16:44:38,834|[DEBUG] SQL - 
+2021-04-14T17:22:17,360|[INFO ] JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-04-14T17:22:17,470|[DEBUG] ServletListener - EMF initialized
+2021-04-14T17:22:17,688|[DEBUG] EMFactory - getting EntityManagerFactory
+2021-04-14T17:22:17,688|[DEBUG] EMFactory - initializeing EntityManagerFactory
+2021-04-14T17:22:17,751|[DEBUG] SQL - 
     /* insert entity.Account
         */ insert 
         into
@@ -287,13 +287,13 @@
             (name, nickname, password, username) 
         values
             (?, ?, ?, ?)
-2021-04-14T16:44:38,834|[TRACE] BasicBinder - binding parameter [1] as [VARCHAR] - [Junit 5 Test]
-2021-04-14T16:44:38,834|[TRACE] BasicBinder - binding parameter [2] as [VARCHAR] - [jay]
-2021-04-14T16:44:38,834|[TRACE] BasicBinder - binding parameter [3] as [VARCHAR] - [junit5]
-2021-04-14T16:44:38,834|[TRACE] BasicBinder - binding parameter [4] as [VARCHAR] - [junit]
-2021-04-14T16:44:38,865|[DEBUG] EMFactory - getting EntityManagerFactory
-2021-04-14T16:44:38,865|[DEBUG] EMFactory - initializeing EntityManagerFactory
-2021-04-14T16:44:38,865|[DEBUG] SQL - 
+2021-04-14T17:22:17,766|[TRACE] BasicBinder - binding parameter [1] as [VARCHAR] - [Junit 5 Test]
+2021-04-14T17:22:17,766|[TRACE] BasicBinder - binding parameter [2] as [VARCHAR] - [jay]
+2021-04-14T17:22:17,766|[TRACE] BasicBinder - binding parameter [3] as [VARCHAR] - [junit5]
+2021-04-14T17:22:17,766|[TRACE] BasicBinder - binding parameter [4] as [VARCHAR] - [junit]
+2021-04-14T17:22:17,798|[DEBUG] EMFactory - getting EntityManagerFactory
+2021-04-14T17:22:17,798|[DEBUG] EMFactory - initializeing EntityManagerFactory
+2021-04-14T17:22:17,798|[DEBUG] SQL - 
     /* load entity.Account */ select
         account0_.id as id1_0_0_,
         account0_.name as name2_0_0_,
@@ -304,26 +304,26 @@
         simplebloodbank.account account0_ 
     where
         account0_.id=?
-2021-04-14T16:44:38,865|[TRACE] BasicBinder - binding parameter [1] as [INTEGER] - [1]
-2021-04-14T16:44:38,865|[TRACE] BasicExtractor - extracted value ([name2_0_0_] : [VARCHAR]) - [Junit 5 Test]
-2021-04-14T16:44:38,865|[TRACE] BasicExtractor - extracted value ([nickname3_0_0_] : [VARCHAR]) - [jay]
-2021-04-14T16:44:38,865|[TRACE] BasicExtractor - extracted value ([password4_0_0_] : [VARCHAR]) - [junit5]
-2021-04-14T16:44:38,865|[TRACE] BasicExtractor - extracted value ([username5_0_0_] : [VARCHAR]) - [junit]
-2021-04-14T16:44:38,881|[DEBUG] SQL - 
+2021-04-14T17:22:17,798|[TRACE] BasicBinder - binding parameter [1] as [INTEGER] - [1]
+2021-04-14T17:22:17,798|[TRACE] BasicExtractor - extracted value ([name2_0_0_] : [VARCHAR]) - [Junit 5 Test]
+2021-04-14T17:22:17,798|[TRACE] BasicExtractor - extracted value ([nickname3_0_0_] : [VARCHAR]) - [jay]
+2021-04-14T17:22:17,798|[TRACE] BasicExtractor - extracted value ([password4_0_0_] : [VARCHAR]) - [junit5]
+2021-04-14T17:22:17,798|[TRACE] BasicExtractor - extracted value ([username5_0_0_] : [VARCHAR]) - [junit]
+2021-04-14T17:22:17,813|[DEBUG] SQL - 
     /* delete entity.Account */ delete 
         from
             simplebloodbank.account 
         where
             id=?
-2021-04-14T16:44:38,881|[TRACE] BasicBinder - binding parameter [1] as [INTEGER] - [1]
+2021-04-14T17:22:17,813|[TRACE] BasicBinder - binding parameter [1] as [INTEGER] - [1]
 ]]></system-out>
-    <system-err><![CDATA[Apr. 14, 2021 4:44:35 P.M. org.apache.catalina.core.StandardService startInternal
+    <system-err><![CDATA[Apr. 14, 2021 5:22:14 P.M. org.apache.catalina.core.StandardService startInternal
 INFO: Starting service [Tomcat]
-Apr. 14, 2021 4:44:35 P.M. org.apache.catalina.core.StandardEngine startInternal
+Apr. 14, 2021 5:22:14 P.M. org.apache.catalina.core.StandardEngine startInternal
 INFO: Starting Servlet engine: [Apache Tomcat/9.0.44]
-Apr. 14, 2021 4:44:35 P.M. org.apache.catalina.startup.ContextConfig getDefaultWebXmlFragment
+Apr. 14, 2021 5:22:14 P.M. org.apache.catalina.startup.ContextConfig getDefaultWebXmlFragment
 INFO: No global web.xml found
-Apr. 14, 2021 4:44:35 P.M. org.apache.tomcat.util.scan.StandardJarScanner processURLs
+Apr. 14, 2021 5:22:14 P.M. org.apache.tomcat.util.scan.StandardJarScanner processURLs
 WARNING: Failed to scan [file:/C:/Users/andre/.m2/repository/org/glassfish/jaxb/jaxb-runtime/2.3.1/jaxb-api-2.3.1.jar] from classloader hierarchy
 java.io.IOException: java.lang.reflect.InvocationTargetException
 	at org.apache.tomcat.util.compat.Jre9Compat.jarFileNewInstance(Jre9Compat.java:209)
@@ -443,7 +443,7 @@ Caused by: java.nio.file.NoSuchFileException: C:\Users\andre\.m2\repository\org\
 	at java.base/java.util.jar.JarFile.<init>(JarFile.java:348)
 	... 98 more
 
-Apr. 14, 2021 4:44:35 P.M. org.apache.tomcat.util.scan.StandardJarScanner processURLs
+Apr. 14, 2021 5:22:14 P.M. org.apache.tomcat.util.scan.StandardJarScanner processURLs
 WARNING: Failed to scan [file:/C:/Users/andre/.m2/repository/org/glassfish/jaxb/jaxb-runtime/2.3.1/txw2-2.3.1.jar] from classloader hierarchy
 java.io.IOException: java.lang.reflect.InvocationTargetException
 	at org.apache.tomcat.util.compat.Jre9Compat.jarFileNewInstance(Jre9Compat.java:209)
@@ -563,7 +563,7 @@ Caused by: java.nio.file.NoSuchFileException: C:\Users\andre\.m2\repository\org\
 	at java.base/java.util.jar.JarFile.<init>(JarFile.java:348)
 	... 98 more
 
-Apr. 14, 2021 4:44:35 P.M. org.apache.tomcat.util.scan.StandardJarScanner processURLs
+Apr. 14, 2021 5:22:14 P.M. org.apache.tomcat.util.scan.StandardJarScanner processURLs
 WARNING: Failed to scan [file:/C:/Users/andre/.m2/repository/org/glassfish/jaxb/jaxb-runtime/2.3.1/istack-commons-runtime-3.0.7.jar] from classloader hierarchy
 java.io.IOException: java.lang.reflect.InvocationTargetException
 	at org.apache.tomcat.util.compat.Jre9Compat.jarFileNewInstance(Jre9Compat.java:209)
@@ -683,7 +683,7 @@ Caused by: java.nio.file.NoSuchFileException: C:\Users\andre\.m2\repository\org\
 	at java.base/java.util.jar.JarFile.<init>(JarFile.java:348)
 	... 98 more
 
-Apr. 14, 2021 4:44:35 P.M. org.apache.tomcat.util.scan.StandardJarScanner processURLs
+Apr. 14, 2021 5:22:14 P.M. org.apache.tomcat.util.scan.StandardJarScanner processURLs
 WARNING: Failed to scan [file:/C:/Users/andre/.m2/repository/org/glassfish/jaxb/jaxb-runtime/2.3.1/stax-ex-1.8.jar] from classloader hierarchy
 java.io.IOException: java.lang.reflect.InvocationTargetException
 	at org.apache.tomcat.util.compat.Jre9Compat.jarFileNewInstance(Jre9Compat.java:209)
@@ -803,7 +803,7 @@ Caused by: java.nio.file.NoSuchFileException: C:\Users\andre\.m2\repository\org\
 	at java.base/java.util.jar.JarFile.<init>(JarFile.java:348)
 	... 98 more
 
-Apr. 14, 2021 4:44:35 P.M. org.apache.tomcat.util.scan.StandardJarScanner processURLs
+Apr. 14, 2021 5:22:14 P.M. org.apache.tomcat.util.scan.StandardJarScanner processURLs
 WARNING: Failed to scan [file:/C:/Users/andre/.m2/repository/org/glassfish/jaxb/jaxb-runtime/2.3.1/FastInfoset-1.2.15.jar] from classloader hierarchy
 java.io.IOException: java.lang.reflect.InvocationTargetException
 	at org.apache.tomcat.util.compat.Jre9Compat.jarFileNewInstance(Jre9Compat.java:209)
@@ -923,7 +923,7 @@ Caused by: java.nio.file.NoSuchFileException: C:\Users\andre\.m2\repository\org\
 	at java.base/java.util.jar.JarFile.<init>(JarFile.java:348)
 	... 98 more
 
-Apr. 14, 2021 4:44:35 P.M. org.apache.tomcat.util.scan.StandardJarScanner processURLs
+Apr. 14, 2021 5:22:14 P.M. org.apache.tomcat.util.scan.StandardJarScanner processURLs
 WARNING: Failed to scan [file:/C:/Users/andre/.m2/repository/org/glassfish/jaxb/jaxb-runtime/2.3.1/javax.activation-api-1.2.0.jar] from classloader hierarchy
 java.io.IOException: java.lang.reflect.InvocationTargetException
 	at org.apache.tomcat.util.compat.Jre9Compat.jarFileNewInstance(Jre9Compat.java:209)
@@ -1043,7 +1043,7 @@ Caused by: java.nio.file.NoSuchFileException: C:\Users\andre\.m2\repository\org\
 	at java.base/java.util.jar.JarFile.<init>(JarFile.java:348)
 	... 98 more
 
-Apr. 14, 2021 4:44:36 P.M. org.apache.tomcat.util.scan.StandardJarScanner processURLs
+Apr. 14, 2021 5:22:15 P.M. org.apache.tomcat.util.scan.StandardJarScanner processURLs
 WARNING: Failed to scan [file:/C:/Users/andre/.m2/repository/org/glassfish/jaxb/jaxb-runtime/2.3.1/jaxb-api-2.3.1.jar] from classloader hierarchy
 java.io.IOException: java.lang.reflect.InvocationTargetException
 	at org.apache.tomcat.util.compat.Jre9Compat.jarFileNewInstance(Jre9Compat.java:209)
@@ -1161,7 +1161,7 @@ Caused by: java.nio.file.NoSuchFileException: C:\Users\andre\.m2\repository\org\
 	at java.base/java.util.jar.JarFile.<init>(JarFile.java:348)
 	... 96 more
 
-Apr. 14, 2021 4:44:36 P.M. org.apache.tomcat.util.scan.StandardJarScanner processURLs
+Apr. 14, 2021 5:22:15 P.M. org.apache.tomcat.util.scan.StandardJarScanner processURLs
 WARNING: Failed to scan [file:/C:/Users/andre/.m2/repository/org/glassfish/jaxb/jaxb-runtime/2.3.1/txw2-2.3.1.jar] from classloader hierarchy
 java.io.IOException: java.lang.reflect.InvocationTargetException
 	at org.apache.tomcat.util.compat.Jre9Compat.jarFileNewInstance(Jre9Compat.java:209)
@@ -1279,7 +1279,7 @@ Caused by: java.nio.file.NoSuchFileException: C:\Users\andre\.m2\repository\org\
 	at java.base/java.util.jar.JarFile.<init>(JarFile.java:348)
 	... 96 more
 
-Apr. 14, 2021 4:44:36 P.M. org.apache.tomcat.util.scan.StandardJarScanner processURLs
+Apr. 14, 2021 5:22:15 P.M. org.apache.tomcat.util.scan.StandardJarScanner processURLs
 WARNING: Failed to scan [file:/C:/Users/andre/.m2/repository/org/glassfish/jaxb/jaxb-runtime/2.3.1/istack-commons-runtime-3.0.7.jar] from classloader hierarchy
 java.io.IOException: java.lang.reflect.InvocationTargetException
 	at org.apache.tomcat.util.compat.Jre9Compat.jarFileNewInstance(Jre9Compat.java:209)
@@ -1397,7 +1397,7 @@ Caused by: java.nio.file.NoSuchFileException: C:\Users\andre\.m2\repository\org\
 	at java.base/java.util.jar.JarFile.<init>(JarFile.java:348)
 	... 96 more
 
-Apr. 14, 2021 4:44:36 P.M. org.apache.tomcat.util.scan.StandardJarScanner processURLs
+Apr. 14, 2021 5:22:15 P.M. org.apache.tomcat.util.scan.StandardJarScanner processURLs
 WARNING: Failed to scan [file:/C:/Users/andre/.m2/repository/org/glassfish/jaxb/jaxb-runtime/2.3.1/stax-ex-1.8.jar] from classloader hierarchy
 java.io.IOException: java.lang.reflect.InvocationTargetException
 	at org.apache.tomcat.util.compat.Jre9Compat.jarFileNewInstance(Jre9Compat.java:209)
@@ -1515,7 +1515,7 @@ Caused by: java.nio.file.NoSuchFileException: C:\Users\andre\.m2\repository\org\
 	at java.base/java.util.jar.JarFile.<init>(JarFile.java:348)
 	... 96 more
 
-Apr. 14, 2021 4:44:36 P.M. org.apache.tomcat.util.scan.StandardJarScanner processURLs
+Apr. 14, 2021 5:22:15 P.M. org.apache.tomcat.util.scan.StandardJarScanner processURLs
 WARNING: Failed to scan [file:/C:/Users/andre/.m2/repository/org/glassfish/jaxb/jaxb-runtime/2.3.1/FastInfoset-1.2.15.jar] from classloader hierarchy
 java.io.IOException: java.lang.reflect.InvocationTargetException
 	at org.apache.tomcat.util.compat.Jre9Compat.jarFileNewInstance(Jre9Compat.java:209)
@@ -1633,7 +1633,7 @@ Caused by: java.nio.file.NoSuchFileException: C:\Users\andre\.m2\repository\org\
 	at java.base/java.util.jar.JarFile.<init>(JarFile.java:348)
 	... 96 more
 
-Apr. 14, 2021 4:44:36 P.M. org.apache.tomcat.util.scan.StandardJarScanner processURLs
+Apr. 14, 2021 5:22:15 P.M. org.apache.tomcat.util.scan.StandardJarScanner processURLs
 WARNING: Failed to scan [file:/C:/Users/andre/.m2/repository/org/glassfish/jaxb/jaxb-runtime/2.3.1/javax.activation-api-1.2.0.jar] from classloader hierarchy
 java.io.IOException: java.lang.reflect.InvocationTargetException
 	at org.apache.tomcat.util.compat.Jre9Compat.jarFileNewInstance(Jre9Compat.java:209)
@@ -1751,16 +1751,16 @@ Caused by: java.nio.file.NoSuchFileException: C:\Users\andre\.m2\repository\org\
 	at java.base/java.util.jar.JarFile.<init>(JarFile.java:348)
 	... 96 more
 
-Apr. 14, 2021 4:44:36 P.M. org.apache.jasper.servlet.TldScanner scanJars
+Apr. 14, 2021 5:22:15 P.M. org.apache.jasper.servlet.TldScanner scanJars
 INFO: At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
-Apr. 14, 2021 4:44:38 P.M. org.apache.catalina.util.SessionIdGeneratorBase createSecureRandom
+Apr. 14, 2021 5:22:17 P.M. org.apache.catalina.util.SessionIdGeneratorBase createSecureRandom
 WARNING: Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [187] milliseconds.
 ]]></system-err>
   </testcase>
-  <testcase name="testGetAccountWithDisplayName" classname="logic.AccountLogicTest" time="0.046">
-    <system-out><![CDATA[2021-04-14T16:44:38,897|[DEBUG] EMFactory - getting EntityManagerFactory
-2021-04-14T16:44:38,897|[DEBUG] EMFactory - initializeing EntityManagerFactory
-2021-04-14T16:44:38,897|[DEBUG] SQL - 
+  <testcase name="testGetAccountWithDisplayName" classname="logic.AccountLogicTest" time="0.031">
+    <system-out><![CDATA[2021-04-14T17:22:17,829|[DEBUG] EMFactory - getting EntityManagerFactory
+2021-04-14T17:22:17,829|[DEBUG] EMFactory - initializeing EntityManagerFactory
+2021-04-14T17:22:17,829|[DEBUG] SQL - 
     /* insert entity.Account
         */ insert 
         into
@@ -1768,13 +1768,13 @@ WARNING: Creation of SecureRandom instance for session ID generation using [SHA1
             (name, nickname, password, username) 
         values
             (?, ?, ?, ?)
-2021-04-14T16:44:38,897|[TRACE] BasicBinder - binding parameter [1] as [VARCHAR] - [Junit 5 Test]
-2021-04-14T16:44:38,897|[TRACE] BasicBinder - binding parameter [2] as [VARCHAR] - [jay]
-2021-04-14T16:44:38,897|[TRACE] BasicBinder - binding parameter [3] as [VARCHAR] - [junit5]
-2021-04-14T16:44:38,897|[TRACE] BasicBinder - binding parameter [4] as [VARCHAR] - [junit]
-2021-04-14T16:44:38,897|[DEBUG] EMFactory - getting EntityManagerFactory
-2021-04-14T16:44:38,897|[DEBUG] EMFactory - initializeing EntityManagerFactory
-2021-04-14T16:44:38,912|[DEBUG] SQL - 
+2021-04-14T17:22:17,829|[TRACE] BasicBinder - binding parameter [1] as [VARCHAR] - [Junit 5 Test]
+2021-04-14T17:22:17,829|[TRACE] BasicBinder - binding parameter [2] as [VARCHAR] - [jay]
+2021-04-14T17:22:17,829|[TRACE] BasicBinder - binding parameter [3] as [VARCHAR] - [junit5]
+2021-04-14T17:22:17,829|[TRACE] BasicBinder - binding parameter [4] as [VARCHAR] - [junit]
+2021-04-14T17:22:17,829|[DEBUG] EMFactory - getting EntityManagerFactory
+2021-04-14T17:22:17,829|[DEBUG] EMFactory - initializeing EntityManagerFactory
+2021-04-14T17:22:17,845|[DEBUG] SQL - 
     /* Account.findByNickname */ select
         account0_.id as id1_0_,
         account0_.name as name2_0_,
@@ -1785,15 +1785,15 @@ WARNING: Creation of SecureRandom instance for session ID generation using [SHA1
         simplebloodbank.account account0_ 
     where
         account0_.nickname=?
-2021-04-14T16:44:38,912|[TRACE] BasicBinder - binding parameter [1] as [VARCHAR] - [jay]
-2021-04-14T16:44:38,912|[TRACE] BasicExtractor - extracted value ([id1_0_] : [INTEGER]) - [2]
-2021-04-14T16:44:38,912|[TRACE] BasicExtractor - extracted value ([name2_0_] : [VARCHAR]) - [Junit 5 Test]
-2021-04-14T16:44:38,912|[TRACE] BasicExtractor - extracted value ([nickname3_0_] : [VARCHAR]) - [jay]
-2021-04-14T16:44:38,912|[TRACE] BasicExtractor - extracted value ([password4_0_] : [VARCHAR]) - [junit5]
-2021-04-14T16:44:38,912|[TRACE] BasicExtractor - extracted value ([username5_0_] : [VARCHAR]) - [junit]
-2021-04-14T16:44:38,912|[DEBUG] EMFactory - getting EntityManagerFactory
-2021-04-14T16:44:38,912|[DEBUG] EMFactory - initializeing EntityManagerFactory
-2021-04-14T16:44:38,928|[DEBUG] SQL - 
+2021-04-14T17:22:17,845|[TRACE] BasicBinder - binding parameter [1] as [VARCHAR] - [jay]
+2021-04-14T17:22:17,845|[TRACE] BasicExtractor - extracted value ([id1_0_] : [INTEGER]) - [2]
+2021-04-14T17:22:17,845|[TRACE] BasicExtractor - extracted value ([name2_0_] : [VARCHAR]) - [Junit 5 Test]
+2021-04-14T17:22:17,845|[TRACE] BasicExtractor - extracted value ([nickname3_0_] : [VARCHAR]) - [jay]
+2021-04-14T17:22:17,845|[TRACE] BasicExtractor - extracted value ([password4_0_] : [VARCHAR]) - [junit5]
+2021-04-14T17:22:17,845|[TRACE] BasicExtractor - extracted value ([username5_0_] : [VARCHAR]) - [junit]
+2021-04-14T17:22:17,845|[DEBUG] EMFactory - getting EntityManagerFactory
+2021-04-14T17:22:17,845|[DEBUG] EMFactory - initializeing EntityManagerFactory
+2021-04-14T17:22:17,860|[DEBUG] SQL - 
     /* load entity.Account */ select
         account0_.id as id1_0_0_,
         account0_.name as name2_0_0_,
@@ -1804,27 +1804,27 @@ WARNING: Creation of SecureRandom instance for session ID generation using [SHA1
         simplebloodbank.account account0_ 
     where
         account0_.id=?
-2021-04-14T16:44:38,928|[TRACE] BasicBinder - binding parameter [1] as [INTEGER] - [2]
-2021-04-14T16:44:38,928|[TRACE] BasicExtractor - extracted value ([name2_0_0_] : [VARCHAR]) - [Junit 5 Test]
-2021-04-14T16:44:38,928|[TRACE] BasicExtractor - extracted value ([nickname3_0_0_] : [VARCHAR]) - [jay]
-2021-04-14T16:44:38,928|[TRACE] BasicExtractor - extracted value ([password4_0_0_] : [VARCHAR]) - [junit5]
-2021-04-14T16:44:38,928|[TRACE] BasicExtractor - extracted value ([username5_0_0_] : [VARCHAR]) - [junit]
-2021-04-14T16:44:38,928|[DEBUG] SQL - 
+2021-04-14T17:22:17,860|[TRACE] BasicBinder - binding parameter [1] as [INTEGER] - [2]
+2021-04-14T17:22:17,860|[TRACE] BasicExtractor - extracted value ([name2_0_0_] : [VARCHAR]) - [Junit 5 Test]
+2021-04-14T17:22:17,860|[TRACE] BasicExtractor - extracted value ([nickname3_0_0_] : [VARCHAR]) - [jay]
+2021-04-14T17:22:17,860|[TRACE] BasicExtractor - extracted value ([password4_0_0_] : [VARCHAR]) - [junit5]
+2021-04-14T17:22:17,860|[TRACE] BasicExtractor - extracted value ([username5_0_0_] : [VARCHAR]) - [junit]
+2021-04-14T17:22:17,860|[DEBUG] SQL - 
     /* delete entity.Account */ delete 
         from
             simplebloodbank.account 
         where
             id=?
-2021-04-14T16:44:38,928|[TRACE] BasicBinder - binding parameter [1] as [INTEGER] - [2]
+2021-04-14T17:22:17,860|[TRACE] BasicBinder - binding parameter [1] as [INTEGER] - [2]
 ]]></system-out>
-    <system-err><![CDATA[Apr. 14, 2021 4:44:38 P.M. dal.GenericDAL lambda$setParameters$0
+    <system-err><![CDATA[Apr. 14, 2021 5:22:17 P.M. dal.GenericDAL lambda$setParameters$0
 INFO: setParameters: nickname=jay
 ]]></system-err>
   </testcase>
   <testcase name="testCreateEntityNullAndEmptyValues" classname="logic.AccountLogicTest" time="0.016">
-    <system-out><![CDATA[2021-04-14T16:44:38,943|[DEBUG] EMFactory - getting EntityManagerFactory
-2021-04-14T16:44:38,943|[DEBUG] EMFactory - initializeing EntityManagerFactory
-2021-04-14T16:44:38,943|[DEBUG] SQL - 
+    <system-out><![CDATA[2021-04-14T17:22:17,860|[DEBUG] EMFactory - getting EntityManagerFactory
+2021-04-14T17:22:17,860|[DEBUG] EMFactory - initializeing EntityManagerFactory
+2021-04-14T17:22:17,860|[DEBUG] SQL - 
     /* insert entity.Account
         */ insert 
         into
@@ -1832,13 +1832,13 @@ INFO: setParameters: nickname=jay
             (name, nickname, password, username) 
         values
             (?, ?, ?, ?)
-2021-04-14T16:44:38,943|[TRACE] BasicBinder - binding parameter [1] as [VARCHAR] - [Junit 5 Test]
-2021-04-14T16:44:38,943|[TRACE] BasicBinder - binding parameter [2] as [VARCHAR] - [jay]
-2021-04-14T16:44:38,943|[TRACE] BasicBinder - binding parameter [3] as [VARCHAR] - [junit5]
-2021-04-14T16:44:38,943|[TRACE] BasicBinder - binding parameter [4] as [VARCHAR] - [junit]
-2021-04-14T16:44:38,943|[DEBUG] EMFactory - getting EntityManagerFactory
-2021-04-14T16:44:38,943|[DEBUG] EMFactory - initializeing EntityManagerFactory
-2021-04-14T16:44:38,943|[DEBUG] SQL - 
+2021-04-14T17:22:17,860|[TRACE] BasicBinder - binding parameter [1] as [VARCHAR] - [Junit 5 Test]
+2021-04-14T17:22:17,860|[TRACE] BasicBinder - binding parameter [2] as [VARCHAR] - [jay]
+2021-04-14T17:22:17,860|[TRACE] BasicBinder - binding parameter [3] as [VARCHAR] - [junit5]
+2021-04-14T17:22:17,860|[TRACE] BasicBinder - binding parameter [4] as [VARCHAR] - [junit]
+2021-04-14T17:22:17,876|[DEBUG] EMFactory - getting EntityManagerFactory
+2021-04-14T17:22:17,876|[DEBUG] EMFactory - initializeing EntityManagerFactory
+2021-04-14T17:22:17,876|[DEBUG] SQL - 
     /* load entity.Account */ select
         account0_.id as id1_0_0_,
         account0_.name as name2_0_0_,
@@ -1849,24 +1849,24 @@ INFO: setParameters: nickname=jay
         simplebloodbank.account account0_ 
     where
         account0_.id=?
-2021-04-14T16:44:38,943|[TRACE] BasicBinder - binding parameter [1] as [INTEGER] - [3]
-2021-04-14T16:44:38,943|[TRACE] BasicExtractor - extracted value ([name2_0_0_] : [VARCHAR]) - [Junit 5 Test]
-2021-04-14T16:44:38,943|[TRACE] BasicExtractor - extracted value ([nickname3_0_0_] : [VARCHAR]) - [jay]
-2021-04-14T16:44:38,943|[TRACE] BasicExtractor - extracted value ([password4_0_0_] : [VARCHAR]) - [junit5]
-2021-04-14T16:44:38,943|[TRACE] BasicExtractor - extracted value ([username5_0_0_] : [VARCHAR]) - [junit]
-2021-04-14T16:44:38,943|[DEBUG] SQL - 
+2021-04-14T17:22:17,876|[TRACE] BasicBinder - binding parameter [1] as [INTEGER] - [3]
+2021-04-14T17:22:17,876|[TRACE] BasicExtractor - extracted value ([name2_0_0_] : [VARCHAR]) - [Junit 5 Test]
+2021-04-14T17:22:17,876|[TRACE] BasicExtractor - extracted value ([nickname3_0_0_] : [VARCHAR]) - [jay]
+2021-04-14T17:22:17,876|[TRACE] BasicExtractor - extracted value ([password4_0_0_] : [VARCHAR]) - [junit5]
+2021-04-14T17:22:17,876|[TRACE] BasicExtractor - extracted value ([username5_0_0_] : [VARCHAR]) - [junit]
+2021-04-14T17:22:17,876|[DEBUG] SQL - 
     /* delete entity.Account */ delete 
         from
             simplebloodbank.account 
         where
             id=?
-2021-04-14T16:44:38,943|[TRACE] BasicBinder - binding parameter [1] as [INTEGER] - [3]
+2021-04-14T17:22:17,876|[TRACE] BasicBinder - binding parameter [1] as [INTEGER] - [3]
 ]]></system-out>
   </testcase>
-  <testcase name="testExtractDataAsList" classname="logic.AccountLogicTest" time="0">
-    <system-out><![CDATA[2021-04-14T16:44:38,959|[DEBUG] EMFactory - getting EntityManagerFactory
-2021-04-14T16:44:38,959|[DEBUG] EMFactory - initializeing EntityManagerFactory
-2021-04-14T16:44:38,959|[DEBUG] SQL - 
+  <testcase name="testExtractDataAsList" classname="logic.AccountLogicTest" time="0.015">
+    <system-out><![CDATA[2021-04-14T17:22:17,876|[DEBUG] EMFactory - getting EntityManagerFactory
+2021-04-14T17:22:17,876|[DEBUG] EMFactory - initializeing EntityManagerFactory
+2021-04-14T17:22:17,876|[DEBUG] SQL - 
     /* insert entity.Account
         */ insert 
         into
@@ -1874,13 +1874,13 @@ INFO: setParameters: nickname=jay
             (name, nickname, password, username) 
         values
             (?, ?, ?, ?)
-2021-04-14T16:44:38,959|[TRACE] BasicBinder - binding parameter [1] as [VARCHAR] - [Junit 5 Test]
-2021-04-14T16:44:38,959|[TRACE] BasicBinder - binding parameter [2] as [VARCHAR] - [jay]
-2021-04-14T16:44:38,959|[TRACE] BasicBinder - binding parameter [3] as [VARCHAR] - [junit5]
-2021-04-14T16:44:38,959|[TRACE] BasicBinder - binding parameter [4] as [VARCHAR] - [junit]
-2021-04-14T16:44:38,959|[DEBUG] EMFactory - getting EntityManagerFactory
-2021-04-14T16:44:38,959|[DEBUG] EMFactory - initializeing EntityManagerFactory
-2021-04-14T16:44:38,959|[DEBUG] SQL - 
+2021-04-14T17:22:17,876|[TRACE] BasicBinder - binding parameter [1] as [VARCHAR] - [Junit 5 Test]
+2021-04-14T17:22:17,876|[TRACE] BasicBinder - binding parameter [2] as [VARCHAR] - [jay]
+2021-04-14T17:22:17,876|[TRACE] BasicBinder - binding parameter [3] as [VARCHAR] - [junit5]
+2021-04-14T17:22:17,876|[TRACE] BasicBinder - binding parameter [4] as [VARCHAR] - [junit]
+2021-04-14T17:22:17,891|[DEBUG] EMFactory - getting EntityManagerFactory
+2021-04-14T17:22:17,891|[DEBUG] EMFactory - initializeing EntityManagerFactory
+2021-04-14T17:22:17,891|[DEBUG] SQL - 
     /* load entity.Account */ select
         account0_.id as id1_0_0_,
         account0_.name as name2_0_0_,
@@ -1891,24 +1891,24 @@ INFO: setParameters: nickname=jay
         simplebloodbank.account account0_ 
     where
         account0_.id=?
-2021-04-14T16:44:38,959|[TRACE] BasicBinder - binding parameter [1] as [INTEGER] - [4]
-2021-04-14T16:44:38,959|[TRACE] BasicExtractor - extracted value ([name2_0_0_] : [VARCHAR]) - [Junit 5 Test]
-2021-04-14T16:44:38,959|[TRACE] BasicExtractor - extracted value ([nickname3_0_0_] : [VARCHAR]) - [jay]
-2021-04-14T16:44:38,959|[TRACE] BasicExtractor - extracted value ([password4_0_0_] : [VARCHAR]) - [junit5]
-2021-04-14T16:44:38,959|[TRACE] BasicExtractor - extracted value ([username5_0_0_] : [VARCHAR]) - [junit]
-2021-04-14T16:44:38,959|[DEBUG] SQL - 
+2021-04-14T17:22:17,891|[TRACE] BasicBinder - binding parameter [1] as [INTEGER] - [4]
+2021-04-14T17:22:17,891|[TRACE] BasicExtractor - extracted value ([name2_0_0_] : [VARCHAR]) - [Junit 5 Test]
+2021-04-14T17:22:17,891|[TRACE] BasicExtractor - extracted value ([nickname3_0_0_] : [VARCHAR]) - [jay]
+2021-04-14T17:22:17,891|[TRACE] BasicExtractor - extracted value ([password4_0_0_] : [VARCHAR]) - [junit5]
+2021-04-14T17:22:17,891|[TRACE] BasicExtractor - extracted value ([username5_0_0_] : [VARCHAR]) - [junit]
+2021-04-14T17:22:17,891|[DEBUG] SQL - 
     /* delete entity.Account */ delete 
         from
             simplebloodbank.account 
         where
             id=?
-2021-04-14T16:44:38,959|[TRACE] BasicBinder - binding parameter [1] as [INTEGER] - [4]
+2021-04-14T17:22:17,891|[TRACE] BasicBinder - binding parameter [1] as [INTEGER] - [4]
 ]]></system-out>
   </testcase>
-  <testcase name="testGetAccountWIthUser" classname="logic.AccountLogicTest" time="0.031">
-    <system-out><![CDATA[2021-04-14T16:44:38,959|[DEBUG] EMFactory - getting EntityManagerFactory
-2021-04-14T16:44:38,959|[DEBUG] EMFactory - initializeing EntityManagerFactory
-2021-04-14T16:44:38,959|[DEBUG] SQL - 
+  <testcase name="testGetAccountWIthUser" classname="logic.AccountLogicTest" time="0.047">
+    <system-out><![CDATA[2021-04-14T17:22:17,891|[DEBUG] EMFactory - getting EntityManagerFactory
+2021-04-14T17:22:17,891|[DEBUG] EMFactory - initializeing EntityManagerFactory
+2021-04-14T17:22:17,891|[DEBUG] SQL - 
     /* insert entity.Account
         */ insert 
         into
@@ -1916,13 +1916,13 @@ INFO: setParameters: nickname=jay
             (name, nickname, password, username) 
         values
             (?, ?, ?, ?)
-2021-04-14T16:44:38,975|[TRACE] BasicBinder - binding parameter [1] as [VARCHAR] - [Junit 5 Test]
-2021-04-14T16:44:38,975|[TRACE] BasicBinder - binding parameter [2] as [VARCHAR] - [jay]
-2021-04-14T16:44:38,975|[TRACE] BasicBinder - binding parameter [3] as [VARCHAR] - [junit5]
-2021-04-14T16:44:38,975|[TRACE] BasicBinder - binding parameter [4] as [VARCHAR] - [junit]
-2021-04-14T16:44:38,975|[DEBUG] EMFactory - getting EntityManagerFactory
-2021-04-14T16:44:38,975|[DEBUG] EMFactory - initializeing EntityManagerFactory
-2021-04-14T16:44:38,975|[DEBUG] SQL - 
+2021-04-14T17:22:17,891|[TRACE] BasicBinder - binding parameter [1] as [VARCHAR] - [Junit 5 Test]
+2021-04-14T17:22:17,891|[TRACE] BasicBinder - binding parameter [2] as [VARCHAR] - [jay]
+2021-04-14T17:22:17,891|[TRACE] BasicBinder - binding parameter [3] as [VARCHAR] - [junit5]
+2021-04-14T17:22:17,891|[TRACE] BasicBinder - binding parameter [4] as [VARCHAR] - [junit]
+2021-04-14T17:22:17,907|[DEBUG] EMFactory - getting EntityManagerFactory
+2021-04-14T17:22:17,907|[DEBUG] EMFactory - initializeing EntityManagerFactory
+2021-04-14T17:22:17,907|[DEBUG] SQL - 
     /* Account.findByUsername */ select
         account0_.id as id1_0_,
         account0_.name as name2_0_,
@@ -1933,15 +1933,15 @@ INFO: setParameters: nickname=jay
         simplebloodbank.account account0_ 
     where
         account0_.username=?
-2021-04-14T16:44:38,975|[TRACE] BasicBinder - binding parameter [1] as [VARCHAR] - [junit]
-2021-04-14T16:44:38,975|[TRACE] BasicExtractor - extracted value ([id1_0_] : [INTEGER]) - [5]
-2021-04-14T16:44:38,975|[TRACE] BasicExtractor - extracted value ([name2_0_] : [VARCHAR]) - [Junit 5 Test]
-2021-04-14T16:44:38,975|[TRACE] BasicExtractor - extracted value ([nickname3_0_] : [VARCHAR]) - [jay]
-2021-04-14T16:44:38,975|[TRACE] BasicExtractor - extracted value ([password4_0_] : [VARCHAR]) - [junit5]
-2021-04-14T16:44:38,975|[TRACE] BasicExtractor - extracted value ([username5_0_] : [VARCHAR]) - [junit]
-2021-04-14T16:44:38,975|[DEBUG] EMFactory - getting EntityManagerFactory
-2021-04-14T16:44:38,975|[DEBUG] EMFactory - initializeing EntityManagerFactory
-2021-04-14T16:44:38,990|[DEBUG] SQL - 
+2021-04-14T17:22:17,907|[TRACE] BasicBinder - binding parameter [1] as [VARCHAR] - [junit]
+2021-04-14T17:22:17,907|[TRACE] BasicExtractor - extracted value ([id1_0_] : [INTEGER]) - [5]
+2021-04-14T17:22:17,907|[TRACE] BasicExtractor - extracted value ([name2_0_] : [VARCHAR]) - [Junit 5 Test]
+2021-04-14T17:22:17,907|[TRACE] BasicExtractor - extracted value ([nickname3_0_] : [VARCHAR]) - [jay]
+2021-04-14T17:22:17,907|[TRACE] BasicExtractor - extracted value ([password4_0_] : [VARCHAR]) - [junit5]
+2021-04-14T17:22:17,907|[TRACE] BasicExtractor - extracted value ([username5_0_] : [VARCHAR]) - [junit]
+2021-04-14T17:22:17,907|[DEBUG] EMFactory - getting EntityManagerFactory
+2021-04-14T17:22:17,907|[DEBUG] EMFactory - initializeing EntityManagerFactory
+2021-04-14T17:22:17,923|[DEBUG] SQL - 
     /* load entity.Account */ select
         account0_.id as id1_0_0_,
         account0_.name as name2_0_0_,
@@ -1952,27 +1952,27 @@ INFO: setParameters: nickname=jay
         simplebloodbank.account account0_ 
     where
         account0_.id=?
-2021-04-14T16:44:38,990|[TRACE] BasicBinder - binding parameter [1] as [INTEGER] - [5]
-2021-04-14T16:44:38,990|[TRACE] BasicExtractor - extracted value ([name2_0_0_] : [VARCHAR]) - [Junit 5 Test]
-2021-04-14T16:44:38,990|[TRACE] BasicExtractor - extracted value ([nickname3_0_0_] : [VARCHAR]) - [jay]
-2021-04-14T16:44:38,990|[TRACE] BasicExtractor - extracted value ([password4_0_0_] : [VARCHAR]) - [junit5]
-2021-04-14T16:44:38,990|[TRACE] BasicExtractor - extracted value ([username5_0_0_] : [VARCHAR]) - [junit]
-2021-04-14T16:44:38,990|[DEBUG] SQL - 
+2021-04-14T17:22:17,923|[TRACE] BasicBinder - binding parameter [1] as [INTEGER] - [5]
+2021-04-14T17:22:17,923|[TRACE] BasicExtractor - extracted value ([name2_0_0_] : [VARCHAR]) - [Junit 5 Test]
+2021-04-14T17:22:17,923|[TRACE] BasicExtractor - extracted value ([nickname3_0_0_] : [VARCHAR]) - [jay]
+2021-04-14T17:22:17,923|[TRACE] BasicExtractor - extracted value ([password4_0_0_] : [VARCHAR]) - [junit5]
+2021-04-14T17:22:17,923|[TRACE] BasicExtractor - extracted value ([username5_0_0_] : [VARCHAR]) - [junit]
+2021-04-14T17:22:17,923|[DEBUG] SQL - 
     /* delete entity.Account */ delete 
         from
             simplebloodbank.account 
         where
             id=?
-2021-04-14T16:44:38,990|[TRACE] BasicBinder - binding parameter [1] as [INTEGER] - [5]
+2021-04-14T17:22:17,923|[TRACE] BasicBinder - binding parameter [1] as [INTEGER] - [5]
 ]]></system-out>
-    <system-err><![CDATA[Apr. 14, 2021 4:44:38 P.M. dal.GenericDAL lambda$setParameters$0
+    <system-err><![CDATA[Apr. 14, 2021 5:22:17 P.M. dal.GenericDAL lambda$setParameters$0
 INFO: setParameters: username=junit
 ]]></system-err>
   </testcase>
-  <testcase name="testGetAccountsWithPassword" classname="logic.AccountLogicTest" time="0.047">
-    <system-out><![CDATA[2021-04-14T16:44:38,990|[DEBUG] EMFactory - getting EntityManagerFactory
-2021-04-14T16:44:38,990|[DEBUG] EMFactory - initializeing EntityManagerFactory
-2021-04-14T16:44:39,006|[DEBUG] SQL - 
+  <testcase name="testGetAccountsWithPassword" classname="logic.AccountLogicTest" time="0.031">
+    <system-out><![CDATA[2021-04-14T17:22:17,938|[DEBUG] EMFactory - getting EntityManagerFactory
+2021-04-14T17:22:17,938|[DEBUG] EMFactory - initializeing EntityManagerFactory
+2021-04-14T17:22:17,938|[DEBUG] SQL - 
     /* insert entity.Account
         */ insert 
         into
@@ -1980,13 +1980,13 @@ INFO: setParameters: username=junit
             (name, nickname, password, username) 
         values
             (?, ?, ?, ?)
-2021-04-14T16:44:39,006|[TRACE] BasicBinder - binding parameter [1] as [VARCHAR] - [Junit 5 Test]
-2021-04-14T16:44:39,006|[TRACE] BasicBinder - binding parameter [2] as [VARCHAR] - [jay]
-2021-04-14T16:44:39,006|[TRACE] BasicBinder - binding parameter [3] as [VARCHAR] - [junit5]
-2021-04-14T16:44:39,006|[TRACE] BasicBinder - binding parameter [4] as [VARCHAR] - [junit]
-2021-04-14T16:44:39,006|[DEBUG] EMFactory - getting EntityManagerFactory
-2021-04-14T16:44:39,006|[DEBUG] EMFactory - initializeing EntityManagerFactory
-2021-04-14T16:44:39,006|[DEBUG] SQL - 
+2021-04-14T17:22:17,938|[TRACE] BasicBinder - binding parameter [1] as [VARCHAR] - [Junit 5 Test]
+2021-04-14T17:22:17,938|[TRACE] BasicBinder - binding parameter [2] as [VARCHAR] - [jay]
+2021-04-14T17:22:17,938|[TRACE] BasicBinder - binding parameter [3] as [VARCHAR] - [junit5]
+2021-04-14T17:22:17,938|[TRACE] BasicBinder - binding parameter [4] as [VARCHAR] - [junit]
+2021-04-14T17:22:17,938|[DEBUG] EMFactory - getting EntityManagerFactory
+2021-04-14T17:22:17,938|[DEBUG] EMFactory - initializeing EntityManagerFactory
+2021-04-14T17:22:17,938|[DEBUG] SQL - 
     /* Account.findByPassword */ select
         account0_.id as id1_0_,
         account0_.name as name2_0_,
@@ -1997,15 +1997,15 @@ INFO: setParameters: username=junit
         simplebloodbank.account account0_ 
     where
         account0_.password=?
-2021-04-14T16:44:39,006|[TRACE] BasicBinder - binding parameter [1] as [VARCHAR] - [junit5]
-2021-04-14T16:44:39,006|[TRACE] BasicExtractor - extracted value ([id1_0_] : [INTEGER]) - [6]
-2021-04-14T16:44:39,006|[TRACE] BasicExtractor - extracted value ([name2_0_] : [VARCHAR]) - [Junit 5 Test]
-2021-04-14T16:44:39,006|[TRACE] BasicExtractor - extracted value ([nickname3_0_] : [VARCHAR]) - [jay]
-2021-04-14T16:44:39,006|[TRACE] BasicExtractor - extracted value ([password4_0_] : [VARCHAR]) - [junit5]
-2021-04-14T16:44:39,006|[TRACE] BasicExtractor - extracted value ([username5_0_] : [VARCHAR]) - [junit]
-2021-04-14T16:44:39,006|[DEBUG] EMFactory - getting EntityManagerFactory
-2021-04-14T16:44:39,006|[DEBUG] EMFactory - initializeing EntityManagerFactory
-2021-04-14T16:44:39,022|[DEBUG] SQL - 
+2021-04-14T17:22:17,938|[TRACE] BasicBinder - binding parameter [1] as [VARCHAR] - [junit5]
+2021-04-14T17:22:17,938|[TRACE] BasicExtractor - extracted value ([id1_0_] : [INTEGER]) - [6]
+2021-04-14T17:22:17,938|[TRACE] BasicExtractor - extracted value ([name2_0_] : [VARCHAR]) - [Junit 5 Test]
+2021-04-14T17:22:17,938|[TRACE] BasicExtractor - extracted value ([nickname3_0_] : [VARCHAR]) - [jay]
+2021-04-14T17:22:17,938|[TRACE] BasicExtractor - extracted value ([password4_0_] : [VARCHAR]) - [junit5]
+2021-04-14T17:22:17,938|[TRACE] BasicExtractor - extracted value ([username5_0_] : [VARCHAR]) - [junit]
+2021-04-14T17:22:17,938|[DEBUG] EMFactory - getting EntityManagerFactory
+2021-04-14T17:22:17,938|[DEBUG] EMFactory - initializeing EntityManagerFactory
+2021-04-14T17:22:17,954|[DEBUG] SQL - 
     /* load entity.Account */ select
         account0_.id as id1_0_0_,
         account0_.name as name2_0_0_,
@@ -2016,27 +2016,27 @@ INFO: setParameters: username=junit
         simplebloodbank.account account0_ 
     where
         account0_.id=?
-2021-04-14T16:44:39,022|[TRACE] BasicBinder - binding parameter [1] as [INTEGER] - [6]
-2021-04-14T16:44:39,022|[TRACE] BasicExtractor - extracted value ([name2_0_0_] : [VARCHAR]) - [Junit 5 Test]
-2021-04-14T16:44:39,022|[TRACE] BasicExtractor - extracted value ([nickname3_0_0_] : [VARCHAR]) - [jay]
-2021-04-14T16:44:39,022|[TRACE] BasicExtractor - extracted value ([password4_0_0_] : [VARCHAR]) - [junit5]
-2021-04-14T16:44:39,022|[TRACE] BasicExtractor - extracted value ([username5_0_0_] : [VARCHAR]) - [junit]
-2021-04-14T16:44:39,022|[DEBUG] SQL - 
+2021-04-14T17:22:17,954|[TRACE] BasicBinder - binding parameter [1] as [INTEGER] - [6]
+2021-04-14T17:22:17,954|[TRACE] BasicExtractor - extracted value ([name2_0_0_] : [VARCHAR]) - [Junit 5 Test]
+2021-04-14T17:22:17,954|[TRACE] BasicExtractor - extracted value ([nickname3_0_0_] : [VARCHAR]) - [jay]
+2021-04-14T17:22:17,954|[TRACE] BasicExtractor - extracted value ([password4_0_0_] : [VARCHAR]) - [junit5]
+2021-04-14T17:22:17,954|[TRACE] BasicExtractor - extracted value ([username5_0_0_] : [VARCHAR]) - [junit]
+2021-04-14T17:22:17,954|[DEBUG] SQL - 
     /* delete entity.Account */ delete 
         from
             simplebloodbank.account 
         where
             id=?
-2021-04-14T16:44:39,022|[TRACE] BasicBinder - binding parameter [1] as [INTEGER] - [6]
+2021-04-14T17:22:17,954|[TRACE] BasicBinder - binding parameter [1] as [INTEGER] - [6]
 ]]></system-out>
-    <system-err><![CDATA[Apr. 14, 2021 4:44:39 P.M. dal.GenericDAL lambda$setParameters$0
+    <system-err><![CDATA[Apr. 14, 2021 5:22:17 P.M. dal.GenericDAL lambda$setParameters$0
 INFO: setParameters: password=junit5
 ]]></system-err>
   </testcase>
-  <testcase name="testCreateEntityAndAdd" classname="logic.AccountLogicTest" time="0.031">
-    <system-out><![CDATA[2021-04-14T16:44:39,037|[DEBUG] EMFactory - getting EntityManagerFactory
-2021-04-14T16:44:39,037|[DEBUG] EMFactory - initializeing EntityManagerFactory
-2021-04-14T16:44:39,037|[DEBUG] SQL - 
+  <testcase name="testCreateEntityAndAdd" classname="logic.AccountLogicTest" time="0.047">
+    <system-out><![CDATA[2021-04-14T17:22:17,969|[DEBUG] EMFactory - getting EntityManagerFactory
+2021-04-14T17:22:17,969|[DEBUG] EMFactory - initializeing EntityManagerFactory
+2021-04-14T17:22:17,969|[DEBUG] SQL - 
     /* insert entity.Account
         */ insert 
         into
@@ -2044,13 +2044,13 @@ INFO: setParameters: password=junit5
             (name, nickname, password, username) 
         values
             (?, ?, ?, ?)
-2021-04-14T16:44:39,037|[TRACE] BasicBinder - binding parameter [1] as [VARCHAR] - [Junit 5 Test]
-2021-04-14T16:44:39,037|[TRACE] BasicBinder - binding parameter [2] as [VARCHAR] - [jay]
-2021-04-14T16:44:39,037|[TRACE] BasicBinder - binding parameter [3] as [VARCHAR] - [junit5]
-2021-04-14T16:44:39,037|[TRACE] BasicBinder - binding parameter [4] as [VARCHAR] - [junit]
-2021-04-14T16:44:39,037|[DEBUG] EMFactory - getting EntityManagerFactory
-2021-04-14T16:44:39,037|[DEBUG] EMFactory - initializeing EntityManagerFactory
-2021-04-14T16:44:39,037|[DEBUG] SQL - 
+2021-04-14T17:22:17,969|[TRACE] BasicBinder - binding parameter [1] as [VARCHAR] - [Junit 5 Test]
+2021-04-14T17:22:17,969|[TRACE] BasicBinder - binding parameter [2] as [VARCHAR] - [jay]
+2021-04-14T17:22:17,969|[TRACE] BasicBinder - binding parameter [3] as [VARCHAR] - [junit5]
+2021-04-14T17:22:17,969|[TRACE] BasicBinder - binding parameter [4] as [VARCHAR] - [junit]
+2021-04-14T17:22:17,969|[DEBUG] EMFactory - getting EntityManagerFactory
+2021-04-14T17:22:17,969|[DEBUG] EMFactory - initializeing EntityManagerFactory
+2021-04-14T17:22:17,969|[DEBUG] SQL - 
     /* insert entity.Account
         */ insert 
         into
@@ -2058,13 +2058,13 @@ INFO: setParameters: password=junit5
             (name, nickname, password, username) 
         values
             (?, ?, ?, ?)
-2021-04-14T16:44:39,037|[TRACE] BasicBinder - binding parameter [1] as [VARCHAR] - [create]
-2021-04-14T16:44:39,037|[TRACE] BasicBinder - binding parameter [2] as [VARCHAR] - [Test Create Entity]
-2021-04-14T16:44:39,037|[TRACE] BasicBinder - binding parameter [3] as [VARCHAR] - [create]
-2021-04-14T16:44:39,037|[TRACE] BasicBinder - binding parameter [4] as [VARCHAR] - [testCreateAccount]
-2021-04-14T16:44:39,037|[DEBUG] EMFactory - getting EntityManagerFactory
-2021-04-14T16:44:39,037|[DEBUG] EMFactory - initializeing EntityManagerFactory
-2021-04-14T16:44:39,037|[DEBUG] SQL - 
+2021-04-14T17:22:17,969|[TRACE] BasicBinder - binding parameter [1] as [VARCHAR] - [create]
+2021-04-14T17:22:17,969|[TRACE] BasicBinder - binding parameter [2] as [VARCHAR] - [Test Create Entity]
+2021-04-14T17:22:17,969|[TRACE] BasicBinder - binding parameter [3] as [VARCHAR] - [create]
+2021-04-14T17:22:17,969|[TRACE] BasicBinder - binding parameter [4] as [VARCHAR] - [testCreateAccount]
+2021-04-14T17:22:17,985|[DEBUG] EMFactory - getting EntityManagerFactory
+2021-04-14T17:22:17,985|[DEBUG] EMFactory - initializeing EntityManagerFactory
+2021-04-14T17:22:17,985|[DEBUG] SQL - 
     /* Account.findByUsername */ select
         account0_.id as id1_0_,
         account0_.name as name2_0_,
@@ -2075,15 +2075,15 @@ INFO: setParameters: password=junit5
         simplebloodbank.account account0_ 
     where
         account0_.username=?
-2021-04-14T16:44:39,037|[TRACE] BasicBinder - binding parameter [1] as [VARCHAR] - [testCreateAccount]
-2021-04-14T16:44:39,037|[TRACE] BasicExtractor - extracted value ([id1_0_] : [INTEGER]) - [8]
-2021-04-14T16:44:39,037|[TRACE] BasicExtractor - extracted value ([name2_0_] : [VARCHAR]) - [create]
-2021-04-14T16:44:39,037|[TRACE] BasicExtractor - extracted value ([nickname3_0_] : [VARCHAR]) - [Test Create Entity]
-2021-04-14T16:44:39,037|[TRACE] BasicExtractor - extracted value ([password4_0_] : [VARCHAR]) - [create]
-2021-04-14T16:44:39,037|[TRACE] BasicExtractor - extracted value ([username5_0_] : [VARCHAR]) - [testCreateAccount]
-2021-04-14T16:44:39,037|[DEBUG] EMFactory - getting EntityManagerFactory
-2021-04-14T16:44:39,037|[DEBUG] EMFactory - initializeing EntityManagerFactory
-2021-04-14T16:44:39,053|[DEBUG] SQL - 
+2021-04-14T17:22:17,985|[TRACE] BasicBinder - binding parameter [1] as [VARCHAR] - [testCreateAccount]
+2021-04-14T17:22:17,985|[TRACE] BasicExtractor - extracted value ([id1_0_] : [INTEGER]) - [8]
+2021-04-14T17:22:17,985|[TRACE] BasicExtractor - extracted value ([name2_0_] : [VARCHAR]) - [create]
+2021-04-14T17:22:17,985|[TRACE] BasicExtractor - extracted value ([nickname3_0_] : [VARCHAR]) - [Test Create Entity]
+2021-04-14T17:22:17,985|[TRACE] BasicExtractor - extracted value ([password4_0_] : [VARCHAR]) - [create]
+2021-04-14T17:22:17,985|[TRACE] BasicExtractor - extracted value ([username5_0_] : [VARCHAR]) - [testCreateAccount]
+2021-04-14T17:22:17,985|[DEBUG] EMFactory - getting EntityManagerFactory
+2021-04-14T17:22:17,985|[DEBUG] EMFactory - initializeing EntityManagerFactory
+2021-04-14T17:22:18,001|[DEBUG] SQL - 
     /* load entity.Account */ select
         account0_.id as id1_0_0_,
         account0_.name as name2_0_0_,
@@ -2094,21 +2094,21 @@ INFO: setParameters: password=junit5
         simplebloodbank.account account0_ 
     where
         account0_.id=?
-2021-04-14T16:44:39,053|[TRACE] BasicBinder - binding parameter [1] as [INTEGER] - [8]
-2021-04-14T16:44:39,053|[TRACE] BasicExtractor - extracted value ([name2_0_0_] : [VARCHAR]) - [create]
-2021-04-14T16:44:39,053|[TRACE] BasicExtractor - extracted value ([nickname3_0_0_] : [VARCHAR]) - [Test Create Entity]
-2021-04-14T16:44:39,053|[TRACE] BasicExtractor - extracted value ([password4_0_0_] : [VARCHAR]) - [create]
-2021-04-14T16:44:39,053|[TRACE] BasicExtractor - extracted value ([username5_0_0_] : [VARCHAR]) - [testCreateAccount]
-2021-04-14T16:44:39,053|[DEBUG] SQL - 
+2021-04-14T17:22:18,001|[TRACE] BasicBinder - binding parameter [1] as [INTEGER] - [8]
+2021-04-14T17:22:18,001|[TRACE] BasicExtractor - extracted value ([name2_0_0_] : [VARCHAR]) - [create]
+2021-04-14T17:22:18,001|[TRACE] BasicExtractor - extracted value ([nickname3_0_0_] : [VARCHAR]) - [Test Create Entity]
+2021-04-14T17:22:18,001|[TRACE] BasicExtractor - extracted value ([password4_0_0_] : [VARCHAR]) - [create]
+2021-04-14T17:22:18,001|[TRACE] BasicExtractor - extracted value ([username5_0_0_] : [VARCHAR]) - [testCreateAccount]
+2021-04-14T17:22:18,001|[DEBUG] SQL - 
     /* delete entity.Account */ delete 
         from
             simplebloodbank.account 
         where
             id=?
-2021-04-14T16:44:39,053|[TRACE] BasicBinder - binding parameter [1] as [INTEGER] - [8]
-2021-04-14T16:44:39,068|[DEBUG] EMFactory - getting EntityManagerFactory
-2021-04-14T16:44:39,068|[DEBUG] EMFactory - initializeing EntityManagerFactory
-2021-04-14T16:44:39,068|[DEBUG] SQL - 
+2021-04-14T17:22:18,001|[TRACE] BasicBinder - binding parameter [1] as [INTEGER] - [8]
+2021-04-14T17:22:18,001|[DEBUG] EMFactory - getting EntityManagerFactory
+2021-04-14T17:22:18,001|[DEBUG] EMFactory - initializeing EntityManagerFactory
+2021-04-14T17:22:18,001|[DEBUG] SQL - 
     /* load entity.Account */ select
         account0_.id as id1_0_0_,
         account0_.name as name2_0_0_,
@@ -2119,27 +2119,27 @@ INFO: setParameters: password=junit5
         simplebloodbank.account account0_ 
     where
         account0_.id=?
-2021-04-14T16:44:39,068|[TRACE] BasicBinder - binding parameter [1] as [INTEGER] - [7]
-2021-04-14T16:44:39,068|[TRACE] BasicExtractor - extracted value ([name2_0_0_] : [VARCHAR]) - [Junit 5 Test]
-2021-04-14T16:44:39,068|[TRACE] BasicExtractor - extracted value ([nickname3_0_0_] : [VARCHAR]) - [jay]
-2021-04-14T16:44:39,068|[TRACE] BasicExtractor - extracted value ([password4_0_0_] : [VARCHAR]) - [junit5]
-2021-04-14T16:44:39,068|[TRACE] BasicExtractor - extracted value ([username5_0_0_] : [VARCHAR]) - [junit]
-2021-04-14T16:44:39,068|[DEBUG] SQL - 
+2021-04-14T17:22:18,001|[TRACE] BasicBinder - binding parameter [1] as [INTEGER] - [7]
+2021-04-14T17:22:18,001|[TRACE] BasicExtractor - extracted value ([name2_0_0_] : [VARCHAR]) - [Junit 5 Test]
+2021-04-14T17:22:18,001|[TRACE] BasicExtractor - extracted value ([nickname3_0_0_] : [VARCHAR]) - [jay]
+2021-04-14T17:22:18,001|[TRACE] BasicExtractor - extracted value ([password4_0_0_] : [VARCHAR]) - [junit5]
+2021-04-14T17:22:18,001|[TRACE] BasicExtractor - extracted value ([username5_0_0_] : [VARCHAR]) - [junit]
+2021-04-14T17:22:18,001|[DEBUG] SQL - 
     /* delete entity.Account */ delete 
         from
             simplebloodbank.account 
         where
             id=?
-2021-04-14T16:44:39,068|[TRACE] BasicBinder - binding parameter [1] as [INTEGER] - [7]
+2021-04-14T17:22:18,001|[TRACE] BasicBinder - binding parameter [1] as [INTEGER] - [7]
 ]]></system-out>
-    <system-err><![CDATA[Apr. 14, 2021 4:44:39 P.M. dal.GenericDAL lambda$setParameters$0
+    <system-err><![CDATA[Apr. 14, 2021 5:22:17 P.M. dal.GenericDAL lambda$setParameters$0
 INFO: setParameters: username=testCreateAccount
 ]]></system-err>
   </testcase>
-  <testcase name="testAccountValidation" classname="logic.AccountLogicTest" time="0.032">
-    <system-out><![CDATA[2021-04-14T16:44:39,068|[DEBUG] EMFactory - getting EntityManagerFactory
-2021-04-14T16:44:39,068|[DEBUG] EMFactory - initializeing EntityManagerFactory
-2021-04-14T16:44:39,068|[DEBUG] SQL - 
+  <testcase name="testAccountValidation" classname="logic.AccountLogicTest" time="0.016">
+    <system-out><![CDATA[2021-04-14T17:22:18,016|[DEBUG] EMFactory - getting EntityManagerFactory
+2021-04-14T17:22:18,016|[DEBUG] EMFactory - initializeing EntityManagerFactory
+2021-04-14T17:22:18,016|[DEBUG] SQL - 
     /* insert entity.Account
         */ insert 
         into
@@ -2147,13 +2147,13 @@ INFO: setParameters: username=testCreateAccount
             (name, nickname, password, username) 
         values
             (?, ?, ?, ?)
-2021-04-14T16:44:39,068|[TRACE] BasicBinder - binding parameter [1] as [VARCHAR] - [Junit 5 Test]
-2021-04-14T16:44:39,068|[TRACE] BasicBinder - binding parameter [2] as [VARCHAR] - [jay]
-2021-04-14T16:44:39,068|[TRACE] BasicBinder - binding parameter [3] as [VARCHAR] - [junit5]
-2021-04-14T16:44:39,068|[TRACE] BasicBinder - binding parameter [4] as [VARCHAR] - [junit]
-2021-04-14T16:44:39,084|[DEBUG] EMFactory - getting EntityManagerFactory
-2021-04-14T16:44:39,084|[DEBUG] EMFactory - initializeing EntityManagerFactory
-2021-04-14T16:44:39,084|[DEBUG] SQL - 
+2021-04-14T17:22:18,016|[TRACE] BasicBinder - binding parameter [1] as [VARCHAR] - [Junit 5 Test]
+2021-04-14T17:22:18,016|[TRACE] BasicBinder - binding parameter [2] as [VARCHAR] - [jay]
+2021-04-14T17:22:18,016|[TRACE] BasicBinder - binding parameter [3] as [VARCHAR] - [junit5]
+2021-04-14T17:22:18,016|[TRACE] BasicBinder - binding parameter [4] as [VARCHAR] - [junit]
+2021-04-14T17:22:18,016|[DEBUG] EMFactory - getting EntityManagerFactory
+2021-04-14T17:22:18,016|[DEBUG] EMFactory - initializeing EntityManagerFactory
+2021-04-14T17:22:18,016|[DEBUG] SQL - 
     /* Account.validateUser */ select
         account0_.id as id1_0_,
         account0_.name as name2_0_,
@@ -2165,16 +2165,16 @@ INFO: setParameters: username=testCreateAccount
     where
         account0_.password=? 
         and account0_.username=?
-2021-04-14T16:44:39,084|[TRACE] BasicBinder - binding parameter [1] as [VARCHAR] - [junit5]
-2021-04-14T16:44:39,084|[TRACE] BasicBinder - binding parameter [2] as [VARCHAR] - [junit]
-2021-04-14T16:44:39,084|[TRACE] BasicExtractor - extracted value ([id1_0_] : [INTEGER]) - [9]
-2021-04-14T16:44:39,084|[TRACE] BasicExtractor - extracted value ([name2_0_] : [VARCHAR]) - [Junit 5 Test]
-2021-04-14T16:44:39,084|[TRACE] BasicExtractor - extracted value ([nickname3_0_] : [VARCHAR]) - [jay]
-2021-04-14T16:44:39,084|[TRACE] BasicExtractor - extracted value ([password4_0_] : [VARCHAR]) - [junit5]
-2021-04-14T16:44:39,084|[TRACE] BasicExtractor - extracted value ([username5_0_] : [VARCHAR]) - [junit]
-2021-04-14T16:44:39,084|[DEBUG] EMFactory - getting EntityManagerFactory
-2021-04-14T16:44:39,084|[DEBUG] EMFactory - initializeing EntityManagerFactory
-2021-04-14T16:44:39,100|[DEBUG] SQL - 
+2021-04-14T17:22:18,016|[TRACE] BasicBinder - binding parameter [1] as [VARCHAR] - [junit5]
+2021-04-14T17:22:18,016|[TRACE] BasicBinder - binding parameter [2] as [VARCHAR] - [junit]
+2021-04-14T17:22:18,016|[TRACE] BasicExtractor - extracted value ([id1_0_] : [INTEGER]) - [9]
+2021-04-14T17:22:18,016|[TRACE] BasicExtractor - extracted value ([name2_0_] : [VARCHAR]) - [Junit 5 Test]
+2021-04-14T17:22:18,016|[TRACE] BasicExtractor - extracted value ([nickname3_0_] : [VARCHAR]) - [jay]
+2021-04-14T17:22:18,016|[TRACE] BasicExtractor - extracted value ([password4_0_] : [VARCHAR]) - [junit5]
+2021-04-14T17:22:18,016|[TRACE] BasicExtractor - extracted value ([username5_0_] : [VARCHAR]) - [junit]
+2021-04-14T17:22:18,016|[DEBUG] EMFactory - getting EntityManagerFactory
+2021-04-14T17:22:18,016|[DEBUG] EMFactory - initializeing EntityManagerFactory
+2021-04-14T17:22:18,032|[DEBUG] SQL - 
     /* load entity.Account */ select
         account0_.id as id1_0_0_,
         account0_.name as name2_0_0_,
@@ -2185,29 +2185,29 @@ INFO: setParameters: username=testCreateAccount
         simplebloodbank.account account0_ 
     where
         account0_.id=?
-2021-04-14T16:44:39,100|[TRACE] BasicBinder - binding parameter [1] as [INTEGER] - [9]
-2021-04-14T16:44:39,100|[TRACE] BasicExtractor - extracted value ([name2_0_0_] : [VARCHAR]) - [Junit 5 Test]
-2021-04-14T16:44:39,100|[TRACE] BasicExtractor - extracted value ([nickname3_0_0_] : [VARCHAR]) - [jay]
-2021-04-14T16:44:39,100|[TRACE] BasicExtractor - extracted value ([password4_0_0_] : [VARCHAR]) - [junit5]
-2021-04-14T16:44:39,100|[TRACE] BasicExtractor - extracted value ([username5_0_0_] : [VARCHAR]) - [junit]
-2021-04-14T16:44:39,100|[DEBUG] SQL - 
+2021-04-14T17:22:18,032|[TRACE] BasicBinder - binding parameter [1] as [INTEGER] - [9]
+2021-04-14T17:22:18,032|[TRACE] BasicExtractor - extracted value ([name2_0_0_] : [VARCHAR]) - [Junit 5 Test]
+2021-04-14T17:22:18,032|[TRACE] BasicExtractor - extracted value ([nickname3_0_0_] : [VARCHAR]) - [jay]
+2021-04-14T17:22:18,032|[TRACE] BasicExtractor - extracted value ([password4_0_0_] : [VARCHAR]) - [junit5]
+2021-04-14T17:22:18,032|[TRACE] BasicExtractor - extracted value ([username5_0_0_] : [VARCHAR]) - [junit]
+2021-04-14T17:22:18,032|[DEBUG] SQL - 
     /* delete entity.Account */ delete 
         from
             simplebloodbank.account 
         where
             id=?
-2021-04-14T16:44:39,100|[TRACE] BasicBinder - binding parameter [1] as [INTEGER] - [9]
+2021-04-14T17:22:18,032|[TRACE] BasicBinder - binding parameter [1] as [INTEGER] - [9]
 ]]></system-out>
-    <system-err><![CDATA[Apr. 14, 2021 4:44:39 P.M. dal.GenericDAL lambda$setParameters$0
+    <system-err><![CDATA[Apr. 14, 2021 5:22:18 P.M. dal.GenericDAL lambda$setParameters$0
 INFO: setParameters: password=junit5
-Apr. 14, 2021 4:44:39 P.M. dal.GenericDAL lambda$setParameters$0
+Apr. 14, 2021 5:22:18 P.M. dal.GenericDAL lambda$setParameters$0
 INFO: setParameters: username=junit
 ]]></system-err>
   </testcase>
-  <testcase name="testCreateEntityBadLengthValues" classname="logic.AccountLogicTest" time="0.015">
-    <system-out><![CDATA[2021-04-14T16:44:39,100|[DEBUG] EMFactory - getting EntityManagerFactory
-2021-04-14T16:44:39,100|[DEBUG] EMFactory - initializeing EntityManagerFactory
-2021-04-14T16:44:39,100|[DEBUG] SQL - 
+  <testcase name="testCreateEntityBadLengthValues" classname="logic.AccountLogicTest" time="0.016">
+    <system-out><![CDATA[2021-04-14T17:22:18,032|[DEBUG] EMFactory - getting EntityManagerFactory
+2021-04-14T17:22:18,032|[DEBUG] EMFactory - initializeing EntityManagerFactory
+2021-04-14T17:22:18,032|[DEBUG] SQL - 
     /* insert entity.Account
         */ insert 
         into
@@ -2215,13 +2215,13 @@ INFO: setParameters: username=junit
             (name, nickname, password, username) 
         values
             (?, ?, ?, ?)
-2021-04-14T16:44:39,100|[TRACE] BasicBinder - binding parameter [1] as [VARCHAR] - [Junit 5 Test]
-2021-04-14T16:44:39,100|[TRACE] BasicBinder - binding parameter [2] as [VARCHAR] - [jay]
-2021-04-14T16:44:39,100|[TRACE] BasicBinder - binding parameter [3] as [VARCHAR] - [junit5]
-2021-04-14T16:44:39,100|[TRACE] BasicBinder - binding parameter [4] as [VARCHAR] - [junit]
-2021-04-14T16:44:39,115|[DEBUG] EMFactory - getting EntityManagerFactory
-2021-04-14T16:44:39,115|[DEBUG] EMFactory - initializeing EntityManagerFactory
-2021-04-14T16:44:39,115|[DEBUG] SQL - 
+2021-04-14T17:22:18,032|[TRACE] BasicBinder - binding parameter [1] as [VARCHAR] - [Junit 5 Test]
+2021-04-14T17:22:18,032|[TRACE] BasicBinder - binding parameter [2] as [VARCHAR] - [jay]
+2021-04-14T17:22:18,032|[TRACE] BasicBinder - binding parameter [3] as [VARCHAR] - [junit5]
+2021-04-14T17:22:18,032|[TRACE] BasicBinder - binding parameter [4] as [VARCHAR] - [junit]
+2021-04-14T17:22:18,048|[DEBUG] EMFactory - getting EntityManagerFactory
+2021-04-14T17:22:18,048|[DEBUG] EMFactory - initializeing EntityManagerFactory
+2021-04-14T17:22:18,048|[DEBUG] SQL - 
     /* load entity.Account */ select
         account0_.id as id1_0_0_,
         account0_.name as name2_0_0_,
@@ -2232,24 +2232,24 @@ INFO: setParameters: username=junit
         simplebloodbank.account account0_ 
     where
         account0_.id=?
-2021-04-14T16:44:39,115|[TRACE] BasicBinder - binding parameter [1] as [INTEGER] - [10]
-2021-04-14T16:44:39,115|[TRACE] BasicExtractor - extracted value ([name2_0_0_] : [VARCHAR]) - [Junit 5 Test]
-2021-04-14T16:44:39,115|[TRACE] BasicExtractor - extracted value ([nickname3_0_0_] : [VARCHAR]) - [jay]
-2021-04-14T16:44:39,115|[TRACE] BasicExtractor - extracted value ([password4_0_0_] : [VARCHAR]) - [junit5]
-2021-04-14T16:44:39,115|[TRACE] BasicExtractor - extracted value ([username5_0_0_] : [VARCHAR]) - [junit]
-2021-04-14T16:44:39,115|[DEBUG] SQL - 
+2021-04-14T17:22:18,048|[TRACE] BasicBinder - binding parameter [1] as [INTEGER] - [10]
+2021-04-14T17:22:18,048|[TRACE] BasicExtractor - extracted value ([name2_0_0_] : [VARCHAR]) - [Junit 5 Test]
+2021-04-14T17:22:18,048|[TRACE] BasicExtractor - extracted value ([nickname3_0_0_] : [VARCHAR]) - [jay]
+2021-04-14T17:22:18,048|[TRACE] BasicExtractor - extracted value ([password4_0_0_] : [VARCHAR]) - [junit5]
+2021-04-14T17:22:18,048|[TRACE] BasicExtractor - extracted value ([username5_0_0_] : [VARCHAR]) - [junit]
+2021-04-14T17:22:18,048|[DEBUG] SQL - 
     /* delete entity.Account */ delete 
         from
             simplebloodbank.account 
         where
             id=?
-2021-04-14T16:44:39,115|[TRACE] BasicBinder - binding parameter [1] as [INTEGER] - [10]
+2021-04-14T17:22:18,048|[TRACE] BasicBinder - binding parameter [1] as [INTEGER] - [10]
 ]]></system-out>
   </testcase>
-  <testcase name="testCreateEntityEdgeValues" classname="logic.AccountLogicTest" time="0.016">
-    <system-out><![CDATA[2021-04-14T16:44:39,115|[DEBUG] EMFactory - getting EntityManagerFactory
-2021-04-14T16:44:39,115|[DEBUG] EMFactory - initializeing EntityManagerFactory
-2021-04-14T16:44:39,115|[DEBUG] SQL - 
+  <testcase name="testCreateEntityEdgeValues" classname="logic.AccountLogicTest" time="0.015">
+    <system-out><![CDATA[2021-04-14T17:22:18,048|[DEBUG] EMFactory - getting EntityManagerFactory
+2021-04-14T17:22:18,048|[DEBUG] EMFactory - initializeing EntityManagerFactory
+2021-04-14T17:22:18,048|[DEBUG] SQL - 
     /* insert entity.Account
         */ insert 
         into
@@ -2257,13 +2257,13 @@ INFO: setParameters: username=junit
             (name, nickname, password, username) 
         values
             (?, ?, ?, ?)
-2021-04-14T16:44:39,115|[TRACE] BasicBinder - binding parameter [1] as [VARCHAR] - [Junit 5 Test]
-2021-04-14T16:44:39,131|[TRACE] BasicBinder - binding parameter [2] as [VARCHAR] - [jay]
-2021-04-14T16:44:39,131|[TRACE] BasicBinder - binding parameter [3] as [VARCHAR] - [junit5]
-2021-04-14T16:44:39,131|[TRACE] BasicBinder - binding parameter [4] as [VARCHAR] - [junit]
-2021-04-14T16:44:39,131|[DEBUG] EMFactory - getting EntityManagerFactory
-2021-04-14T16:44:39,131|[DEBUG] EMFactory - initializeing EntityManagerFactory
-2021-04-14T16:44:39,131|[DEBUG] SQL - 
+2021-04-14T17:22:18,048|[TRACE] BasicBinder - binding parameter [1] as [VARCHAR] - [Junit 5 Test]
+2021-04-14T17:22:18,048|[TRACE] BasicBinder - binding parameter [2] as [VARCHAR] - [jay]
+2021-04-14T17:22:18,048|[TRACE] BasicBinder - binding parameter [3] as [VARCHAR] - [junit5]
+2021-04-14T17:22:18,048|[TRACE] BasicBinder - binding parameter [4] as [VARCHAR] - [junit]
+2021-04-14T17:22:18,063|[DEBUG] EMFactory - getting EntityManagerFactory
+2021-04-14T17:22:18,063|[DEBUG] EMFactory - initializeing EntityManagerFactory
+2021-04-14T17:22:18,063|[DEBUG] SQL - 
     /* load entity.Account */ select
         account0_.id as id1_0_0_,
         account0_.name as name2_0_0_,
@@ -2274,24 +2274,24 @@ INFO: setParameters: username=junit
         simplebloodbank.account account0_ 
     where
         account0_.id=?
-2021-04-14T16:44:39,131|[TRACE] BasicBinder - binding parameter [1] as [INTEGER] - [11]
-2021-04-14T16:44:39,131|[TRACE] BasicExtractor - extracted value ([name2_0_0_] : [VARCHAR]) - [Junit 5 Test]
-2021-04-14T16:44:39,131|[TRACE] BasicExtractor - extracted value ([nickname3_0_0_] : [VARCHAR]) - [jay]
-2021-04-14T16:44:39,131|[TRACE] BasicExtractor - extracted value ([password4_0_0_] : [VARCHAR]) - [junit5]
-2021-04-14T16:44:39,131|[TRACE] BasicExtractor - extracted value ([username5_0_0_] : [VARCHAR]) - [junit]
-2021-04-14T16:44:39,131|[DEBUG] SQL - 
+2021-04-14T17:22:18,063|[TRACE] BasicBinder - binding parameter [1] as [INTEGER] - [11]
+2021-04-14T17:22:18,063|[TRACE] BasicExtractor - extracted value ([name2_0_0_] : [VARCHAR]) - [Junit 5 Test]
+2021-04-14T17:22:18,063|[TRACE] BasicExtractor - extracted value ([nickname3_0_0_] : [VARCHAR]) - [jay]
+2021-04-14T17:22:18,063|[TRACE] BasicExtractor - extracted value ([password4_0_0_] : [VARCHAR]) - [junit5]
+2021-04-14T17:22:18,063|[TRACE] BasicExtractor - extracted value ([username5_0_0_] : [VARCHAR]) - [junit]
+2021-04-14T17:22:18,063|[DEBUG] SQL - 
     /* delete entity.Account */ delete 
         from
             simplebloodbank.account 
         where
             id=?
-2021-04-14T16:44:39,131|[TRACE] BasicBinder - binding parameter [1] as [INTEGER] - [11]
+2021-04-14T17:22:18,063|[TRACE] BasicBinder - binding parameter [1] as [INTEGER] - [11]
 ]]></system-out>
   </testcase>
   <testcase name="testGetAll" classname="logic.AccountLogicTest" time="0.047">
-    <system-out><![CDATA[2021-04-14T16:44:39,131|[DEBUG] EMFactory - getting EntityManagerFactory
-2021-04-14T16:44:39,131|[DEBUG] EMFactory - initializeing EntityManagerFactory
-2021-04-14T16:44:39,131|[DEBUG] SQL - 
+    <system-out><![CDATA[2021-04-14T17:22:18,063|[DEBUG] EMFactory - getting EntityManagerFactory
+2021-04-14T17:22:18,063|[DEBUG] EMFactory - initializeing EntityManagerFactory
+2021-04-14T17:22:18,063|[DEBUG] SQL - 
     /* insert entity.Account
         */ insert 
         into
@@ -2299,13 +2299,13 @@ INFO: setParameters: username=junit
             (name, nickname, password, username) 
         values
             (?, ?, ?, ?)
-2021-04-14T16:44:39,131|[TRACE] BasicBinder - binding parameter [1] as [VARCHAR] - [Junit 5 Test]
-2021-04-14T16:44:39,131|[TRACE] BasicBinder - binding parameter [2] as [VARCHAR] - [jay]
-2021-04-14T16:44:39,131|[TRACE] BasicBinder - binding parameter [3] as [VARCHAR] - [junit5]
-2021-04-14T16:44:39,131|[TRACE] BasicBinder - binding parameter [4] as [VARCHAR] - [junit]
-2021-04-14T16:44:39,146|[DEBUG] EMFactory - getting EntityManagerFactory
-2021-04-14T16:44:39,146|[DEBUG] EMFactory - initializeing EntityManagerFactory
-2021-04-14T16:44:39,146|[DEBUG] SQL - 
+2021-04-14T17:22:18,063|[TRACE] BasicBinder - binding parameter [1] as [VARCHAR] - [Junit 5 Test]
+2021-04-14T17:22:18,063|[TRACE] BasicBinder - binding parameter [2] as [VARCHAR] - [jay]
+2021-04-14T17:22:18,063|[TRACE] BasicBinder - binding parameter [3] as [VARCHAR] - [junit5]
+2021-04-14T17:22:18,063|[TRACE] BasicBinder - binding parameter [4] as [VARCHAR] - [junit]
+2021-04-14T17:22:18,079|[DEBUG] EMFactory - getting EntityManagerFactory
+2021-04-14T17:22:18,079|[DEBUG] EMFactory - initializeing EntityManagerFactory
+2021-04-14T17:22:18,079|[DEBUG] SQL - 
     /* Account.findAll */ select
         account0_.id as id1_0_,
         account0_.name as name2_0_,
@@ -2314,14 +2314,14 @@ INFO: setParameters: username=junit
         account0_.username as username5_0_ 
     from
         simplebloodbank.account account0_
-2021-04-14T16:44:39,146|[TRACE] BasicExtractor - extracted value ([id1_0_] : [INTEGER]) - [12]
-2021-04-14T16:44:39,146|[TRACE] BasicExtractor - extracted value ([name2_0_] : [VARCHAR]) - [Junit 5 Test]
-2021-04-14T16:44:39,146|[TRACE] BasicExtractor - extracted value ([nickname3_0_] : [VARCHAR]) - [jay]
-2021-04-14T16:44:39,146|[TRACE] BasicExtractor - extracted value ([password4_0_] : [VARCHAR]) - [junit5]
-2021-04-14T16:44:39,146|[TRACE] BasicExtractor - extracted value ([username5_0_] : [VARCHAR]) - [junit]
-2021-04-14T16:44:39,146|[DEBUG] EMFactory - getting EntityManagerFactory
-2021-04-14T16:44:39,146|[DEBUG] EMFactory - initializeing EntityManagerFactory
-2021-04-14T16:44:39,162|[DEBUG] SQL - 
+2021-04-14T17:22:18,079|[TRACE] BasicExtractor - extracted value ([id1_0_] : [INTEGER]) - [12]
+2021-04-14T17:22:18,079|[TRACE] BasicExtractor - extracted value ([name2_0_] : [VARCHAR]) - [Junit 5 Test]
+2021-04-14T17:22:18,079|[TRACE] BasicExtractor - extracted value ([nickname3_0_] : [VARCHAR]) - [jay]
+2021-04-14T17:22:18,079|[TRACE] BasicExtractor - extracted value ([password4_0_] : [VARCHAR]) - [junit5]
+2021-04-14T17:22:18,079|[TRACE] BasicExtractor - extracted value ([username5_0_] : [VARCHAR]) - [junit]
+2021-04-14T17:22:18,079|[DEBUG] EMFactory - getting EntityManagerFactory
+2021-04-14T17:22:18,079|[DEBUG] EMFactory - initializeing EntityManagerFactory
+2021-04-14T17:22:18,094|[DEBUG] SQL - 
     /* load entity.Account */ select
         account0_.id as id1_0_0_,
         account0_.name as name2_0_0_,
@@ -2332,21 +2332,21 @@ INFO: setParameters: username=junit
         simplebloodbank.account account0_ 
     where
         account0_.id=?
-2021-04-14T16:44:39,162|[TRACE] BasicBinder - binding parameter [1] as [INTEGER] - [12]
-2021-04-14T16:44:39,162|[TRACE] BasicExtractor - extracted value ([name2_0_0_] : [VARCHAR]) - [Junit 5 Test]
-2021-04-14T16:44:39,162|[TRACE] BasicExtractor - extracted value ([nickname3_0_0_] : [VARCHAR]) - [jay]
-2021-04-14T16:44:39,162|[TRACE] BasicExtractor - extracted value ([password4_0_0_] : [VARCHAR]) - [junit5]
-2021-04-14T16:44:39,162|[TRACE] BasicExtractor - extracted value ([username5_0_0_] : [VARCHAR]) - [junit]
-2021-04-14T16:44:39,162|[DEBUG] SQL - 
+2021-04-14T17:22:18,094|[TRACE] BasicBinder - binding parameter [1] as [INTEGER] - [12]
+2021-04-14T17:22:18,094|[TRACE] BasicExtractor - extracted value ([name2_0_0_] : [VARCHAR]) - [Junit 5 Test]
+2021-04-14T17:22:18,094|[TRACE] BasicExtractor - extracted value ([nickname3_0_0_] : [VARCHAR]) - [jay]
+2021-04-14T17:22:18,094|[TRACE] BasicExtractor - extracted value ([password4_0_0_] : [VARCHAR]) - [junit5]
+2021-04-14T17:22:18,094|[TRACE] BasicExtractor - extracted value ([username5_0_0_] : [VARCHAR]) - [junit]
+2021-04-14T17:22:18,094|[DEBUG] SQL - 
     /* delete entity.Account */ delete 
         from
             simplebloodbank.account 
         where
             id=?
-2021-04-14T16:44:39,162|[TRACE] BasicBinder - binding parameter [1] as [INTEGER] - [12]
-2021-04-14T16:44:39,162|[DEBUG] EMFactory - getting EntityManagerFactory
-2021-04-14T16:44:39,162|[DEBUG] EMFactory - initializeing EntityManagerFactory
-2021-04-14T16:44:39,162|[DEBUG] SQL - 
+2021-04-14T17:22:18,094|[TRACE] BasicBinder - binding parameter [1] as [INTEGER] - [12]
+2021-04-14T17:22:18,094|[DEBUG] EMFactory - getting EntityManagerFactory
+2021-04-14T17:22:18,094|[DEBUG] EMFactory - initializeing EntityManagerFactory
+2021-04-14T17:22:18,094|[DEBUG] SQL - 
     /* Account.findAll */ select
         account0_.id as id1_0_,
         account0_.name as name2_0_,
@@ -2355,9 +2355,9 @@ INFO: setParameters: username=junit
         account0_.username as username5_0_ 
     from
         simplebloodbank.account account0_
-2021-04-14T16:44:39,162|[DEBUG] EMFactory - getting EntityManagerFactory
-2021-04-14T16:44:39,162|[DEBUG] EMFactory - initializeing EntityManagerFactory
-2021-04-14T16:44:39,178|[DEBUG] SQL - 
+2021-04-14T17:22:18,094|[DEBUG] EMFactory - getting EntityManagerFactory
+2021-04-14T17:22:18,094|[DEBUG] EMFactory - initializeing EntityManagerFactory
+2021-04-14T17:22:18,110|[DEBUG] SQL - 
     /* load entity.Account */ select
         account0_.id as id1_0_0_,
         account0_.name as name2_0_0_,
@@ -2368,8 +2368,8 @@ INFO: setParameters: username=junit
         simplebloodbank.account account0_ 
     where
         account0_.id=?
-2021-04-14T16:44:39,178|[TRACE] BasicBinder - binding parameter [1] as [INTEGER] - [12]
-2021-04-14T16:44:39,178|[DEBUG] SQL - 
+2021-04-14T17:22:18,110|[TRACE] BasicBinder - binding parameter [1] as [INTEGER] - [12]
+2021-04-14T17:22:18,110|[DEBUG] SQL - 
     /* insert entity.Account
         */ insert 
         into
@@ -2377,23 +2377,23 @@ INFO: setParameters: username=junit
             (name, nickname, password, username) 
         values
             (?, ?, ?, ?)
-2021-04-14T16:44:39,178|[TRACE] BasicBinder - binding parameter [1] as [VARCHAR] - [Junit 5 Test]
-2021-04-14T16:44:39,178|[TRACE] BasicBinder - binding parameter [2] as [VARCHAR] - [jay]
-2021-04-14T16:44:39,178|[TRACE] BasicBinder - binding parameter [3] as [VARCHAR] - [junit5]
-2021-04-14T16:44:39,178|[TRACE] BasicBinder - binding parameter [4] as [VARCHAR] - [junit]
-2021-04-14T16:44:39,178|[DEBUG] SQL - 
+2021-04-14T17:22:18,110|[TRACE] BasicBinder - binding parameter [1] as [VARCHAR] - [Junit 5 Test]
+2021-04-14T17:22:18,110|[TRACE] BasicBinder - binding parameter [2] as [VARCHAR] - [jay]
+2021-04-14T17:22:18,110|[TRACE] BasicBinder - binding parameter [3] as [VARCHAR] - [junit5]
+2021-04-14T17:22:18,110|[TRACE] BasicBinder - binding parameter [4] as [VARCHAR] - [junit]
+2021-04-14T17:22:18,110|[DEBUG] SQL - 
     /* delete entity.Account */ delete 
         from
             simplebloodbank.account 
         where
             id=?
-2021-04-14T16:44:39,178|[TRACE] BasicBinder - binding parameter [1] as [INTEGER] - [13]
+2021-04-14T17:22:18,110|[TRACE] BasicBinder - binding parameter [1] as [INTEGER] - [13]
 ]]></system-out>
   </testcase>
-  <testcase name="testGetColumnCodes" classname="logic.AccountLogicTest" time="0.015">
-    <system-out><![CDATA[2021-04-14T16:44:39,178|[DEBUG] EMFactory - getting EntityManagerFactory
-2021-04-14T16:44:39,178|[DEBUG] EMFactory - initializeing EntityManagerFactory
-2021-04-14T16:44:39,178|[DEBUG] SQL - 
+  <testcase name="testGetColumnCodes" classname="logic.AccountLogicTest" time="0.016">
+    <system-out><![CDATA[2021-04-14T17:22:18,110|[DEBUG] EMFactory - getting EntityManagerFactory
+2021-04-14T17:22:18,110|[DEBUG] EMFactory - initializeing EntityManagerFactory
+2021-04-14T17:22:18,110|[DEBUG] SQL - 
     /* insert entity.Account
         */ insert 
         into
@@ -2401,13 +2401,13 @@ INFO: setParameters: username=junit
             (name, nickname, password, username) 
         values
             (?, ?, ?, ?)
-2021-04-14T16:44:39,178|[TRACE] BasicBinder - binding parameter [1] as [VARCHAR] - [Junit 5 Test]
-2021-04-14T16:44:39,178|[TRACE] BasicBinder - binding parameter [2] as [VARCHAR] - [jay]
-2021-04-14T16:44:39,178|[TRACE] BasicBinder - binding parameter [3] as [VARCHAR] - [junit5]
-2021-04-14T16:44:39,178|[TRACE] BasicBinder - binding parameter [4] as [VARCHAR] - [junit]
-2021-04-14T16:44:39,193|[DEBUG] EMFactory - getting EntityManagerFactory
-2021-04-14T16:44:39,193|[DEBUG] EMFactory - initializeing EntityManagerFactory
-2021-04-14T16:44:39,193|[DEBUG] SQL - 
+2021-04-14T17:22:18,110|[TRACE] BasicBinder - binding parameter [1] as [VARCHAR] - [Junit 5 Test]
+2021-04-14T17:22:18,110|[TRACE] BasicBinder - binding parameter [2] as [VARCHAR] - [jay]
+2021-04-14T17:22:18,110|[TRACE] BasicBinder - binding parameter [3] as [VARCHAR] - [junit5]
+2021-04-14T17:22:18,110|[TRACE] BasicBinder - binding parameter [4] as [VARCHAR] - [junit]
+2021-04-14T17:22:18,126|[DEBUG] EMFactory - getting EntityManagerFactory
+2021-04-14T17:22:18,126|[DEBUG] EMFactory - initializeing EntityManagerFactory
+2021-04-14T17:22:18,126|[DEBUG] SQL - 
     /* load entity.Account */ select
         account0_.id as id1_0_0_,
         account0_.name as name2_0_0_,
@@ -2418,24 +2418,24 @@ INFO: setParameters: username=junit
         simplebloodbank.account account0_ 
     where
         account0_.id=?
-2021-04-14T16:44:39,193|[TRACE] BasicBinder - binding parameter [1] as [INTEGER] - [14]
-2021-04-14T16:44:39,193|[TRACE] BasicExtractor - extracted value ([name2_0_0_] : [VARCHAR]) - [Junit 5 Test]
-2021-04-14T16:44:39,193|[TRACE] BasicExtractor - extracted value ([nickname3_0_0_] : [VARCHAR]) - [jay]
-2021-04-14T16:44:39,193|[TRACE] BasicExtractor - extracted value ([password4_0_0_] : [VARCHAR]) - [junit5]
-2021-04-14T16:44:39,193|[TRACE] BasicExtractor - extracted value ([username5_0_0_] : [VARCHAR]) - [junit]
-2021-04-14T16:44:39,193|[DEBUG] SQL - 
+2021-04-14T17:22:18,126|[TRACE] BasicBinder - binding parameter [1] as [INTEGER] - [14]
+2021-04-14T17:22:18,126|[TRACE] BasicExtractor - extracted value ([name2_0_0_] : [VARCHAR]) - [Junit 5 Test]
+2021-04-14T17:22:18,126|[TRACE] BasicExtractor - extracted value ([nickname3_0_0_] : [VARCHAR]) - [jay]
+2021-04-14T17:22:18,126|[TRACE] BasicExtractor - extracted value ([password4_0_0_] : [VARCHAR]) - [junit5]
+2021-04-14T17:22:18,126|[TRACE] BasicExtractor - extracted value ([username5_0_0_] : [VARCHAR]) - [junit]
+2021-04-14T17:22:18,126|[DEBUG] SQL - 
     /* delete entity.Account */ delete 
         from
             simplebloodbank.account 
         where
             id=?
-2021-04-14T16:44:39,193|[TRACE] BasicBinder - binding parameter [1] as [INTEGER] - [14]
+2021-04-14T17:22:18,126|[TRACE] BasicBinder - binding parameter [1] as [INTEGER] - [14]
 ]]></system-out>
   </testcase>
-  <testcase name="testGetColumnNames" classname="logic.AccountLogicTest" time="0.016">
-    <system-out><![CDATA[2021-04-14T16:44:39,193|[DEBUG] EMFactory - getting EntityManagerFactory
-2021-04-14T16:44:39,193|[DEBUG] EMFactory - initializeing EntityManagerFactory
-2021-04-14T16:44:39,193|[DEBUG] SQL - 
+  <testcase name="testGetColumnNames" classname="logic.AccountLogicTest" time="0.015">
+    <system-out><![CDATA[2021-04-14T17:22:18,126|[DEBUG] EMFactory - getting EntityManagerFactory
+2021-04-14T17:22:18,126|[DEBUG] EMFactory - initializeing EntityManagerFactory
+2021-04-14T17:22:18,126|[DEBUG] SQL - 
     /* insert entity.Account
         */ insert 
         into
@@ -2443,13 +2443,13 @@ INFO: setParameters: username=junit
             (name, nickname, password, username) 
         values
             (?, ?, ?, ?)
-2021-04-14T16:44:39,193|[TRACE] BasicBinder - binding parameter [1] as [VARCHAR] - [Junit 5 Test]
-2021-04-14T16:44:39,193|[TRACE] BasicBinder - binding parameter [2] as [VARCHAR] - [jay]
-2021-04-14T16:44:39,193|[TRACE] BasicBinder - binding parameter [3] as [VARCHAR] - [junit5]
-2021-04-14T16:44:39,193|[TRACE] BasicBinder - binding parameter [4] as [VARCHAR] - [junit]
-2021-04-14T16:44:39,193|[DEBUG] EMFactory - getting EntityManagerFactory
-2021-04-14T16:44:39,193|[DEBUG] EMFactory - initializeing EntityManagerFactory
-2021-04-14T16:44:39,193|[DEBUG] SQL - 
+2021-04-14T17:22:18,126|[TRACE] BasicBinder - binding parameter [1] as [VARCHAR] - [Junit 5 Test]
+2021-04-14T17:22:18,126|[TRACE] BasicBinder - binding parameter [2] as [VARCHAR] - [jay]
+2021-04-14T17:22:18,126|[TRACE] BasicBinder - binding parameter [3] as [VARCHAR] - [junit5]
+2021-04-14T17:22:18,126|[TRACE] BasicBinder - binding parameter [4] as [VARCHAR] - [junit]
+2021-04-14T17:22:18,126|[DEBUG] EMFactory - getting EntityManagerFactory
+2021-04-14T17:22:18,126|[DEBUG] EMFactory - initializeing EntityManagerFactory
+2021-04-14T17:22:18,126|[DEBUG] SQL - 
     /* load entity.Account */ select
         account0_.id as id1_0_0_,
         account0_.name as name2_0_0_,
@@ -2460,24 +2460,24 @@ INFO: setParameters: username=junit
         simplebloodbank.account account0_ 
     where
         account0_.id=?
-2021-04-14T16:44:39,193|[TRACE] BasicBinder - binding parameter [1] as [INTEGER] - [15]
-2021-04-14T16:44:39,209|[TRACE] BasicExtractor - extracted value ([name2_0_0_] : [VARCHAR]) - [Junit 5 Test]
-2021-04-14T16:44:39,209|[TRACE] BasicExtractor - extracted value ([nickname3_0_0_] : [VARCHAR]) - [jay]
-2021-04-14T16:44:39,209|[TRACE] BasicExtractor - extracted value ([password4_0_0_] : [VARCHAR]) - [junit5]
-2021-04-14T16:44:39,209|[TRACE] BasicExtractor - extracted value ([username5_0_0_] : [VARCHAR]) - [junit]
-2021-04-14T16:44:39,209|[DEBUG] SQL - 
+2021-04-14T17:22:18,126|[TRACE] BasicBinder - binding parameter [1] as [INTEGER] - [15]
+2021-04-14T17:22:18,126|[TRACE] BasicExtractor - extracted value ([name2_0_0_] : [VARCHAR]) - [Junit 5 Test]
+2021-04-14T17:22:18,126|[TRACE] BasicExtractor - extracted value ([nickname3_0_0_] : [VARCHAR]) - [jay]
+2021-04-14T17:22:18,126|[TRACE] BasicExtractor - extracted value ([password4_0_0_] : [VARCHAR]) - [junit5]
+2021-04-14T17:22:18,126|[TRACE] BasicExtractor - extracted value ([username5_0_0_] : [VARCHAR]) - [junit]
+2021-04-14T17:22:18,126|[DEBUG] SQL - 
     /* delete entity.Account */ delete 
         from
             simplebloodbank.account 
         where
             id=?
-2021-04-14T16:44:39,209|[TRACE] BasicBinder - binding parameter [1] as [INTEGER] - [15]
+2021-04-14T17:22:18,126|[TRACE] BasicBinder - binding parameter [1] as [INTEGER] - [15]
 ]]></system-out>
   </testcase>
   <testcase name="testGetWithId" classname="logic.AccountLogicTest" time="0.016">
-    <system-out><![CDATA[2021-04-14T16:44:39,209|[DEBUG] EMFactory - getting EntityManagerFactory
-2021-04-14T16:44:39,209|[DEBUG] EMFactory - initializeing EntityManagerFactory
-2021-04-14T16:44:39,209|[DEBUG] SQL - 
+    <system-out><![CDATA[2021-04-14T17:22:18,141|[DEBUG] EMFactory - getting EntityManagerFactory
+2021-04-14T17:22:18,141|[DEBUG] EMFactory - initializeing EntityManagerFactory
+2021-04-14T17:22:18,141|[DEBUG] SQL - 
     /* insert entity.Account
         */ insert 
         into
@@ -2485,13 +2485,13 @@ INFO: setParameters: username=junit
             (name, nickname, password, username) 
         values
             (?, ?, ?, ?)
-2021-04-14T16:44:39,209|[TRACE] BasicBinder - binding parameter [1] as [VARCHAR] - [Junit 5 Test]
-2021-04-14T16:44:39,209|[TRACE] BasicBinder - binding parameter [2] as [VARCHAR] - [jay]
-2021-04-14T16:44:39,209|[TRACE] BasicBinder - binding parameter [3] as [VARCHAR] - [junit5]
-2021-04-14T16:44:39,209|[TRACE] BasicBinder - binding parameter [4] as [VARCHAR] - [junit]
-2021-04-14T16:44:39,209|[DEBUG] EMFactory - getting EntityManagerFactory
-2021-04-14T16:44:39,209|[DEBUG] EMFactory - initializeing EntityManagerFactory
-2021-04-14T16:44:39,209|[DEBUG] SQL - 
+2021-04-14T17:22:18,141|[TRACE] BasicBinder - binding parameter [1] as [VARCHAR] - [Junit 5 Test]
+2021-04-14T17:22:18,141|[TRACE] BasicBinder - binding parameter [2] as [VARCHAR] - [jay]
+2021-04-14T17:22:18,141|[TRACE] BasicBinder - binding parameter [3] as [VARCHAR] - [junit5]
+2021-04-14T17:22:18,141|[TRACE] BasicBinder - binding parameter [4] as [VARCHAR] - [junit]
+2021-04-14T17:22:18,141|[DEBUG] EMFactory - getting EntityManagerFactory
+2021-04-14T17:22:18,141|[DEBUG] EMFactory - initializeing EntityManagerFactory
+2021-04-14T17:22:18,141|[DEBUG] SQL - 
     /* Account.findById */ select
         account0_.id as id1_0_,
         account0_.name as name2_0_,
@@ -2502,15 +2502,15 @@ INFO: setParameters: username=junit
         simplebloodbank.account account0_ 
     where
         account0_.id=?
-2021-04-14T16:44:39,209|[TRACE] BasicBinder - binding parameter [1] as [INTEGER] - [16]
-2021-04-14T16:44:39,209|[TRACE] BasicExtractor - extracted value ([id1_0_] : [INTEGER]) - [16]
-2021-04-14T16:44:39,209|[TRACE] BasicExtractor - extracted value ([name2_0_] : [VARCHAR]) - [Junit 5 Test]
-2021-04-14T16:44:39,209|[TRACE] BasicExtractor - extracted value ([nickname3_0_] : [VARCHAR]) - [jay]
-2021-04-14T16:44:39,209|[TRACE] BasicExtractor - extracted value ([password4_0_] : [VARCHAR]) - [junit5]
-2021-04-14T16:44:39,209|[TRACE] BasicExtractor - extracted value ([username5_0_] : [VARCHAR]) - [junit]
-2021-04-14T16:44:39,209|[DEBUG] EMFactory - getting EntityManagerFactory
-2021-04-14T16:44:39,209|[DEBUG] EMFactory - initializeing EntityManagerFactory
-2021-04-14T16:44:39,225|[DEBUG] SQL - 
+2021-04-14T17:22:18,141|[TRACE] BasicBinder - binding parameter [1] as [INTEGER] - [16]
+2021-04-14T17:22:18,141|[TRACE] BasicExtractor - extracted value ([id1_0_] : [INTEGER]) - [16]
+2021-04-14T17:22:18,141|[TRACE] BasicExtractor - extracted value ([name2_0_] : [VARCHAR]) - [Junit 5 Test]
+2021-04-14T17:22:18,141|[TRACE] BasicExtractor - extracted value ([nickname3_0_] : [VARCHAR]) - [jay]
+2021-04-14T17:22:18,141|[TRACE] BasicExtractor - extracted value ([password4_0_] : [VARCHAR]) - [junit5]
+2021-04-14T17:22:18,141|[TRACE] BasicExtractor - extracted value ([username5_0_] : [VARCHAR]) - [junit]
+2021-04-14T17:22:18,141|[DEBUG] EMFactory - getting EntityManagerFactory
+2021-04-14T17:22:18,141|[DEBUG] EMFactory - initializeing EntityManagerFactory
+2021-04-14T17:22:18,157|[DEBUG] SQL - 
     /* load entity.Account */ select
         account0_.id as id1_0_0_,
         account0_.name as name2_0_0_,
@@ -2521,27 +2521,27 @@ INFO: setParameters: username=junit
         simplebloodbank.account account0_ 
     where
         account0_.id=?
-2021-04-14T16:44:39,225|[TRACE] BasicBinder - binding parameter [1] as [INTEGER] - [16]
-2021-04-14T16:44:39,225|[TRACE] BasicExtractor - extracted value ([name2_0_0_] : [VARCHAR]) - [Junit 5 Test]
-2021-04-14T16:44:39,225|[TRACE] BasicExtractor - extracted value ([nickname3_0_0_] : [VARCHAR]) - [jay]
-2021-04-14T16:44:39,225|[TRACE] BasicExtractor - extracted value ([password4_0_0_] : [VARCHAR]) - [junit5]
-2021-04-14T16:44:39,225|[TRACE] BasicExtractor - extracted value ([username5_0_0_] : [VARCHAR]) - [junit]
-2021-04-14T16:44:39,225|[DEBUG] SQL - 
+2021-04-14T17:22:18,157|[TRACE] BasicBinder - binding parameter [1] as [INTEGER] - [16]
+2021-04-14T17:22:18,157|[TRACE] BasicExtractor - extracted value ([name2_0_0_] : [VARCHAR]) - [Junit 5 Test]
+2021-04-14T17:22:18,157|[TRACE] BasicExtractor - extracted value ([nickname3_0_0_] : [VARCHAR]) - [jay]
+2021-04-14T17:22:18,157|[TRACE] BasicExtractor - extracted value ([password4_0_0_] : [VARCHAR]) - [junit5]
+2021-04-14T17:22:18,157|[TRACE] BasicExtractor - extracted value ([username5_0_0_] : [VARCHAR]) - [junit]
+2021-04-14T17:22:18,157|[DEBUG] SQL - 
     /* delete entity.Account */ delete 
         from
             simplebloodbank.account 
         where
             id=?
-2021-04-14T16:44:39,225|[TRACE] BasicBinder - binding parameter [1] as [INTEGER] - [16]
+2021-04-14T17:22:18,157|[TRACE] BasicBinder - binding parameter [1] as [INTEGER] - [16]
 ]]></system-out>
-    <system-err><![CDATA[Apr. 14, 2021 4:44:39 P.M. dal.GenericDAL lambda$setParameters$0
+    <system-err><![CDATA[Apr. 14, 2021 5:22:18 P.M. dal.GenericDAL lambda$setParameters$0
 INFO: setParameters: id=16
 ]]></system-err>
   </testcase>
-  <testcase name="testSearch" classname="logic.AccountLogicTest" time="0.016">
-    <system-out><![CDATA[2021-04-14T16:44:39,240|[DEBUG] EMFactory - getting EntityManagerFactory
-2021-04-14T16:44:39,240|[DEBUG] EMFactory - initializeing EntityManagerFactory
-2021-04-14T16:44:39,240|[DEBUG] SQL - 
+  <testcase name="testSearch" classname="logic.AccountLogicTest" time="0.031">
+    <system-out><![CDATA[2021-04-14T17:22:18,157|[DEBUG] EMFactory - getting EntityManagerFactory
+2021-04-14T17:22:18,157|[DEBUG] EMFactory - initializeing EntityManagerFactory
+2021-04-14T17:22:18,157|[DEBUG] SQL - 
     /* insert entity.Account
         */ insert 
         into
@@ -2549,13 +2549,13 @@ INFO: setParameters: id=16
             (name, nickname, password, username) 
         values
             (?, ?, ?, ?)
-2021-04-14T16:44:39,240|[TRACE] BasicBinder - binding parameter [1] as [VARCHAR] - [Junit 5 Test]
-2021-04-14T16:44:39,240|[TRACE] BasicBinder - binding parameter [2] as [VARCHAR] - [jay]
-2021-04-14T16:44:39,240|[TRACE] BasicBinder - binding parameter [3] as [VARCHAR] - [junit5]
-2021-04-14T16:44:39,240|[TRACE] BasicBinder - binding parameter [4] as [VARCHAR] - [junit]
-2021-04-14T16:44:39,240|[DEBUG] EMFactory - getting EntityManagerFactory
-2021-04-14T16:44:39,240|[DEBUG] EMFactory - initializeing EntityManagerFactory
-2021-04-14T16:44:39,240|[DEBUG] SQL - 
+2021-04-14T17:22:18,157|[TRACE] BasicBinder - binding parameter [1] as [VARCHAR] - [Junit 5 Test]
+2021-04-14T17:22:18,157|[TRACE] BasicBinder - binding parameter [2] as [VARCHAR] - [jay]
+2021-04-14T17:22:18,157|[TRACE] BasicBinder - binding parameter [3] as [VARCHAR] - [junit5]
+2021-04-14T17:22:18,157|[TRACE] BasicBinder - binding parameter [4] as [VARCHAR] - [junit]
+2021-04-14T17:22:18,173|[DEBUG] EMFactory - getting EntityManagerFactory
+2021-04-14T17:22:18,173|[DEBUG] EMFactory - initializeing EntityManagerFactory
+2021-04-14T17:22:18,173|[DEBUG] SQL - 
     /* Account.findContaining */ select
         account0_.id as id1_0_,
         account0_.name as name2_0_,
@@ -2568,17 +2568,17 @@ INFO: setParameters: id=16
         account0_.name like concat('%', ?, '%') 
         or account0_.nickname like concat('%', ?, '%') 
         or account0_.username like concat('%', ?, '%')
-2021-04-14T16:44:39,240|[TRACE] BasicBinder - binding parameter [1] as [VARCHAR] - []
-2021-04-14T16:44:39,240|[TRACE] BasicBinder - binding parameter [2] as [VARCHAR] - []
-2021-04-14T16:44:39,240|[TRACE] BasicBinder - binding parameter [3] as [VARCHAR] - []
-2021-04-14T16:44:39,240|[TRACE] BasicExtractor - extracted value ([id1_0_] : [INTEGER]) - [17]
-2021-04-14T16:44:39,240|[TRACE] BasicExtractor - extracted value ([name2_0_] : [VARCHAR]) - [Junit 5 Test]
-2021-04-14T16:44:39,240|[TRACE] BasicExtractor - extracted value ([nickname3_0_] : [VARCHAR]) - [jay]
-2021-04-14T16:44:39,240|[TRACE] BasicExtractor - extracted value ([password4_0_] : [VARCHAR]) - [junit5]
-2021-04-14T16:44:39,240|[TRACE] BasicExtractor - extracted value ([username5_0_] : [VARCHAR]) - [junit]
-2021-04-14T16:44:39,240|[DEBUG] EMFactory - getting EntityManagerFactory
-2021-04-14T16:44:39,240|[DEBUG] EMFactory - initializeing EntityManagerFactory
-2021-04-14T16:44:39,256|[DEBUG] SQL - 
+2021-04-14T17:22:18,173|[TRACE] BasicBinder - binding parameter [1] as [VARCHAR] - []
+2021-04-14T17:22:18,173|[TRACE] BasicBinder - binding parameter [2] as [VARCHAR] - []
+2021-04-14T17:22:18,173|[TRACE] BasicBinder - binding parameter [3] as [VARCHAR] - []
+2021-04-14T17:22:18,173|[TRACE] BasicExtractor - extracted value ([id1_0_] : [INTEGER]) - [17]
+2021-04-14T17:22:18,173|[TRACE] BasicExtractor - extracted value ([name2_0_] : [VARCHAR]) - [Junit 5 Test]
+2021-04-14T17:22:18,173|[TRACE] BasicExtractor - extracted value ([nickname3_0_] : [VARCHAR]) - [jay]
+2021-04-14T17:22:18,173|[TRACE] BasicExtractor - extracted value ([password4_0_] : [VARCHAR]) - [junit5]
+2021-04-14T17:22:18,173|[TRACE] BasicExtractor - extracted value ([username5_0_] : [VARCHAR]) - [junit]
+2021-04-14T17:22:18,173|[DEBUG] EMFactory - getting EntityManagerFactory
+2021-04-14T17:22:18,173|[DEBUG] EMFactory - initializeing EntityManagerFactory
+2021-04-14T17:22:18,188|[DEBUG] SQL - 
     /* load entity.Account */ select
         account0_.id as id1_0_0_,
         account0_.name as name2_0_0_,
@@ -2589,27 +2589,27 @@ INFO: setParameters: id=16
         simplebloodbank.account account0_ 
     where
         account0_.id=?
-2021-04-14T16:44:39,256|[TRACE] BasicBinder - binding parameter [1] as [INTEGER] - [17]
-2021-04-14T16:44:39,256|[TRACE] BasicExtractor - extracted value ([name2_0_0_] : [VARCHAR]) - [Junit 5 Test]
-2021-04-14T16:44:39,256|[TRACE] BasicExtractor - extracted value ([nickname3_0_0_] : [VARCHAR]) - [jay]
-2021-04-14T16:44:39,256|[TRACE] BasicExtractor - extracted value ([password4_0_0_] : [VARCHAR]) - [junit5]
-2021-04-14T16:44:39,256|[TRACE] BasicExtractor - extracted value ([username5_0_0_] : [VARCHAR]) - [junit]
-2021-04-14T16:44:39,256|[DEBUG] SQL - 
+2021-04-14T17:22:18,188|[TRACE] BasicBinder - binding parameter [1] as [INTEGER] - [17]
+2021-04-14T17:22:18,188|[TRACE] BasicExtractor - extracted value ([name2_0_0_] : [VARCHAR]) - [Junit 5 Test]
+2021-04-14T17:22:18,188|[TRACE] BasicExtractor - extracted value ([nickname3_0_0_] : [VARCHAR]) - [jay]
+2021-04-14T17:22:18,188|[TRACE] BasicExtractor - extracted value ([password4_0_0_] : [VARCHAR]) - [junit5]
+2021-04-14T17:22:18,188|[TRACE] BasicExtractor - extracted value ([username5_0_0_] : [VARCHAR]) - [junit]
+2021-04-14T17:22:18,188|[DEBUG] SQL - 
     /* delete entity.Account */ delete 
         from
             simplebloodbank.account 
         where
             id=?
-2021-04-14T16:44:39,256|[TRACE] BasicBinder - binding parameter [1] as [INTEGER] - [17]
+2021-04-14T17:22:18,188|[TRACE] BasicBinder - binding parameter [1] as [INTEGER] - [17]
 ]]></system-out>
-    <system-err><![CDATA[Apr. 14, 2021 4:44:39 P.M. dal.GenericDAL lambda$setParameters$0
+    <system-err><![CDATA[Apr. 14, 2021 5:22:18 P.M. dal.GenericDAL lambda$setParameters$0
 INFO: setParameters: search=
 ]]></system-err>
   </testcase>
   <testcase name="testGetAccountWithName" classname="logic.AccountLogicTest" time="0.031">
-    <system-out><![CDATA[2021-04-14T16:44:39,256|[DEBUG] EMFactory - getting EntityManagerFactory
-2021-04-14T16:44:39,256|[DEBUG] EMFactory - initializeing EntityManagerFactory
-2021-04-14T16:44:39,256|[DEBUG] SQL - 
+    <system-out><![CDATA[2021-04-14T17:22:18,188|[DEBUG] EMFactory - getting EntityManagerFactory
+2021-04-14T17:22:18,188|[DEBUG] EMFactory - initializeing EntityManagerFactory
+2021-04-14T17:22:18,188|[DEBUG] SQL - 
     /* insert entity.Account
         */ insert 
         into
@@ -2617,13 +2617,13 @@ INFO: setParameters: search=
             (name, nickname, password, username) 
         values
             (?, ?, ?, ?)
-2021-04-14T16:44:39,256|[TRACE] BasicBinder - binding parameter [1] as [VARCHAR] - [Junit 5 Test]
-2021-04-14T16:44:39,256|[TRACE] BasicBinder - binding parameter [2] as [VARCHAR] - [jay]
-2021-04-14T16:44:39,256|[TRACE] BasicBinder - binding parameter [3] as [VARCHAR] - [junit5]
-2021-04-14T16:44:39,256|[TRACE] BasicBinder - binding parameter [4] as [VARCHAR] - [junit]
-2021-04-14T16:44:39,271|[DEBUG] EMFactory - getting EntityManagerFactory
-2021-04-14T16:44:39,271|[DEBUG] EMFactory - initializeing EntityManagerFactory
-2021-04-14T16:44:39,271|[DEBUG] SQL - 
+2021-04-14T17:22:18,188|[TRACE] BasicBinder - binding parameter [1] as [VARCHAR] - [Junit 5 Test]
+2021-04-14T17:22:18,188|[TRACE] BasicBinder - binding parameter [2] as [VARCHAR] - [jay]
+2021-04-14T17:22:18,188|[TRACE] BasicBinder - binding parameter [3] as [VARCHAR] - [junit5]
+2021-04-14T17:22:18,188|[TRACE] BasicBinder - binding parameter [4] as [VARCHAR] - [junit]
+2021-04-14T17:22:18,188|[DEBUG] EMFactory - getting EntityManagerFactory
+2021-04-14T17:22:18,188|[DEBUG] EMFactory - initializeing EntityManagerFactory
+2021-04-14T17:22:18,188|[DEBUG] SQL - 
     /* Account.findByName */ select
         account0_.id as id1_0_,
         account0_.name as name2_0_,
@@ -2634,15 +2634,15 @@ INFO: setParameters: search=
         simplebloodbank.account account0_ 
     where
         account0_.name=?
-2021-04-14T16:44:39,271|[TRACE] BasicBinder - binding parameter [1] as [VARCHAR] - [Junit 5 Test]
-2021-04-14T16:44:39,271|[TRACE] BasicExtractor - extracted value ([id1_0_] : [INTEGER]) - [18]
-2021-04-14T16:44:39,271|[TRACE] BasicExtractor - extracted value ([name2_0_] : [VARCHAR]) - [Junit 5 Test]
-2021-04-14T16:44:39,271|[TRACE] BasicExtractor - extracted value ([nickname3_0_] : [VARCHAR]) - [jay]
-2021-04-14T16:44:39,271|[TRACE] BasicExtractor - extracted value ([password4_0_] : [VARCHAR]) - [junit5]
-2021-04-14T16:44:39,271|[TRACE] BasicExtractor - extracted value ([username5_0_] : [VARCHAR]) - [junit]
-2021-04-14T16:44:39,271|[DEBUG] EMFactory - getting EntityManagerFactory
-2021-04-14T16:44:39,271|[DEBUG] EMFactory - initializeing EntityManagerFactory
-2021-04-14T16:44:39,287|[DEBUG] SQL - 
+2021-04-14T17:22:18,188|[TRACE] BasicBinder - binding parameter [1] as [VARCHAR] - [Junit 5 Test]
+2021-04-14T17:22:18,188|[TRACE] BasicExtractor - extracted value ([id1_0_] : [INTEGER]) - [18]
+2021-04-14T17:22:18,188|[TRACE] BasicExtractor - extracted value ([name2_0_] : [VARCHAR]) - [Junit 5 Test]
+2021-04-14T17:22:18,188|[TRACE] BasicExtractor - extracted value ([nickname3_0_] : [VARCHAR]) - [jay]
+2021-04-14T17:22:18,188|[TRACE] BasicExtractor - extracted value ([password4_0_] : [VARCHAR]) - [junit5]
+2021-04-14T17:22:18,188|[TRACE] BasicExtractor - extracted value ([username5_0_] : [VARCHAR]) - [junit]
+2021-04-14T17:22:18,204|[DEBUG] EMFactory - getting EntityManagerFactory
+2021-04-14T17:22:18,204|[DEBUG] EMFactory - initializeing EntityManagerFactory
+2021-04-14T17:22:18,204|[DEBUG] SQL - 
     /* load entity.Account */ select
         account0_.id as id1_0_0_,
         account0_.name as name2_0_0_,
@@ -2653,20 +2653,20 @@ INFO: setParameters: search=
         simplebloodbank.account account0_ 
     where
         account0_.id=?
-2021-04-14T16:44:39,287|[TRACE] BasicBinder - binding parameter [1] as [INTEGER] - [18]
-2021-04-14T16:44:39,287|[TRACE] BasicExtractor - extracted value ([name2_0_0_] : [VARCHAR]) - [Junit 5 Test]
-2021-04-14T16:44:39,287|[TRACE] BasicExtractor - extracted value ([nickname3_0_0_] : [VARCHAR]) - [jay]
-2021-04-14T16:44:39,287|[TRACE] BasicExtractor - extracted value ([password4_0_0_] : [VARCHAR]) - [junit5]
-2021-04-14T16:44:39,287|[TRACE] BasicExtractor - extracted value ([username5_0_0_] : [VARCHAR]) - [junit]
-2021-04-14T16:44:39,287|[DEBUG] SQL - 
+2021-04-14T17:22:18,204|[TRACE] BasicBinder - binding parameter [1] as [INTEGER] - [18]
+2021-04-14T17:22:18,204|[TRACE] BasicExtractor - extracted value ([name2_0_0_] : [VARCHAR]) - [Junit 5 Test]
+2021-04-14T17:22:18,204|[TRACE] BasicExtractor - extracted value ([nickname3_0_0_] : [VARCHAR]) - [jay]
+2021-04-14T17:22:18,204|[TRACE] BasicExtractor - extracted value ([password4_0_0_] : [VARCHAR]) - [junit5]
+2021-04-14T17:22:18,204|[TRACE] BasicExtractor - extracted value ([username5_0_0_] : [VARCHAR]) - [junit]
+2021-04-14T17:22:18,204|[DEBUG] SQL - 
     /* delete entity.Account */ delete 
         from
             simplebloodbank.account 
         where
             id=?
-2021-04-14T16:44:39,287|[TRACE] BasicBinder - binding parameter [1] as [INTEGER] - [18]
+2021-04-14T17:22:18,204|[TRACE] BasicBinder - binding parameter [1] as [INTEGER] - [18]
 ]]></system-out>
-    <system-err><![CDATA[Apr. 14, 2021 4:44:39 P.M. dal.GenericDAL lambda$setParameters$0
+    <system-err><![CDATA[Apr. 14, 2021 5:22:18 P.M. dal.GenericDAL lambda$setParameters$0
 INFO: setParameters: name=Junit 5 Test
 ]]></system-err>
   </testcase>
