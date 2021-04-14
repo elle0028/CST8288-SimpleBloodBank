@@ -27,6 +27,7 @@ import entity.Person;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
+import javax.validation.ValidationException;
 import org.hibernate.Hibernate;
 import org.junit.jupiter.api.Disabled;
 
@@ -35,7 +36,7 @@ public class BloodBankTest {
     private BloodBank expectedEntity;
     private Set<BloodDonation> donations;
     private Person testPerson;   // dependency
-    private int personID = 1;
+    private int personID = 2;
     
     @BeforeAll
     final static void setUpBeforeClass() throws Exception {
@@ -82,7 +83,6 @@ public class BloodBankTest {
         entity.setOwner(testPerson);        
         entity.setBloodDonationSet(donations);
 
-        //add an account to hibernate, account is now managed.
         //we use merge instead of add so we can get the updated generated ID.
         expectedEntity = em.merge( entity );
         //commit the changes
@@ -233,12 +233,7 @@ public class BloodBankTest {
         } 
         assertEquals(found, 1);
     }
-    
-    /* TODO: Cant do this without Person code
-    @Test
-    final void testGetBloodBankWithOwner() {        
-    }
-    */
+   
     
     @Test
     final void testGetBloodBanksWithEstablished() {
@@ -269,6 +264,15 @@ public class BloodBankTest {
         }
         assertEquals(found, 1);
     }
+    
+    @Test
+    final void testGetBloodBanksWithOwner() {
+        BloodBank returnedBank = logic.getBloodBankWithOwner( expectedEntity.getOwner().getId() );
+        // fix hibernate Person back into regular Person
+        returnedBank.setOwner((Person)Hibernate.unproxy(returnedBank.getOwner()));
+        assertBloodBanksEqual(expectedEntity, returnedBank);
+    }
+    
     
     @Test
     final void testCreateEntityAndAdd() {
@@ -309,23 +313,92 @@ public class BloodBankTest {
 
         BloodBank returnedBank = logic.createEntity( sampleMap );
         if (expectedEntity.getOwner() != null) {            
-            returnedBank.setOwner(EMFactory.getEMF().createEntityManager().find( Person.class, 2));
+            returnedBank.setOwner(EMFactory.getEMF().createEntityManager().find( Person.class, personID));
         }
         
         assertBloodBanksEqual( expectedEntity, returnedBank );
     }
-    
-    /*
+
     @Test
     final void testCreateEntityNullAndEmptyValues() {
         Map<String, String[]> sampleMap = new HashMap<>();
         Consumer<Map<String, String[]>> fillMap = ( Map<String, String[]> map ) -> {
             map.clear();
-            map.put(BloodBankLogic.ID, new String[]{ Integer.toString(expectedEntity.getId()) });
-            map.put(BloodBankLogic.ID, new String[]{ Integer.toString(expectedEntity.getId()) });
-        }; 
+            map.put( BloodBankLogic.ID, new String[]{ Integer.toString(expectedEntity.getId()) } );
+            map.put( BloodBankLogic.PRIVATELY_OWNED, new String[]{ Boolean.toString(expectedEntity.getPrivatelyOwned()) } );
+            map.put( BloodBankLogic.ESTABLISHED, new String[]{ expectedEntity.getEstablished().toString() } );
+            if (expectedEntity.getOwner() != null) 
+                map.put( BloodBankLogic.OWNER_ID, new String[]{ expectedEntity.getOwner().getId().toString() } );
+            map.put( BloodBankLogic.NAME, new String[]{ expectedEntity.getName() } );
+            map.put( BloodBankLogic.EMPLOYEE_COUNT, new String[]{ Integer.toString(expectedEntity.getEmployeeCount()) } );
+
+        };
+        
+        fillMap.accept( sampleMap );
+        sampleMap.replace( BloodBankLogic.ID, null );
+        assertThrows( NullPointerException.class, () -> logic.createEntity( sampleMap ) );
+        sampleMap.replace( BloodBankLogic.ID, new String[]{} );
+        assertThrows( IndexOutOfBoundsException.class, () -> logic.createEntity( sampleMap ) );
+        
+        fillMap.accept( sampleMap );
+        sampleMap.replace( BloodBankLogic.NAME, null );
+        assertThrows( NullPointerException.class, () -> logic.createEntity( sampleMap ) );
+        sampleMap.replace( BloodBankLogic.NAME, new String[]{} );
+        assertThrows( IndexOutOfBoundsException.class, () -> logic.createEntity( sampleMap ) );
+        
+        fillMap.accept( sampleMap );
+        sampleMap.replace( BloodBankLogic.PRIVATELY_OWNED, null );
+        assertThrows( NullPointerException.class, () -> logic.createEntity( sampleMap ) );
+        sampleMap.replace( BloodBankLogic.PRIVATELY_OWNED, new String[]{} );
+        assertThrows( IndexOutOfBoundsException.class, () -> logic.createEntity( sampleMap ) );
+                
+        fillMap.accept( sampleMap );
+        sampleMap.replace( BloodBankLogic.ESTABLISHED, null );
+        assertThrows( NullPointerException.class, () -> logic.createEntity( sampleMap ) );
+        sampleMap.replace( BloodBankLogic.ESTABLISHED, new String[]{} );
+        assertThrows( IndexOutOfBoundsException.class, () -> logic.createEntity( sampleMap ) );
+        
+        fillMap.accept( sampleMap );
+        sampleMap.replace( BloodBankLogic.EMPLOYEE_COUNT, null );
+        assertThrows( NullPointerException.class, () -> logic.createEntity( sampleMap ) );
+        sampleMap.replace( BloodBankLogic.EMPLOYEE_COUNT, new String[]{} );
+        assertThrows( IndexOutOfBoundsException.class, () -> logic.createEntity( sampleMap ) );
+                
     }
-    */
+    
+    @Test
+    final void testCreateEntityBadLengthValues() {
+        Map<String, String[]> sampleMap = new HashMap<>();
+        Consumer<Map<String, String[]>> fillMap = ( Map<String, String[]> map ) -> {
+            map.clear();
+            map.put( BloodBankLogic.ID, new String[]{ Integer.toString(expectedEntity.getId()) } );
+            map.put( BloodBankLogic.PRIVATELY_OWNED, new String[]{ Boolean.toString(expectedEntity.getPrivatelyOwned()) } );
+            map.put( BloodBankLogic.ESTABLISHED, new String[]{ expectedEntity.getEstablished().toString() } );
+            if (expectedEntity.getOwner() != null) 
+                map.put( BloodBankLogic.OWNER_ID, new String[]{ expectedEntity.getOwner().getId().toString() } );
+            map.put( BloodBankLogic.NAME, new String[]{ expectedEntity.getName() } );
+            map.put( BloodBankLogic.EMPLOYEE_COUNT, new String[]{ Integer.toString(expectedEntity.getEmployeeCount()) } );
+        };
+        
+        IntFunction<String> generateString = ( int length ) -> {
+            //https://www.baeldung.com/java-random-string#java8-alphabetic
+            //from 97 inclusive to 123 exclusive
+            return new Random().ints( 'a', 'z' + 1 ).limit( length )
+                    .collect( StringBuilder::new, StringBuilder::appendCodePoint, StringBuilder::append )
+                    .toString();
+        };        
+        
+       /* This code does throw ValidationExceptions from createEntity, but the assert still fails
+        fillMap.accept( sampleMap );
+        sampleMap.replace( BloodBankLogic.ID, new String[]{ "" } );
+        logic.createEntity( sampleMap );
+        assertThrows( ValidationException.class, () -> logic.createEntity( sampleMap ) );
+        sampleMap.replace( BloodBankLogic.ID, new String[]{ "12b" } );
+        assertThrows( ValidationException.class, () -> logic.createEntity( sampleMap ) );
+
+        */
+    }
+    
     
     @Test
     final void testExtractDataAsList() {
@@ -352,11 +425,5 @@ public class BloodBankTest {
         List<String> list = logic.getColumnCodes();
         assertEquals( Arrays.asList( BloodBankLogic.ID, BloodBankLogic.EMPLOYEE_COUNT, BloodBankLogic.NAME, BloodBankLogic.ESTABLISHED,
                 BloodBankLogic.PRIVATELY_OWNED, BloodBankLogic.OWNER_ID ), list );
-    }    
-    
-    /* TODO: Can't do this without Person code
-    @Test
-    final void testGetBloodBanksWithOwner() {      
-    }
-    */
+    }   
 }

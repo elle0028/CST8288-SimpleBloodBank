@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: logic.BloodBankTest
 -------------------------------------------------------------------------------
-Tests run: 18, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 5.11 s - in logic.BloodBankTest
+Tests run: 21, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.761 s - in logic.BloodBankTest

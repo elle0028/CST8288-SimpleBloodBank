@@ -53,7 +53,7 @@ public class BloodBankLogic extends GenericLogic <BloodBank, BloodBankDAL> {
         return get( () -> dal().findByEstablished( established ) );
     } 
     
-    public BloodBank getBloodBanksWithOwner(int ownerId) {
+    public BloodBank getBloodBankWithOwner(int ownerId) {
         return get( () -> dal().findByOwner( ownerId ) );
     }
     
@@ -80,7 +80,8 @@ public class BloodBankLogic extends GenericLogic <BloodBank, BloodBankDAL> {
         //the only time that we will have id is for update behaviour.
         if( parameterMap.containsKey( ID ) ){
             try {
-                entity.setId( Integer.parseInt( parameterMap.get( ID )[ 0 ] ) );
+                String idString = parameterMap.get( ID )[ 0 ];
+                entity.setId( Integer.parseInt( idString ) );
             } catch( java.lang.NumberFormatException ex ) {
                 throw new ValidationException( ex );
             }
@@ -135,7 +136,7 @@ public class BloodBankLogic extends GenericLogic <BloodBank, BloodBankDAL> {
             } 
         }
 
-        //validate the data
+        //validate the data       
         validator.accept( employeeCount, 45 );        
         validator.accept( privatelyOwned, 45 );
         validator.accept( name, 45 );
