@@ -29,6 +29,7 @@ import java.util.HashSet;
 import java.util.Set;
 import javax.validation.ValidationException;
 import org.hibernate.Hibernate;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import org.junit.jupiter.api.Disabled;
 
 public class BloodBankTest {
@@ -387,8 +388,8 @@ public class BloodBankTest {
                     .collect( StringBuilder::new, StringBuilder::appendCodePoint, StringBuilder::append )
                     .toString();
         };        
-        
-       /* This code does throw ValidationExceptions from createEntity, but the assert still fails
+               
+       /* This code seemingly does throw ValidationExceptions from createEntity, but the assert still fails
         fillMap.accept( sampleMap );
         sampleMap.replace( BloodBankLogic.ID, new String[]{ "" } );
         logic.createEntity( sampleMap );
@@ -397,8 +398,35 @@ public class BloodBankTest {
         assertThrows( ValidationException.class, () -> logic.createEntity( sampleMap ) );
 
         */
-    }
-    
+       
+        // Test PRIVATELY_OWNED with bad string lengths
+        fillMap.accept( sampleMap );
+        sampleMap.replace( BloodBankLogic.PRIVATELY_OWNED, new String[]{ "" } );
+        assertThrows( common.ValidationException.class, () -> logic.createEntity( sampleMap ) );
+        sampleMap.replace( BloodBankLogic.PRIVATELY_OWNED, new String[]{ generateString.apply( 46 ) } );
+        assertThrows( common.ValidationException.class, () -> logic.createEntity( sampleMap ) );
+       
+        // Test ESTABLISHED with bad string lengths
+        fillMap.accept( sampleMap );
+        sampleMap.replace( BloodBankLogic.ESTABLISHED, new String[]{ "" } );
+        assertThrows( common.ValidationException.class, () -> logic.createEntity( sampleMap ) );
+        sampleMap.replace( BloodBankLogic.ESTABLISHED, new String[]{ generateString.apply( 46 ) } );
+        assertThrows( common.ValidationException.class, () -> logic.createEntity( sampleMap ) );
+        
+        // Test NAME with bad string lengths
+        fillMap.accept( sampleMap );
+        sampleMap.replace( BloodBankLogic.NAME, new String[]{ "" } );
+        assertThrows( common.ValidationException.class, () -> logic.createEntity( sampleMap ) );
+        sampleMap.replace( BloodBankLogic.NAME, new String[]{ generateString.apply( 46 ) } );
+        assertThrows( common.ValidationException.class, () -> logic.createEntity( sampleMap ) );
+        
+        // Test EMPLOYEE_COUNT with bad string lengths
+        fillMap.accept( sampleMap );
+        sampleMap.replace( BloodBankLogic.EMPLOYEE_COUNT, new String[]{ "" } );
+        assertThrows( common.ValidationException.class, () -> logic.createEntity( sampleMap ) );
+        sampleMap.replace( BloodBankLogic.EMPLOYEE_COUNT, new String[]{ generateString.apply( 46 ) } );
+        assertThrows( common.ValidationException.class, () -> logic.createEntity( sampleMap ) );        
+    }    
     
     @Test
     final void testExtractDataAsList() {

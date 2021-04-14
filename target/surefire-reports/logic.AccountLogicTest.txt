@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: logic.AccountLogicTest
 -------------------------------------------------------------------------------
-Tests run: 16, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 4.509 s - in logic.AccountLogicTest
+Tests run: 16, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 4.524 s - in logic.AccountLogicTest

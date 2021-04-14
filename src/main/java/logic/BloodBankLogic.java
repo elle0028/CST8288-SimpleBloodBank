@@ -80,7 +80,7 @@ public class BloodBankLogic extends GenericLogic <BloodBank, BloodBankDAL> {
         //the only time that we will have id is for update behaviour.
         if( parameterMap.containsKey( ID ) ){
             try {
-                String idString = parameterMap.get( ID )[ 0 ];
+                String idString = parameterMap.get( ID )[ 0 ];                
                 entity.setId( Integer.parseInt( idString ) );
             } catch( java.lang.NumberFormatException ex ) {
                 throw new ValidationException( ex );
