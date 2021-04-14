@@ -27,13 +27,15 @@ import entity.Person;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
+import org.hibernate.Hibernate;
 import org.junit.jupiter.api.Disabled;
 
 public class BloodBankTest {
     private BloodBankLogic logic;
     private BloodBank expectedEntity;
     private Set<BloodDonation> donations;
-    private Person owner;   // dependency
+    private Person testPerson;   // dependency
+    private int personID = 1;
     
     @BeforeAll
     final static void setUpBeforeClass() throws Exception {
@@ -53,9 +55,20 @@ public class BloodBankTest {
         //get an instance of EntityManager
         EntityManager em = EMFactory.getEMF().createEntityManager();
         //start a Transaction
-        em.getTransaction().begin();
+        em.getTransaction().begin();         
         
-        Person testOwner = em.find( Person.class, 1 );
+        testPerson = em.find( Person.class, personID );
+        //if result is null create the entity and persist it
+        if( testPerson == null ){
+            //create object
+            testPerson = new Person();
+            testPerson.setFirstName("Clark");
+            testPerson.setLastName("Kent");
+            testPerson.setPhone("613-316-1361");
+            testPerson.setAddress("123 Road Street"); 
+            testPerson.setBirth(new Date("2020/3/1"));
+            em.persist( testPerson );
+        }       
 
         // add two empty donations to the donation set
         donations = new HashSet<BloodDonation>();
@@ -63,10 +76,10 @@ public class BloodBankTest {
         
         BloodBank entity = new BloodBank();
         entity.setName( "test name" );
-        entity.setPrivatelyOwned(false);
+        entity.setPrivatelyOwned(true);
         entity.setEstablished(new Date("Wed Dec 12 00:00:00 EST 1212"));
         entity.setEmployeeCount(5);
-        entity.setOwner(null);        
+        entity.setOwner(testPerson);        
         entity.setBloodDonationSet(donations);
 
         //add an account to hibernate, account is now managed.
@@ -83,6 +96,23 @@ public class BloodBankTest {
         if( expectedEntity != null ){
             logic.delete( expectedEntity );
         }
+        
+        if( expectedEntity != null ){
+            logic.delete( expectedEntity );
+        }
+        //get an instance of EntityManager
+        EntityManager em = EMFactory.getEMF().createEntityManager();
+        //start a Transaction
+        em.getTransaction().begin();
+        
+        Person testPerson = em.find( Person.class, personID );
+        if (testPerson!= null) {
+            em.remove(testPerson);
+        }
+        //commit the changes
+        em.getTransaction().commit();
+        //close EntityManager
+        em.close();
     }
     
     @Test
@@ -97,7 +127,7 @@ public class BloodBankTest {
     final void testGetPrivatelyOwned() {
         assertNotNull( expectedEntity );
         // should return false
-        assertFalse(expectedEntity.getPrivatelyOwned());
+        assertTrue(expectedEntity.getPrivatelyOwned());
     }
     
     @Test
@@ -118,7 +148,7 @@ public class BloodBankTest {
     final void testGetOwner() {
         assertNotNull( expectedEntity );
         // owner can be null and should be in this case
-        assertEquals(expectedEntity.getOwner(), null);
+        assertEquals(expectedEntity.getOwner(), testPerson);
     }    
     
     @Test
@@ -157,30 +187,35 @@ public class BloodBankTest {
       
         //assert all field to guarantee they are the same
         //assertEquals( expected.getId(), actual.getId() ); //TODO: something up with ID
-        assertEquals( expected.getName(), actual.getName() );
-        assertEquals( expected.getPrivatelyOwned(), actual.getPrivatelyOwned() );
-        assertEquals( expected.getOwner(), actual.getOwner() );
+        assertEquals(expected.getName(), actual.getName() );
+        assertEquals(expected.getPrivatelyOwned(), actual.getPrivatelyOwned() );
+        assertEquals(expected.getOwner(), actual.getOwner() );
         // use compareTo to see if the dates are the same
         assertEquals(expected.getEstablished().compareTo(actual.getEstablished()), 0);
-        assertEquals( expected.getEmployeeCount(), actual.getEmployeeCount() );
-        
+        assertEquals(expected.getEmployeeCount(), actual.getEmployeeCount() );        
     }
     
     @Test
     final void testGetWithId() {
         //using the id of test account get another account from logic
-        BloodBank returnedAccount = logic.getWithId( expectedEntity.getId() );
+        BloodBank returnedBank = logic.getWithId( expectedEntity.getId() );
 
+        // change strange Hibernate Person to a plain old Person
+        returnedBank.setOwner((Person)Hibernate.unproxy(returnedBank.getOwner()));
+        
         //the two accounts (testAcounts and returnedAccounts) must be the same
-        assertBloodBanksEqual( expectedEntity, returnedAccount );
+        assertBloodBanksEqual( expectedEntity, returnedBank );
     }
     
     @Test 
     final void testGetBloodBankWithName() {
-        BloodBank returnedAccount = logic.getBloodBankWithName( expectedEntity.getName() );
-
+        BloodBank returnedBank = logic.getBloodBankWithName( expectedEntity.getName() );
+        
+        // change strange Hibernate Person to a plain old Person
+        returnedBank.setOwner((Person)Hibernate.unproxy(returnedBank.getOwner()));        
+        
         //the two bloodbanks must be the same
-        assertBloodBanksEqual( expectedEntity, returnedAccount );
+        assertBloodBanksEqual( expectedEntity, returnedBank );
     }
     
     @Test
@@ -264,6 +299,7 @@ public class BloodBankTest {
     @Test
     final void testCreateEntity() {
         Map<String, String[]> sampleMap = new HashMap<>();
+        sampleMap.put( BloodBankLogic.ID, new String[]{ Integer.toString(expectedEntity.getId()) } );
         sampleMap.put( BloodBankLogic.PRIVATELY_OWNED, new String[]{ Boolean.toString(expectedEntity.getPrivatelyOwned()) } );
         sampleMap.put( BloodBankLogic.ESTABLISHED, new String[]{ expectedEntity.getEstablished().toString() } );
         if (expectedEntity.getOwner() != null) 
@@ -271,9 +307,12 @@ public class BloodBankTest {
         sampleMap.put( BloodBankLogic.NAME, new String[]{ expectedEntity.getName() } );
         sampleMap.put( BloodBankLogic.EMPLOYEE_COUNT, new String[]{ Integer.toString(expectedEntity.getEmployeeCount()) } );
 
-        BloodBank returnedAccount = logic.createEntity( sampleMap );
-
-        assertBloodBanksEqual( expectedEntity, returnedAccount );
+        BloodBank returnedBank = logic.createEntity( sampleMap );
+        if (expectedEntity.getOwner() != null) {            
+            returnedBank.setOwner(EMFactory.getEMF().createEntityManager().find( Person.class, 2));
+        }
+        
+        assertBloodBanksEqual( expectedEntity, returnedBank );
     }
     
     /*
