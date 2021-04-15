@@ -194,8 +194,7 @@ public class DonationRecordLogic extends GenericLogic<DonationRecord, DonationRe
             entity.setBloodDonation(null);
         } else {
             entity.setBloodDonation(new BloodDonation(Integer.parseInt(donation_id)));
-        }
-        
+        }        
   
         return entity;
     }
