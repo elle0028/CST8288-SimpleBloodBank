@@ -5,10 +5,11 @@ import dal.DonationRecordDAL;
 import entity.BloodDonation;
 import entity.DonationRecord;
 import entity.Person;
-import java.sql.Date;
-import java.time.LocalDate;
+
+import java.util.Date;
 import java.sql.Timestamp;
 import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Arrays;
@@ -63,7 +64,7 @@ public class DonationRecordLogic extends GenericLogic<DonationRecord, DonationRe
         return get(() -> dal().findByHospital(hospital));
     } 
     
-    public List<DonationRecord> getDonationRecordWithCreated(Timestamp created) {
+    public List<DonationRecord> getDonationRecordWithCreated(Date created) {
         return get(() -> dal().findCreated(created));
     }
     
@@ -84,7 +85,18 @@ public class DonationRecordLogic extends GenericLogic<DonationRecord, DonationRe
     }
     @Override
     public List<?> extractDataAsList(DonationRecord e) {
-        return Arrays.asList(e.getId(), e.getPerson(), e.getBloodDonation(), e.getTested(), e.getAdministrator(), e.getHospital(), e.getCreated());
+        Integer personId = null;
+        Integer bloodDonationId = null;
+        
+        if(e.getPerson() != null){
+            personId = e.getPerson().getId();
+        }
+        
+        if(e.getBloodDonation() != null){
+            bloodDonationId= e.getBloodDonation().getId();
+        }
+        
+        return Arrays.asList(e.getId(), personId, bloodDonationId, e.getTested(), e.getAdministrator(), e.getHospital(), e.getCreated());
     }
     @Override
     public DonationRecord createEntity(Map<String, String[]> parameterMap) {
@@ -132,8 +144,7 @@ public class DonationRecordLogic extends GenericLogic<DonationRecord, DonationRe
             person_id = parameterMap.get( PERSON_ID )[ 0 ];
             if(!person_id.equals("")){
                 validator.accept( person_id, 45 );
-            }
-            
+            } 
         }
         
         String donation_id = null;
@@ -147,22 +158,27 @@ public class DonationRecordLogic extends GenericLogic<DonationRecord, DonationRe
         String tested = parameterMap.get( TESTED )[ 0 ];
         String administrator = parameterMap.get( ADMINISTRATOR )[ 0 ];
         String hospital = parameterMap.get( HOSPITAL )[ 0 ];
-        String created = parameterMap.get( CREATED )[ 0 ];
         
+        // MIGHT NOT NEED TO VALIDATE CHECK MATT'S CODE 
         //validate the data
-        validator.accept( tested, 45 );
-        validator.accept( hospital, 45 );
-        validator.accept( hospital, 45 );
-        validator.accept( created, 45 );
-        //convertStringToDate(created);
-        // NEW :
-         LocalDateTime myDateObj = LocalDateTime.now();
-  
-         DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
-         String formattedDate = myDateObj.format(myFormatObj);
+        //validator.accept( tested, 45 );
+        //validator.accept( hospital, 45 );
+       // validator.accept( hospital, 45 );
+        //validator.accept( created, 45 );
         
+        Date creation_time = new Date();
+            //DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
+            //String formattedDate = myDateObj.format(myFormatObj);
+         try{
+             creation_time = convertStringToDate(parameterMap.get( CREATED )[ 0 ]);   
+         } catch(ValidationException e){
+             
+             creation_time = convertStringToDate(new SimpleDateFormat("yyyy-MM-dd kk:mm:ss").format(creation_time));
+             // created: 
+         }
+         
       // set entity parameters
-        entity.setCreated(convertStringToDate(created));
+        entity.setCreated(creation_time);
         entity.setAdministrator(administrator );
     
         entity.setTested(Boolean.parseBoolean(tested));

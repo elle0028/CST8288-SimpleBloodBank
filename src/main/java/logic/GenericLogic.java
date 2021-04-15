@@ -59,6 +59,7 @@ abstract class GenericLogic< E, T extends DataAccessLayer<E>> implements Logic<E
         DAL.detach( entity );
         DAL.commitAndCloseTransaction();
     }
+    
 
     @Override
     public E update( E entity ) {
