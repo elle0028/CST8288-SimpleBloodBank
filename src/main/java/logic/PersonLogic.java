@@ -114,7 +114,7 @@ public class PersonLogic extends GenericLogic<Person, PersonDAL> {
         String birthStr = parameterMap.get( BIRTH )[ 0 ];
         Date birth = null;
         try {
-            birth = new SimpleDateFormat("dd/MM/YY").parse(birthStr);
+            birth = new SimpleDateFormat("dyyyy-MM-dd kk:mm:ss").parse(birthStr);
         } catch (ParseException ex) {
             Logger.getLogger(PersonLogic.class.getName()).log(Level.SEVERE, null, ex);
         }
