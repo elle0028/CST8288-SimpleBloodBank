@@ -1,6 +1,6 @@
 package view;
 
-import entity.BloodBank;
+import entity.Person;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Arrays;
@@ -10,61 +10,44 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import logic.BloodBankLogic;
+import logic.PersonLogic;
 import logic.Logic;
 import logic.LogicFactory;
 
+
 /**
  *
- * @author Andrew O'Hara
+ * @author Fargol Azimi
  */
-@WebServlet(name = "BloodBankTableView", urlPatterns = {"/BloodBankTable"})
-public class BloodBankTableView extends HttpServlet {
-    /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-     * methods.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
+@WebServlet(name = "PersonTable", urlPatterns = {"/PersonTable"})
+public class PersonTableView extends HttpServlet {
+
+    protected void processRequest( HttpServletRequest request, HttpServletResponse response )
             throws ServletException, IOException {
         response.setContentType( "text/html;charset=UTF-8" );
         try( PrintWriter out = response.getWriter() ) {
             out.println( "<!DOCTYPE html>" );
             out.println( "<html>" );
             out.println( "<head>" );
-            out.println( "<title>BloodBankViewNormal</title>" );
+            out.println( "<title>PersonViewNormal</title>" );
             out.println( "</head>" );
             out.println( "<body>" );
 
             out.println( "<table style=\"margin-left: auto; margin-right: auto;\" border=\"1\">" );
-            out.println( "<caption>BloodBank</caption>" );
-          
-            Logic<BloodBank> logic = LogicFactory.getFor( "BloodBank" );
+            out.println( "<caption>Person</caption>" );
+
+            Logic<Person> logic = LogicFactory.getFor( "Person" );
             out.println( "<tr>" );
             logic.getColumnNames().forEach( c -> out.printf( "<th>%s</th>", c ) );
-//            out.println( "<th>EmployeeCount</th>" );
-//            out.println( "<th>Established</th>" );
-//            out.println( "<th>PrivatelyOwned</th>" );
-//            out.println( "<th>Name</th>" );
-//            out.println( "<th>Owner</th>" );
             out.println( "</tr>" );
-
-            logic.getAll().forEach( e -> out.printf( "<tr><td>%s</td><td>%s</td><td>%s</td><td>%s</td><td>%s</td><td>%s</td></tr>",
-                    logic.extractDataAsList( e ).toArray() ) );
+            logic.getAll().forEach( e -> 
+                    out.printf( "<tr><td>%s</td><td>%s</td><td>%s</td><td>%s</td><td>%s</td><td>%s</td></tr>",
+                                logic.extractDataAsList(e).toArray()) 
+            );
 
             out.println( "<tr>" );
-            //this is an example, for your other tables use getColumnNames from
-            //logic to create headers in a loop.
+
             logic.getColumnNames().forEach( c -> out.printf( "<th>%s</th>", c ) );
-//            out.println( "<th>EmployeeCount</th>" );
-//            out.println( "<th>Established</th>" );
-//            out.println( "<th>PrivatelyOwned</th>" );
-//            out.println( "<th>Name</th>" );
-//            out.println( "<th>Owner</th>" );
             out.println( "</tr>" );
             out.println( "</table>" );
             out.printf( "<div style=\"text-align: center;\"><pre>%s</pre></div>", toStringMap( request.getParameterMap() ) );
@@ -84,7 +67,6 @@ public class BloodBankTableView extends HttpServlet {
         return builder.toString();
     }
 
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
      *
@@ -94,10 +76,10 @@ public class BloodBankTableView extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+    protected void doGet( HttpServletRequest request, HttpServletResponse response )
             throws ServletException, IOException {
         log( "GET" );
-        processRequest(request, response);
+        processRequest( request, response );
     }
 
     /**
@@ -109,12 +91,18 @@ public class BloodBankTableView extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {        
-        BloodBankLogic logic = LogicFactory.getFor( "BloodBank" );
-        BloodBank bloodbank = logic.updateEntity( request.getParameterMap() );
-        logic.update( bloodbank );       
-        processRequest(request, response);
+    protected void doPost( HttpServletRequest request, HttpServletResponse response )
+            throws ServletException, IOException {
+        log( "POST" );
+        
+        // Dependency logic
+       // DonationRecordLogic dLogic = LogicFactory.getFor("DonationRecord");
+        // Main logic
+        PersonLogic plogic = LogicFactory.getFor( "Person" );
+        
+        Person person = plogic.updateEntity( request.getParameterMap() );
+        plogic.update( person);
+        processRequest( request, response );
     }
 
     /**
@@ -124,9 +112,9 @@ public class BloodBankTableView extends HttpServlet {
      */
     @Override
     public String getServletInfo() {
-        return "BloodBank Table View";
-    }// </editor-fold>
-    
+        return "Sample of Person View Normal";
+    }
+
     private static final boolean DEBUG = true;
 
     public void log( String msg ) {

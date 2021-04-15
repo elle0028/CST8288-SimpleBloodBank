@@ -72,6 +72,7 @@ public class BloodBankTest {
             em.persist( testPerson );
         }       
 
+        personID = testPerson.getId();
         // add two empty donations to the donation set
         donations = new HashSet<BloodDonation>();
         donations.add(new BloodDonation());        
@@ -108,7 +109,7 @@ public class BloodBankTest {
         
         Person testPerson = em.find( Person.class, personID );
         if (testPerson!= null) {
-            em.remove(testPerson);
+            em.remove(testPerson);            
         }
         //commit the changes
         em.getTransaction().commit();
@@ -168,7 +169,7 @@ public class BloodBankTest {
     
     @Test
     final void testGetAll() {
-        //get all the accounts from the DB
+        //get all the BloodBanks from the DB
         List<BloodBank> list = logic.getAll();
         //store the size of list, this way we know how many bloodbanks exist in DB
         int originalSize = list.size();
@@ -178,16 +179,15 @@ public class BloodBankTest {
         //delete the new bloodbank
         logic.delete( expectedEntity );
 
-        //get all bloodbanks again
+        //get all BloodBanks again
         list = logic.getAll();
-        //the new size of accounts must be one less
+        //the new size of BloodBanks must be one less
         assertEquals( originalSize - 1, list.size() );
     }
     
     private void assertBloodBanksEqual( BloodBank expected, BloodBank actual ) {
-      
         //assert all field to guarantee they are the same
-        //assertEquals( expected.getId(), actual.getId() ); //TODO: something up with ID
+        assertEquals( expected.getId(), actual.getId() ); //TODO: something up with ID
         assertEquals(expected.getName(), actual.getName() );
         assertEquals(expected.getPrivatelyOwned(), actual.getPrivatelyOwned() );
         assertEquals(expected.getOwner(), actual.getOwner() );
@@ -198,13 +198,13 @@ public class BloodBankTest {
     
     @Test
     final void testGetWithId() {
-        //using the id of test account get another account from logic
+        //using the id of test BloodBank get another BloodBank from logic
         BloodBank returnedBank = logic.getWithId( expectedEntity.getId() );
 
         // change strange Hibernate Person to a plain old Person
         returnedBank.setOwner((Person)Hibernate.unproxy(returnedBank.getOwner()));
         
-        //the two accounts (testAcounts and returnedAccounts) must be the same
+        //the two BloodBanks (testAcounts and returnedBloodBanks) must be the same
         assertBloodBanksEqual( expectedEntity, returnedBank );
     }
     
@@ -233,8 +233,7 @@ public class BloodBankTest {
             }
         } 
         assertEquals(found, 1);
-    }
-   
+    }   
     
     @Test
     final void testGetBloodBanksWithEstablished() {
@@ -272,8 +271,7 @@ public class BloodBankTest {
         // fix hibernate Person back into regular Person
         returnedBank.setOwner((Person)Hibernate.unproxy(returnedBank.getOwner()));
         assertBloodBanksEqual(expectedEntity, returnedBank);
-    }
-    
+    }    
     
     @Test
     final void testCreateEntityAndAdd() {
