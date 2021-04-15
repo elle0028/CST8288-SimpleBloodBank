@@ -213,25 +213,6 @@ class BloodDonationTest {
             assertEquals(expectedEntity.getRhd(), bloodDonation.getRhd());
         });
     }
-//
-//    @Test
-//    final void testSearch() {
-////        int foundFull = 0;
-////        //search for a substring of one of the fields in the expectedBloodDonation
-////        String searchString = expectedEntity.getBloodGroup().substring( 3 );
-////        //in account we only search for display name and user, this is completely based on your design for other entities.
-////        List<BloodDonation> returnedBloodDonations = logic.search( searchString );
-////        for( BloodDonation account: returnedBloodDonations ) {
-////            //all accounts must contain the substring
-////            assertTrue( account.getNickname().contains( searchString ) || account.getUsername().contains( searchString ) );
-////            //exactly one account must be the same
-////            if( account.getId().equals( expectedEntity.getId() ) ){
-////                assertBloodDonationEquals( expectedEntity, account );
-////                foundFull++;
-////            }
-////        }
-////        assertEquals( 1, foundFull, "if zero means not found, if more than one means duplicate" );
-//    }
 
     @Test
     final void testCreateEntityAndAdd() {
