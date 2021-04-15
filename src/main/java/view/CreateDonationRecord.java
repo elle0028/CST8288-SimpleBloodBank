@@ -55,7 +55,7 @@ public class CreateDonationRecord extends HttpServlet {
             //instead of typing the name of column manualy use the static vraiable in logic
             //use the same name as column id of the table. will use this name to get date
             //from parameter map.
-            out.println( "Perons_ID:<br>" );
+            out.println( "Person_ID:<br>" );
             out.printf( "<input type=\"text\" name=\"%s\" value=\"\"><br>", DonationRecordLogic.PERSON_ID);
             out.println( "<br>" );
             out.println( "Administrator:<br>" );
@@ -67,8 +67,9 @@ public class CreateDonationRecord extends HttpServlet {
             out.println( "Donation_id:<br>" );
             out.printf( "<input type=\"text\" name=\"%s\" value=\"\"><br>",  DonationRecordLogic.DONATION_ID);
             out.println( "<br>" );
-            out.println( "Record_id:<br>" );
-            out.printf( "<input type=\"text\" name=\"%s\" value=\"\"><br>",  DonationRecordLogic.ID);
+            // TODO: Why would we input donation record ID?
+//            out.println( "Record_id:<br>" );
+//            out.printf( "<input type=\"text\" name=\"%s\" value=\"\"><br>",  DonationRecordLogic.ID);
             out.println( "<br>" );
             
             // TRYING TO CREATE RADIO FOR TRUE AND FALSE
@@ -85,7 +86,7 @@ public class CreateDonationRecord extends HttpServlet {
             
             
             out.println( "Created:<br>" );
-            out.printf( "<input type=\"date\" placeholder=\"yyyy-MM-dd kk:mm:ss\" name=\"%s\" min=\"1900-01-01\" max=\"2040-12-30\"><br><br>" , DonationRecordLogic.CREATED);
+            out.printf( "<input type=\"datetime-local\" step=\"1\" placeholder=\"yyyy-MM-dd kk:mm:ss\" name=\"%s\" min=\"1900-01-01\" max=\"2040-12-30\"><br><br>" , DonationRecordLogic.CREATED);
             //out.printf( "<input type=\"text\" name=\"%s\" value=\"\"><br>",  DonationRecordLogic.CREATED);
             out.println( "<br>" );
             
@@ -186,7 +187,6 @@ public class CreateDonationRecord extends HttpServlet {
             } catch( IllegalArgumentException ex ) {
                 errorMessage = ex.getMessage();
             }
-        
         
         if( request.getParameter( "add" ) != null ){
             //if add button is pressed return the same page

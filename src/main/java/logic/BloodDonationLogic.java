@@ -17,6 +17,7 @@ import java.util.logging.Logger;
 
 /**
  * BONUS: This class implements updateEntity to allow for the updating of BloodDonation entities
+ * BONUS: This class implements the search functionality, allowing for searching of BloodGroup, BankID, and Created date
  * @author Shariar (Shawn) Emami, Matthew Ellero
  */
 public class BloodDonationLogic extends GenericLogic<BloodDonation, BloodDonationDAL> {
@@ -68,6 +69,11 @@ public class BloodDonationLogic extends GenericLogic<BloodDonation, BloodDonatio
     public List<BloodDonation> getBloodDonationsWithBloodBank(int bankId) {
         return get(() -> dal().findByBloodBank(bankId));
     }
+    
+    @Override
+    public List<BloodDonation> search( String search ) {
+        return get( () -> dal().findContaining( search ) );
+    }
 
     @Override
     public BloodDonation createEntity( Map<String, String[]> parameterMap ) {
@@ -92,6 +98,9 @@ public class BloodDonationLogic extends GenericLogic<BloodDonation, BloodDonatio
 
         // The act of retreiving these values will validate them
         BloodGroup bloodGroup = BloodGroup.valueOf(parameterMap.get(BLOOD_GROUP)[0]);
+        int milliliters = Integer.parseInt(parameterMap.get(MILLILITERS)[0]);
+        RhesusFactor rhd = RhesusFactor.getRhesusFactor(parameterMap.get(RHESUS_FACTOR)[0]); 
+        
         Date created = new Date();
         try {
            created = convertStringToDate(parameterMap.get(CREATED)[0]);
@@ -99,9 +108,6 @@ public class BloodDonationLogic extends GenericLogic<BloodDonation, BloodDonatio
             Logger.getLogger( BloodDonationLogic.class.getName() ).log( Level.SEVERE, null, e );
             created = convertStringToDate(new SimpleDateFormat( "yyyy-MM-dd kk:mm:ss" ).format(created));
         }
-        
-        int milliliters = Integer.parseInt(parameterMap.get(MILLILITERS)[0]);
-        RhesusFactor rhd = RhesusFactor.getRhesusFactor(parameterMap.get(RHESUS_FACTOR)[0]); 
 
         entity.setBloodGroup(bloodGroup);
         entity.setCreated(created);
@@ -131,7 +137,6 @@ public class BloodDonationLogic extends GenericLogic<BloodDonation, BloodDonatio
         Integer newMilliliters = Integer.parseInt(parameterMap.get(MILLILITERS)[0]);
         BloodGroup newBloodGroup = BloodGroup.valueOf(parameterMap.get(BLOOD_GROUP)[0]);
         RhesusFactor newRHD = RhesusFactor.getRhesusFactor(parameterMap.get(RHESUS_FACTOR)[0]);
-        
         
         //getwithid(id) get the current entity from db
         BloodDonation originalBD = bdLogic.getWithId(id);
@@ -205,7 +210,9 @@ public class BloodDonationLogic extends GenericLogic<BloodDonation, BloodDonatio
      */
     @Override
     public List<?> extractDataAsList( BloodDonation e ) {
-        return Arrays.asList( e.getId(), e.getBloodBank().getId(), e.getMilliliters(),
+        Integer bloodBankId = (e.getBloodBank() != null ) ? e.getBloodBank().getId() : null;
+        
+        return Arrays.asList( e.getId(), bloodBankId, e.getMilliliters(),
                               e.getBloodGroup(), e.getRhd(), e.getCreated() );
     }
 }

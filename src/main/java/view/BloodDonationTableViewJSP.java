@@ -79,7 +79,9 @@ public class BloodDonationTableViewJSP extends HttpServlet {
     protected void doPost( HttpServletRequest req, HttpServletResponse resp )
             throws ServletException, IOException {
         log( "POST" );
+        
         BloodDonationLogic logic = LogicFactory.getFor( "BloodDonation" );
+        
         if( req.getParameter( "edit" ) != null ){
             BloodDonation bloodDonation = logic.updateEntity( req.getParameterMap() );
             logic.update( bloodDonation );
