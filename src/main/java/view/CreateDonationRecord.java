@@ -55,7 +55,7 @@ public class CreateDonationRecord extends HttpServlet {
             //instead of typing the name of column manualy use the static vraiable in logic
             //use the same name as column id of the table. will use this name to get date
             //from parameter map.
-            out.println( "Person_ID:<br>" );
+            out.println( "Perons_ID:<br>" );
             out.printf( "<input type=\"text\" name=\"%s\" value=\"\"><br>", DonationRecordLogic.PERSON_ID);
             out.println( "<br>" );
             out.println( "Administrator:<br>" );
@@ -67,26 +67,23 @@ public class CreateDonationRecord extends HttpServlet {
             out.println( "Donation_id:<br>" );
             out.printf( "<input type=\"text\" name=\"%s\" value=\"\"><br>",  DonationRecordLogic.DONATION_ID);
             out.println( "<br>" );
-            // TODO: Why would we input donation record ID?
-//            out.println( "Record_id:<br>" );
-//            out.printf( "<input type=\"text\" name=\"%s\" value=\"\"><br>",  DonationRecordLogic.ID);
-            out.println( "<br>" );
+      
             
             // TRYING TO CREATE RADIO FOR TRUE AND FALSE
-            out.println( "Tested: CAN SWITCH THIS TO RADIO BUTTONS <br>" );
+            out.println( "Tested:<br>" );
             //out.printf( "<input type=\"radio\" name=\"%s\" value=\"true\" > True<br>",  DonationRecordLogic.TESTED);
             //out.printf( "<input type=\"radio\" name=\"%s\" value=\"false\" checked> False<br><br>",  DonationRecordLogic.TESTED);
             
             // DROP DOWN FOR TESTED TRUE OR FALSE
             out.printf( "<select name=\"%s\">", DonationRecordLogic.TESTED );
-            out.println( "<option value=\"true\">True</option>" );
-            out.println( "<option value=\"false\">False</option>" );
+            out.println( "<option value=\"True\">True</option>" );
+            out.println( "<option value=\"False\">False</option>" );
             out.println( "</select><br><br>" );
             out.println( "<br>" );
             
             
             out.println( "Created:<br>" );
-            out.printf( "<input type=\"datetime-local\" step=\"1\" placeholder=\"yyyy-MM-dd kk:mm:ss\" name=\"%s\" min=\"1900-01-01\" max=\"2040-12-30\"><br><br>" , DonationRecordLogic.CREATED);
+            out.printf( "<input type=\"date\" placeholder=\"yyyy-MM-dd kk:mm:ss\" name=\"%s\" min=\"1900-01-01\" max=\"2040-12-30\"><br><br>" , DonationRecordLogic.CREATED);
             //out.printf( "<input type=\"text\" name=\"%s\" value=\"\"><br>",  DonationRecordLogic.CREATED);
             out.println( "<br>" );
             
@@ -182,11 +179,11 @@ public class CreateDonationRecord extends HttpServlet {
                     BloodDonation blood_donation = bdLogic.getWithId(donationId);
                     donation_record.setBloodDonation(blood_donation);
                 }
-              
-                drLogic.add(donation_record );
+                drLogic.update(donation_record );
             } catch( IllegalArgumentException ex ) {
                 errorMessage = ex.getMessage();
             }
+        
         
         if( request.getParameter( "add" ) != null ){
             //if add button is pressed return the same page
