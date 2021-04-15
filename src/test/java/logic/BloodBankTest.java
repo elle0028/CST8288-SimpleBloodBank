@@ -37,7 +37,7 @@ public class BloodBankTest {
     private BloodBank expectedEntity;
     private Set<BloodDonation> donations;
     private Person testPerson;   // dependency
-    private final int personID = 2;
+    private int personID = 2;
     
     @BeforeAll
     final static void setUpBeforeClass() throws Exception {
@@ -72,6 +72,7 @@ public class BloodBankTest {
             em.persist( testPerson );
         }       
 
+        personID = testPerson.getId();
         // add two empty donations to the donation set
         donations = new HashSet<BloodDonation>();
         donations.add(new BloodDonation());        
@@ -108,7 +109,7 @@ public class BloodBankTest {
         
         Person testPerson = em.find( Person.class, personID );
         if (testPerson!= null) {
-            em.remove(testPerson);
+            em.remove(testPerson);            
         }
         //commit the changes
         em.getTransaction().commit();
