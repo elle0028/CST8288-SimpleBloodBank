@@ -15,11 +15,11 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- *
- * 
+ *  Contains the logic for creating an entity and interfacing with the DAL
+ *  @author Andrew O'Hara
  */
 public class BloodBankLogic extends GenericLogic <BloodBank, BloodBankDAL> {
-
+    // database column names
     public static final String OWNER_ID = "owner_id";
     public static final String PRIVATELY_OWNED = "privately_owned";
     public static final String ESTABLISHED = "established";
@@ -27,50 +27,90 @@ public class BloodBankLogic extends GenericLogic <BloodBank, BloodBankDAL> {
     public static final String EMPLOYEE_COUNT = "employee_count";
     public static final String ID = "id";
     
+    // construct logic and attach BloodBankDAL
     public BloodBankLogic() {
         super (new BloodBankDAL());
     }    
     
+    /**
+     * getAll retrieves all BloodBanks from the database
+     * @return List<BloodBank> from the database
+     */
     @Override
     public List getAll() {
         return get( () -> dal().findAll() );
     }
-
+    
+    /**
+     * getWithID retrieves a BloodBank from the database based on id
+     * @param id  id of the BloodBank to retrieve
+     * @return BloodBank with id or null
+     */
     @Override
     public BloodBank getWithId(int id) {
         return get( () -> dal().findById( id ) );
     } 
     
+    /**
+     * getBloodBankWithName retrieves a BloodBank from the database based on it's name
+     * @param name  name of the BloodBank to retrieve
+     * @return BloodBank with name or null
+     */
     public BloodBank getBloodBankWithName(String name) {
         return get( () -> dal().findByName( name ) );
     }
     
+    /**
+     * getBloodBankWithPrivatelyOwned retrieves BloodBanks from the database 
+     * based on whether or not they are privately owned or not.
+     * @param privatelyOwned boolean, true if privately owned
+     * @return List<BloodBank> BloodBanks that share privatelyOwned status
+     */
     public List<BloodBank> getBloodBankWithPrivatelyOwned(boolean privatelyOwned) {
         return get( () -> dal().findByPrivatelyOwned( privatelyOwned ) );
     }
     
+    /**
+     * getBloodBankWithEstablished retrieves BloodBanks from the database 
+     * based on the date they were established
+     * @param established
+     * @return 
+     */    
     public List<BloodBank> getBloodBankWithEstablished(Date established) {
         return get( () -> dal().findByEstablished( established ) );
     } 
     
+    /**
+     * getBloodBankWithOwner retrieves a BloodBank from the database owned by
+     * a particular person
+     * @param ownerId the id assigned to the Person who owns this BloodBank
+     * @return BloodBank owned by Person with ownerId
+     */
     public BloodBank getBloodBankWithOwner(int ownerId) {
         return get( () -> dal().findByOwner( ownerId ) );
     }
     
+    /**
+     * getBloodBanksWithEmployeeCount retrieves BloodBanks from the database
+     * based on number of people who work there
+     * @param count the number of employees to look for when selecting BloodBanks
+     * @return List<BloodBank> BloodBanks with number of employees specified by count
+     */
     public List<BloodBank> getBloodBanksWithEmployeeCount(int count) {
         return get( () -> dal().findByEmployeeCount( count ) );
     }
     
+    /**
+     * createEntity Creates a BloodBank based on parameterMap. Validates parameters 
+     * and returns created entity or throws ValidationException
+     * @param parameterMap
+     * @return 
+     */
     @Override
     public BloodBank createEntity(Map<String, String[]> parameterMap) {
-       //do not create any logic classes in this method.
-
-//        return new AccountBuilder().SetData( parameterMap ).build();
-        Objects.requireNonNull( parameterMap, "parameterMap cannot be null" );
-        //same as if condition below
-//        if (parameterMap == null) {
-//            throw new NullPointerException("parameterMap cannot be null");
-//        }
+        // do not create any logic classes in this method.
+        
+        Objects.requireNonNull( parameterMap, "parameterMap cannot be null" );      
 
         //create a new Entity object
         BloodBank entity = new BloodBank();
@@ -101,13 +141,7 @@ public class BloodBankLogic extends GenericLogic <BloodBank, BloodBankDAL> {
                 }
                 throw new ValidationException( error );
             }
-        };
-
-        //extract the date from map first.
-        //everything in the parameterMap is string so it must first be
-        //converted to appropriate type. have in mind that values are
-        //stored in an array of String; almost always the value is at
-        //index zero unless you have used duplicated key/name somewhere.
+        };      
         
         String employeeCount = parameterMap.get(EMPLOYEE_COUNT)[0];        
         
@@ -116,8 +150,8 @@ public class BloodBankLogic extends GenericLogic <BloodBank, BloodBankDAL> {
         String name = parameterMap.get(NAME)[0];  
         String establishedStr = "";
         
-        // this code was poached from Matt Ellero's BloodDonationLogic
-        // handle an incorrectly formatted date
+        // This Date code was adapted from Matt Ellero's BloodDonationLogic 
+        // Handles an incorrectly formatted date
         Date established = new Date();
         try {
            establishedStr = parameterMap.get(ESTABLISHED)[0];
@@ -140,13 +174,7 @@ public class BloodBankLogic extends GenericLogic <BloodBank, BloodBankDAL> {
         validator.accept( employeeCount, 45 );        
         validator.accept( privatelyOwned, 45 );
         validator.accept( name, 45 );
-        validator.accept( establishedStr, 45);
-        
-        /* this is no longer necessary (was temporary until form set up)     
-        LocalDate today = LocalDate.now();
-        String day = today.toString();
-        day = day.replace("-", "/");        
-        */
+        validator.accept( establishedStr, 45);       
         
         //set values on entity
         entity.setEmployeeCount( Integer.parseInt(employeeCount) );
@@ -156,24 +184,36 @@ public class BloodBankLogic extends GenericLogic <BloodBank, BloodBankDAL> {
         entity.setName( name );           
 
         return entity;
-    }
-     
-       
+    }       
 
+    /**
+     * getColumnNames 
+     * @return List<String> Database column names as a list of strings
+     */
    @Override
     public List<String> getColumnNames() {
         return Arrays.asList( "ID", "EmployeeCount", "Name", "Established", 
                 "PrivatelyOwned", "owner_id" );
     }
     
+    /**
+     * getColumnCodes
+     * @return List<String> Database column name constants as a list of strings
+     */
     @Override
     public List<String> getColumnCodes() {
         return Arrays.asList( ID, EMPLOYEE_COUNT, NAME, ESTABLISHED,
                 PRIVATELY_OWNED, OWNER_ID );
     }
 
+    /**
+     * extractDataAsList packs BloodBank data into a list
+     * @param e BloodBank object to extract data from
+     * @return List<?> a list of all a BloodBank objects values
+     */
     @Override
     public List<?> extractDataAsList( BloodBank e ) {
+        // we must extract the id from the owner for display
         int ownerId = e.getOwner() == null ? 0 : e.getOwner().getId();
         return Arrays.asList( e.getId(), e.getEmployeeCount(), e.getName(), e.getEstablished(),
                 e.getPrivatelyOwned(), ownerId ); // getOwner not OwnerID?

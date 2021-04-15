@@ -16,11 +16,10 @@ import logic.LogicFactory;
 
 /**
  *
- * @author dynonomous
+ * @author Andrew O'Hara
  */
 @WebServlet(name = "BloodBankTableView", urlPatterns = {"/BloodBankTable"})
 public class BloodBankTableView extends HttpServlet {
-
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -43,12 +42,7 @@ public class BloodBankTableView extends HttpServlet {
 
             out.println( "<table style=\"margin-left: auto; margin-right: auto;\" border=\"1\">" );
             out.println( "<caption>BloodBank</caption>" );
-            //this is an example, for your other tables use getColumnNames from
-            //logic to create headers in a loop.
-            
-            
-
-//            AccountLogic logic = LogicFactory.getFor( "BloodBank" );
+          
             Logic<BloodBank> logic = LogicFactory.getFor( "BloodBank" );
             out.println( "<tr>" );
             logic.getColumnNames().forEach( c -> out.printf( "<th>%s</th>", c ) );
@@ -59,13 +53,6 @@ public class BloodBankTableView extends HttpServlet {
 //            out.println( "<th>Owner</th>" );
             out.println( "</tr>" );
 
-//            List<Account> entities = logic.getAll();
-//            for( Account e: entities ) {
-//                //for other tables replace the code bellow with
-//                //extractDataAsList in a loop to fill the data.
-//                out.printf( "<tr><td>%s</td><td>%s</td><td>%s</td><td>%s</td></tr>",
-//                        logic.extractDataAsList( e ).toArray() );
-//            }
             logic.getAll().forEach( e -> out.printf( "<tr><td>%s</td><td>%s</td><td>%s</td><td>%s</td><td>%s</td><td>%s</td></tr>",
                     logic.extractDataAsList( e ).toArray() ) );
 
@@ -153,5 +140,4 @@ public class BloodBankTableView extends HttpServlet {
         String message = String.format( "[%s] %s", getClass().getSimpleName(), msg );
         getServletContext().log( message, t );
     }
-
 }
