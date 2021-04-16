@@ -6,6 +6,8 @@ import entity.BloodGroup;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Arrays;
+import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -15,6 +17,7 @@ import javax.servlet.http.HttpServletResponse;
 import logic.BloodBankLogic;
 import logic.BloodDonationLogic;
 import logic.LogicFactory;
+import logic.PersonLogic;
 
 /**
  *
@@ -59,6 +62,12 @@ public class DonateBloodForm extends HttpServlet {
     protected void doGet( HttpServletRequest request, HttpServletResponse response )
             throws ServletException, IOException {
         log( "GET" );
+        
+        BloodBankLogic bbLogic = LogicFactory.getFor("BloodBank");
+        List<BloodBank> banks = bbLogic.getAll();
+        
+        request.setAttribute("banks", banks);
+        request.getRequestDispatcher("/jsp/donateblood.jsp").forward(request, response);
         processRequest( request, response );
     }
 
@@ -90,6 +99,7 @@ public class DonateBloodForm extends HttpServlet {
         }
         
 //        createBloodDonation(request);
+//        createBloodBank(request);
         
 //        if( map.containsKey( "view" ) ){
 //            response.sendRedirect( "UsernameTableViewNormal" );
@@ -119,6 +129,18 @@ public class DonateBloodForm extends HttpServlet {
             errorMessage = ex.getMessage(); // TODO: what to do with error
         }
     }
+    
+    private void createBloodBank(HttpServletRequest request) {
+        BloodBankLogic bbLogic = LogicFactory.getFor( "BloodBank" );
+        String name = request.getParameter( BloodBankLogic.NAME );
+                   
+        BloodBank bloodbank = bbLogic.getBloodBankWithName( name );            
+        if (bloodbank == null)
+            throw new IllegalArgumentException("Selected BloodBank does not exist!");
+            
+        bbLogic.add( bloodbank );               
+        
+    }  
 
     /**
      * Returns a short description of the servlet.
