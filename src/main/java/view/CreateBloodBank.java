@@ -12,10 +12,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import logic.BloodBankLogic;
 import logic.LogicFactory;
+import logic.PersonLogic;
 
 /**
  *
- * @author dynonomous
+ * @author Andrew O'Hara
  */
 @WebServlet(name = "CreateBloodBank", urlPatterns = {"/CreateBloodBank"})
 public class CreateBloodBank extends HttpServlet {
@@ -57,6 +58,9 @@ public class CreateBloodBank extends HttpServlet {
             out.println( "<br>" );
             out.println( "OwnerID:<br>" );
             out.printf( "<input type=\"text\" name=\"%s\" value=\"\"><br>", BloodBankLogic.OWNER_ID );
+            out.println( "<br>" );
+            out.println( "Established:<br>" );
+            out.printf( "<input type=\"datetime-local\" name=\"%s\" value=\"\"><br>", BloodBankLogic.ESTABLISHED );
             out.println( "<br>" );
             out.println( "<input type=\"submit\" name=\"view\" value=\"Add and View\">" );
             out.println( "<input type=\"submit\" name=\"add\" value=\"Add\">" );
@@ -121,7 +125,14 @@ public class CreateBloodBank extends HttpServlet {
         if( bbLogic.getBloodBankWithName( name ) == null ){
             try {
                 BloodBank bloodbank = bbLogic.createEntity( request.getParameterMap() );
+                                
+                if (bloodbank.getPrivatelyOwned() == true) {
+                    int ownerID = Integer.parseInt(request.getParameter(BloodBankLogic.OWNER_ID));
+                    PersonLogic pl = LogicFactory.getFor("Person");
+                    bloodbank.setOwner(pl.getWithId(ownerID));
+                }
                 bbLogic.add( bloodbank );
+                
             } catch( Exception ex ) {
                 errorMessage = ex.getMessage();
             }

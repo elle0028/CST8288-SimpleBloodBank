@@ -4,6 +4,9 @@
     Author     : Matt Ellero
 --%>
 
+
+<%@page import="entity.BloodBank"%>
+<%@page import="java.util.ArrayList"%>
 <%@ taglib prefix="x" uri="http://java.sun.com/jsp/jstl/xml" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
@@ -12,7 +15,12 @@
 
 <%@page import="entity.BloodGroup"%>
 <%@page import="entity.RhesusFactor"%>
+<%@page import="entity.DonationRecord"%>
 <%@page import="logic.BloodDonationLogic"%>
+<%@page import="logic.DonationRecordLogic"%>
+<%@page import="logic.BloodBankLogic"%>
+<%@page import="logic.LogicFactory"%>
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -67,8 +75,8 @@
                     <fieldset class="field">
                         <label for="${BloodDonationLogic.MILLILITERS}" class="lf">Amount</label>
                         <input type="number" name="${BloodDonationLogic.MILLILITERS}" class="lfi"/>
-                        <label for="tested" class="rf">Tested</label>
-                        <select name="tested" class="rfi">
+                        <label for="${DonationRecordLogic.TESTED}" class="rf">Tested</label>
+                        <select name="${DonationRecordLogic.TESTED}" class="rfi">
                             <option>Positive</option>
                             <option>Negative</option>
                         </select>
@@ -78,19 +86,22 @@
                 <div class="entity">
                     <h3>Administration</h3>
                     <fieldset class="field">
-                        <label for="hospital" class="lf">Hospital</label>
-                        <input type="text" name="hospital" class="lfi" />
-                        <label for="admin" class="rf">Administrator</label>
-                        <input type="text" name="admin" class="rfi"/>
+                        <label for="${DonationRecordLogic.HOSPITAL}" class="lf">Hospital</label>
+                        <input type="text" name="${DonationRecordLogic.HOSPITAL}" class="lfi" />
+                        <label for="${DonationRecordLogic.ADMINISTRATOR}" class="rf">Administrator</label>
+                        <input type="text" name="${DonationRecordLogic.ADMINISTRATOR}" class="rfi"/>
                     </fieldset>
 
                     <fieldset class="field">
                         <label for="${BloodDonationLogic.CREATED}" class="lf">Date</label>
                         <input type="datetime-local" step="1" name="${BloodDonationLogic.CREATED}" min="1900-01-01" class="lfi">
                         <label for="bloodbank" class="lf">Blood Bank</label>
-                        <select name="bloodbank" class="lfi">
-                            <option>Some Option</option>
-                            <option>Some other option</option>
+                        <select name="${BloodBankLogic.NAME}" class="lfi">
+                            <!--For each bloodbank get all we create an option with the name? -->
+                            <c:forEach var="bb" items="${banks}">                                
+                                <option>${bb.getName()}</option>
+                            </c:forEach>
+                            
                         </select>
                     </fieldset>
 

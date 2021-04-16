@@ -1,7 +1,9 @@
 package view;
 
-import entity.BloodDonation;
+import entity.Account;
+import entity.BloodBank;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -13,16 +15,17 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import logic.BloodDonationLogic;
+import logic.AccountLogic;
+import logic.BloodBankLogic;
 import logic.LogicFactory;
 
 /**
- * BONUS: This class also allows for updating and deleting of entities from the JSP view.
- * @author Shariar (Shawn) Emami, Matthew Ellero
+ *
+ * @author dynonomous
  */
-@WebServlet( name = "BloodDonationTableJSP", urlPatterns = { "/BloodDonationTableJSP" } )
-public class BloodDonationTableViewJSP extends HttpServlet {
-
+@WebServlet(name = "BloodBankTableJSP", urlPatterns = {"/BloodBankTableJSP"})
+public class BloodBankTableViewJSP extends HttpServlet {
+    
     private void fillTableData( HttpServletRequest req, HttpServletResponse resp )
             throws ServletException, IOException {
         String path = req.getServletPath();
@@ -35,10 +38,10 @@ public class BloodDonationTableViewJSP extends HttpServlet {
 
     private List<?> extractTableData( HttpServletRequest req ) {
         String search = req.getParameter( "searchText" );
-        BloodDonationLogic logic = LogicFactory.getFor( "BloodDonation" );
+        BloodBankLogic logic = LogicFactory.getFor( "BloodBank" );
         req.setAttribute( "columnName", logic.getColumnNames() );
         req.setAttribute( "columnCode", logic.getColumnCodes() );
-        List<BloodDonation> list;
+        List<BloodBank> list;
         if( search != null ){
             list = logic.search( search );
         } else {
@@ -66,49 +69,34 @@ public class BloodDonationTableViewJSP extends HttpServlet {
         } );
         return builder.toString();
     }
-
+    
     /**
-     * Handles the HTTP <code>POST</code> method.
+     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
+     * methods.
      *
-     * @param req servlet request
-     * @param resp servlet response
+     * @param request servlet request
+     * @param response servlet response
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-    @Override
-    protected void doPost( HttpServletRequest req, HttpServletResponse resp )
-            throws ServletException, IOException {
-        log( "POST" );
-        
-        BloodDonationLogic logic = LogicFactory.getFor( "BloodDonation" );
-        
-        if( req.getParameter( "edit" ) != null ){
-            BloodDonation bloodDonation = logic.updateEntity( req.getParameterMap() );
-            logic.update( bloodDonation );
-        } else if( req.getParameter( "delete" ) != null ){
-            String[] ids = req.getParameterMap().get( "deleteMark" );
-            for( String id: ids ) {
-                logic.delete( logic.getWithId( Integer.valueOf( id ) ) );
-            }
-        }
-        fillTableData( req, resp );
-    }
+    
 
+    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
      *
-     * @param req servlet request
-     * @param resp servlet response
+     * @param request servlet request
+     * @param response servlet response
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
     @Override
-    protected void doGet( HttpServletRequest req, HttpServletResponse resp )
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         log( "GET" );
-        fillTableData( req, resp );
+        fillTableData(request, response);
     }
-
+    
     /**
      * Handles the HTTP <code>PUT</code> method.
      *
@@ -118,10 +106,10 @@ public class BloodDonationTableViewJSP extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     @Override
-    protected void doPut( HttpServletRequest req, HttpServletResponse resp )
+    protected void doPut( HttpServletRequest request, HttpServletResponse response )
             throws ServletException, IOException {
         log( "PUT" );
-        doPost( req, resp );
+        doPost( request, response );
     }
 
     /**
@@ -133,10 +121,36 @@ public class BloodDonationTableViewJSP extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     @Override
-    protected void doDelete( HttpServletRequest req, HttpServletResponse resp )
+    protected void doDelete( HttpServletRequest request, HttpServletResponse response )
             throws ServletException, IOException {
         log( "DELETE" );
-        doPost( req, resp );
+        doPost( request, response );
+    }
+    
+    /**
+     * Handles the HTTP <code>POST</code> method.
+     *
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        log("POST");
+        BloodBankLogic logic = LogicFactory.getFor("BloodBank");
+        if (request.getParameter("edit") != null) {
+            BloodBank bloodbank = logic.updateEntity(request.getParameterMap());
+            logic.update(bloodbank);
+        }
+        else if ( request.getParameter("delete") != null) {
+            String[] ids = request.getParameterMap().get("deleteMark");
+            for(String id: ids) {
+                logic.delete(logic.getWithId(Integer.valueOf(id)));
+            }
+        }
+        fillTableData(request, response);
     }
 
     /**
@@ -146,7 +160,7 @@ public class BloodDonationTableViewJSP extends HttpServlet {
      */
     @Override
     public String getServletInfo() {
-        return "Sample of BloodDonation Table using JSP";
+        return "Smaple of Account Table using JSP";
     }
 
     private static final boolean DEBUG = true;

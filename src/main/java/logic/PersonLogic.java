@@ -111,30 +111,33 @@ public class PersonLogic extends GenericLogic<Person, PersonDAL> {
         String lastname = parameterMap.get( LAST_NAME )[ 0 ];
         String phone = parameterMap.get( PHONE )[ 0 ];
         String address = parameterMap.get( ADDRESS )[ 0 ];
-        String birthStr = parameterMap.get( BIRTH )[ 0 ];
-        Date birth = null;
+        Date birthDate = new Date();
         try {
-            birth = new SimpleDateFormat("dyyyy-MM-dd kk:mm:ss").parse(birthStr);
-        } catch (ParseException ex) {
-            Logger.getLogger(PersonLogic.class.getName()).log(Level.SEVERE, null, ex);
+           birthDate = convertStringToDate(parameterMap.get(BIRTH)[0]);
+        } catch (ValidationException e) {
+            Logger.getLogger( BloodDonationLogic.class.getName() ).log( Level.SEVERE, null, e );
+            birthDate = convertStringToDate(new SimpleDateFormat( "yyyy-MM-dd kk:mm:ss" ).format(birthDate));
         }
-        String id = parameterMap.get( ID )[ 0 ];
+//        String id = null;
+//        if( parameterMap.containsKey( FIRST_NAME ) ){
+//            id = parameterMap.get(ID)[0];
+//            validator.accept( id, 45 );
+//        }
 
         //validate the data
         validator.accept( firstname, 45 );
         validator.accept( lastname, 45 );
         validator.accept( phone, 45 );
         validator.accept( address, 45 );
-        validator.accept( birthStr, 45 );
-        validator.accept( id, 45 );
+        //validator.accept( id, 45 );
 
         //set values on entity
         entity.setFirstName( firstname );
         entity.setLastName( lastname );
         entity.setPhone( phone );
         entity.setAddress( address );
-        entity.setBirth( birth );
-        entity.setPhone( id );
+        entity.setBirth( birthDate );
+        //entity.setId( Integer.parseInt(id) );
 
         return entity;
     }
