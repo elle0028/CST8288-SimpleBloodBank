@@ -85,9 +85,6 @@ abstract class GenericDAL<T> implements DataAccessLayer<T> {
      */
     public void save( T entity ) {
         // if entity donation record then use merge else persist
-        if(entity instanceof DonationRecord){
-            em.merge(entity);
-        } else 
             em.persist( entity );
     }
 
