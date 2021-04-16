@@ -84,7 +84,6 @@ abstract class GenericDAL<T> implements DataAccessLayer<T> {
      * @param entity - entity object to be saved before commit
      */
     public void save( T entity ) {
-        // if entity donation record then use merge else persist
             em.persist( entity );
     }
 
