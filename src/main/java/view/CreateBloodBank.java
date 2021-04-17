@@ -16,7 +16,7 @@ import logic.PersonLogic;
 
 /**
  *
- * @author dynonomous
+ * @author Andrew O'Hara
  */
 @WebServlet(name = "CreateBloodBank", urlPatterns = {"/CreateBloodBank"})
 public class CreateBloodBank extends HttpServlet {
