@@ -99,9 +99,6 @@ public class BloodBankTest {
             logic.delete( expectedEntity );
         }
         
-        if( expectedEntity != null ){
-            logic.delete( expectedEntity );
-        }
         //get an instance of EntityManager
         EntityManager em = EMFactory.getEMF().createEntityManager();
         //start a Transaction
