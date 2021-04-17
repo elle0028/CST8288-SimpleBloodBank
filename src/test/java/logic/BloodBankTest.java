@@ -391,7 +391,6 @@ public class BloodBankTest {
         assertThrows( ValidationException.class, () -> logic.createEntity( sampleMap ) );
         sampleMap.replace( BloodBankLogic.ID, new String[]{ "12b" } );
         assertThrows( ValidationException.class, () -> logic.createEntity( sampleMap ) );
-
         */
        
         // Test PRIVATELY_OWNED with bad string lengths
@@ -432,8 +431,7 @@ public class BloodBankTest {
        assertEquals( expectedEntity.getEstablished(), list.get( 3 ) );
        assertEquals( expectedEntity.getPrivatelyOwned(), list.get( 4 ) );        
        if (expectedEntity.getOwner() != null)
-           assertEquals( expectedEntity.getOwner().getId(), list.get( 5 ) );
-        
+           assertEquals( expectedEntity.getOwner().getId(), list.get( 5 ) );        
     }
     
     @Test
