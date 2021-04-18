@@ -12,8 +12,10 @@ import java.util.Objects;
 import java.util.function.ObjIntConsumer;
 
 /**
+ *  BloodBankLogic
  *  Contains the logic for creating an entity and interfacing with the DAL
  *  @author Andrew O'Hara
+ *   April 2021
  */
 public class BloodBankLogic extends GenericLogic <BloodBank, BloodBankDAL> {
     // database column names
@@ -31,7 +33,7 @@ public class BloodBankLogic extends GenericLogic <BloodBank, BloodBankDAL> {
     
     /**
      * getAll retrieves all BloodBanks from the database
-     * @return List<BloodBank> from the database
+     * @return list of BloodBanks from the database
      */
     @Override
     public List getAll() {
@@ -60,8 +62,8 @@ public class BloodBankLogic extends GenericLogic <BloodBank, BloodBankDAL> {
     /**
      * getBloodBankWithPrivatelyOwned retrieves BloodBanks from the database 
      * based on whether or not they are privately owned or not.
-     * @param privatelyOwned boolean, true if privately owned
-     * @return List<BloodBank> BloodBanks that share privatelyOwned status
+     * @param privatelyOwned  true if privately owned
+     * @return list of BloodBanks that share privatelyOwned status
      */
     public List<BloodBank> getBloodBankWithPrivatelyOwned(boolean privatelyOwned) {
         return get( () -> dal().findByPrivatelyOwned( privatelyOwned ) );
@@ -91,16 +93,16 @@ public class BloodBankLogic extends GenericLogic <BloodBank, BloodBankDAL> {
      * getBloodBanksWithEmployeeCount retrieves BloodBanks from the database
      * based on number of people who work there
      * @param count the number of employees to look for when selecting BloodBanks
-     * @return List<BloodBank> BloodBanks with number of employees specified by count
+     * @return list of BloodBanks with number of employees specified by count
      */
     public List<BloodBank> getBloodBanksWithEmployeeCount(int count) {
         return get( () -> dal().findByEmployeeCount( count ) );
     }    
     
-    /** Search for bloodbanks based on search term
+    /** Search for BloodBanks based on search term
      * 
      * @param search  string containing term to search for
-     * @return All bloodbanks that match the search term
+     * @return All BloodBanks that match the search term
      */
     @Override
     public List<BloodBank> search( String search ) {
@@ -199,7 +201,7 @@ public class BloodBankLogic extends GenericLogic <BloodBank, BloodBankDAL> {
                 if( value == null || value.trim().isEmpty() ){
                     error = "value cannot be null or empty: " + value;
                 }
-                if( value.length() > length ){
+                if(value != null && value.length() > length ){
                     error = "string length is " + value.length() + " > " + length;
                 }
                 throw new ValidationException( error );
@@ -233,7 +235,7 @@ public class BloodBankLogic extends GenericLogic <BloodBank, BloodBankDAL> {
 
     /**
      * getColumnNames 
-     * @return List<String> Database column names as a list of strings
+     * @return list of Strings -  Database column names as a list of strings
      */
    @Override
     public List<String> getColumnNames() {
@@ -243,7 +245,7 @@ public class BloodBankLogic extends GenericLogic <BloodBank, BloodBankDAL> {
     
     /**
      * getColumnCodes
-     * @return List<String> Database column name constants as a list of strings
+     * @return list of Strings Database column name constants as a list of strings
      */
     @Override
     public List<String> getColumnCodes() {
@@ -254,13 +256,16 @@ public class BloodBankLogic extends GenericLogic <BloodBank, BloodBankDAL> {
     /**
      * extractDataAsList packs BloodBank data into a list
      * @param e BloodBank object to extract data from
-     * @return List<?> a list of all a BloodBank objects values
+     * @return List - a list of all a BloodBank objects values
      */
     @Override
     public List<?> extractDataAsList( BloodBank e ) {
         // we must extract the id from the owner for display
-        int ownerId = e.getOwner() == null ? 0 : e.getOwner().getId();
-        return Arrays.asList( e.getId(), e.getEmployeeCount(), e.getName(), e.getEstablished(),
-                e.getPrivatelyOwned(), ownerId ); // getOwner not OwnerID?
+        int ownerId = 0;
+        if (e.getOwner() != null) {
+            ownerId = e.getOwner().getId();
+        }        
+        return Arrays.asList( e.getId(), e.getEmployeeCount(), e.getName(), 
+                        e.getEstablished(), e.getPrivatelyOwned(), ownerId ); 
     }
 }

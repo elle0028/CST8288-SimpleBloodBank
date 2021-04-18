@@ -1,7 +1,6 @@
 package view;
 
 import entity.BloodBank;
-
 import entity.Person;
 import java.io.IOException;
 import java.util.Arrays;
@@ -13,12 +12,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import logic.BloodBankLogic;
-
 import logic.LogicFactory;
 import logic.PersonLogic;
 
 /**
- *
+ * CreateBloodBankJSP
  * @author Andrew O'Hara  adapted from code written by Matt Ellero
  */
 @WebServlet(name = "CreateBloodBankJSP", urlPatterns = {"/CreateBloodBankJSP"})
@@ -43,7 +41,7 @@ public class CreateBloodBankJSP extends HttpServlet {
         });
         return builder.toString();
     }
-
+    
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         log( "POST" );
@@ -51,6 +49,8 @@ public class CreateBloodBankJSP extends HttpServlet {
         BloodBankLogic bbLogic = LogicFactory.getFor("BloodBank");
         PersonLogic pLogic = LogicFactory.getFor( "Person" );
 
+        // we cannot change the original map but we need to change the OWNER_ID 
+        // value to be true or false, instead of Private or Public
         Map<String, String[]> copiedMap = new HashMap(request.getParameterMap());
         // change ownership parameter to proper true or false
         String ownershipInput = request.getParameterMap().get(BloodBankLogic.PRIVATELY_OWNED)[0];
@@ -59,12 +59,13 @@ public class CreateBloodBankJSP extends HttpServlet {
         }
         else {
             copiedMap.put(BloodBankLogic.PRIVATELY_OWNED, new String[]{"false"});
-        }
-            
+        }            
         
         try {
+            // send the copiedMap with the true or false value for OWNER_ID
             BloodBank bloodbank = bbLogic.createEntity( copiedMap );
             
+            // attach owner if necessary
             if(bloodbank.getPrivatelyOwned() == true) {
                 int personId = Integer.parseInt(request.getParameterMap().get(BloodBankLogic.OWNER_ID)[0]); 
                 Person owner = pLogic.getWithId(personId);

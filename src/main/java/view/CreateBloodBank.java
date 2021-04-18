@@ -15,8 +15,9 @@ import logic.LogicFactory;
 import logic.PersonLogic;
 
 /**
- *
+ * CreateBloodBank
  * @author Andrew O'Hara
+ *  April 2021
  */
 @WebServlet(name = "CreateBloodBank", urlPatterns = {"/CreateBloodBank"})
 public class CreateBloodBank extends HttpServlet {
@@ -33,8 +34,7 @@ public class CreateBloodBank extends HttpServlet {
     protected void processRequest( HttpServletRequest request, HttpServletResponse response )
             throws ServletException, IOException {
         response.setContentType( "text/html;charset=UTF-8" );
-        try( PrintWriter out = response.getWriter() ) {
-            /* TODO output your page here. You may use following sample code. */
+        try( PrintWriter out = response.getWriter() ) {            
             out.println( "<!DOCTYPE html>" );
             out.println( "<html>" );
             out.println( "<head>" );
@@ -91,9 +91,7 @@ public class CreateBloodBank extends HttpServlet {
                 .append( System.lineSeparator() ) );
         return builder.toString();
     }
-
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
-    /**
+     /**
      * Handles the HTTP <code>GET</code> method.
      *
      * @param request servlet request
@@ -120,12 +118,14 @@ public class CreateBloodBank extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         log( "POST" );
+        
         BloodBankLogic bbLogic = LogicFactory.getFor( "BloodBank" );
         String name = request.getParameter( BloodBankLogic.NAME );
         if( bbLogic.getBloodBankWithName( name ) == null ){
             try {
                 BloodBank bloodbank = bbLogic.createEntity( request.getParameterMap() );
-                                
+                
+                // attach an owner if necessary
                 if (bloodbank.getPrivatelyOwned() == true) {
                     int ownerID = Integer.parseInt(request.getParameter(BloodBankLogic.OWNER_ID));
                     PersonLogic pl = LogicFactory.getFor("Person");
@@ -133,7 +133,7 @@ public class CreateBloodBank extends HttpServlet {
                 }
                 bbLogic.add( bloodbank );
                 
-            } catch( Exception ex ) {
+            } catch( NumberFormatException ex ) {
                 errorMessage = ex.getMessage();
             }
         } else {
@@ -157,6 +157,5 @@ public class CreateBloodBank extends HttpServlet {
     @Override
     public String getServletInfo() {
         return "Create a BloodBank";
-    }// </editor-fold>
-
+    }
 }
