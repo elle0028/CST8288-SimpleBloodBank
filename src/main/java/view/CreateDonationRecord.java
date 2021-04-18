@@ -163,7 +163,7 @@ public class CreateDonationRecord extends HttpServlet {
         DonationRecordLogic drLogic = LogicFactory.getFor("DonationRecord");
 
         String record_id = request.getParameter(DonationRecordLogic.ID);
-    
+
         try {
             DonationRecord donation_record = drLogic.createEntity(request.getParameterMap());
             if (donation_record.getPerson() != null) {
@@ -171,8 +171,6 @@ public class CreateDonationRecord extends HttpServlet {
                 Person person = pLogic.getWithId(personId);
                 // user PeronsId to get the person associated with the DonationRecord
                 donation_record.setPerson(person);
-            } else {
-                donation_record.setBloodDonation(null);
             }
 
             if (donation_record.getBloodDonation() != null) {
@@ -180,8 +178,6 @@ public class CreateDonationRecord extends HttpServlet {
                 int donationId = Integer.parseInt(request.getParameterMap().get(DonationRecordLogic.DONATION_ID)[0]);
                 BloodDonation blood_donation = bdLogic.getWithId(donationId);
                 donation_record.setBloodDonation(blood_donation);
-            } else {
-                donation_record.setBloodDonation(null);
             }
             drLogic.update(donation_record);
         } catch (IllegalArgumentException ex) {
