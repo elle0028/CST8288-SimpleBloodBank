@@ -77,25 +77,16 @@ public class DonateBloodForm extends HttpServlet {
         //you can add your logic here
         Map<String, String[]> map = request.getParameterMap();
         
-        if (map.containsKey(BloodDonationLogic.BLOOD_GROUP)) {
-            log("Blood group: " + map.get(BloodDonationLogic.BLOOD_GROUP)[0]);
+        
+        //createPerson
+        createBloodDonation(request);
+        //createDonationRecord
+        
+        if( map.containsKey( "view" ) ){
+            response.sendRedirect( "UsernameTableViewNormal" );
+        } else if( map.containsKey( "submit" ) ){
+            processRequest( request, response );
         }
-        
-        if (map.containsKey(BloodDonationLogic.RHESUS_FACTOR)) {
-            log("RHESUS_FACTOR: " + map.get(BloodDonationLogic.RHESUS_FACTOR)[0]);
-        }
-        
-        if (map.containsKey(BloodDonationLogic.MILLILITERS)) {
-            log("Milliliters: " + map.get(BloodDonationLogic.MILLILITERS)[0]);
-        }
-        
-//        createBloodDonation(request);
-        
-//        if( map.containsKey( "view" ) ){
-//            response.sendRedirect( "UsernameTableViewNormal" );
-//        } else if( map.containsKey( "submit" ) ){
-//            processRequest( request, response );
-//        }
     }
     
     private void createBloodDonation(HttpServletRequest request) {
