@@ -1,27 +1,33 @@
 package view;
 
+import entity.Account;
 import entity.BloodBank;
 import entity.BloodDonation;
+import entity.Person;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import logic.AccountLogic;
 import logic.BloodBankLogic;
 import logic.BloodDonationLogic;
 
 import logic.LogicFactory;
+import logic.PersonLogic;
 
 /**
  *
  * @author Matthew Ellero
  */
-@WebServlet(name = "CreateBloodDonationJSP", urlPatterns = {"/CreateBloodDonationJSP"})
-public class CreateBloodDonationJSP extends HttpServlet {
+@WebServlet(name = "CreateAccountJSP", urlPatterns = {"/CreateAccountJSP"})
+public class CreateAccountJSP extends HttpServlet {
 
     private void fillTableData(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
@@ -29,7 +35,7 @@ public class CreateBloodDonationJSP extends HttpServlet {
         req.setAttribute("request", toStringMap(req.getParameterMap()));
         req.setAttribute("path", path);
         req.setAttribute("title", path.substring(1));
-        req.getRequestDispatcher("/jsp/CreateTable-BloodDonation.jsp").forward(req, resp);
+        req.getRequestDispatcher("/jsp/CreateTable-Account.jsp").forward(req, resp);
     }
 
     private String toStringMap(Map<String, String[]> m) {
@@ -43,49 +49,34 @@ public class CreateBloodDonationJSP extends HttpServlet {
         return builder.toString();
     }
 
-    @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         log( "POST" );
-        // Dependency logic
-        BloodBankLogic bbLogic = LogicFactory.getFor("BloodBank");
-
-        // Main logic
-        BloodDonationLogic bdLogic = LogicFactory.getFor( "BloodDonation" );
-
-        try {
-            BloodDonation bloodDonation = bdLogic.createEntity( request.getParameterMap() );
-            // Verify Dependency
-            String bankName = request.getParameter(BloodBankLogic.NAME);
-            BloodBank bloodBank = bbLogic.getBloodBankWithName(bankName);
-            if (bloodBank == null) {
-                throw new IllegalArgumentException("Selected BloodBank does not exist!");
+        AccountLogic aLogic = LogicFactory.getFor( "Account" );
+        String username = request.getParameter( AccountLogic.USERNAME );
+        if( aLogic.getAccountWithUsername( username ) == null ){
+            try {
+                Account account = aLogic.createEntity( request.getParameterMap() );
+                aLogic.add( account );
+            } catch( Exception ex ) {
+                log("Error creating account: \n", ex);
             }
-            bloodDonation.setBloodBank(bloodBank);
-            bdLogic.add( bloodDonation );
-        } catch( NumberFormatException ex ) {
-            log("Error creating BloodDonation: \n", ex);
+        } else {
+            //if duplicate print the error message
+            log("Username: \"" + username + "\" already exists\"\n");
         }
-        
         if( request.getParameter( "add" ) != null ){
             //if add button is pressed return the same page
-            response.sendRedirect( "BloodDonationTableJSP" );
+            response.sendRedirect( "CreateAccountJSP" );
         } else if( request.getParameter( "view" ) != null ){
             //if view button is pressed redirect to the appropriate table
-            response.sendRedirect( "BloodDonationTable" );
+            response.sendRedirect( "AccountTable" );
         }
     }
 
-    @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
         log("GET");
-        
-        // Fetch and populate all the bloodbanks, to select for the creation of the new BloodDonation
-        BloodBankLogic bbLogic = LogicFactory.getFor("BloodBank");
-        List<BloodBank> banks = bbLogic.getAll();
-
-        req.setAttribute("banks", banks);
         fillTableData(req, resp);
     }
 
@@ -131,7 +122,6 @@ public class CreateBloodDonationJSP extends HttpServlet {
 
     private static final boolean DEBUG = true;
 
-    @Override
     public void log(String msg) {
         if (DEBUG) {
             String message = String.format("[%s] %s", getClass().getSimpleName(), msg);
@@ -139,7 +129,6 @@ public class CreateBloodDonationJSP extends HttpServlet {
         }
     }
 
-    @Override
     public void log(String msg, Throwable t) {
         String message = String.format("[%s] %s", getClass().getSimpleName(), msg);
         getServletContext().log(message, t);

@@ -35,7 +35,9 @@ import javax.validation.constraints.Size;
     @NamedQuery( name = "Person.findByLastName", query = "SELECT p FROM Person p WHERE p.lastName = :lastName" ),
     @NamedQuery( name = "Person.findByPhone", query = "SELECT p FROM Person p WHERE p.phone = :phone" ),
     @NamedQuery( name = "Person.findByAddress", query = "SELECT p FROM Person p WHERE p.address = :address" ),
-    @NamedQuery( name = "Person.findByBirth", query = "SELECT p FROM Person p WHERE p.birth = :birth" ) } )
+    @NamedQuery( name = "Person.findByBirth", query = "SELECT p FROM Person p WHERE p.birth = :birth" ) ,
+    @NamedQuery( name = "Person.findContaining", query = "SELECT p FROM Person p WHERE p.firstName like CONCAT('%', :search, '%') or p.lastName like CONCAT('%', :search, '%') or p.phone like CONCAT('%', :search, '%')" )
+} )
 public class Person implements Serializable {
 
     private static final long serialVersionUID = 1L;

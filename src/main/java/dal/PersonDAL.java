@@ -10,54 +10,58 @@ import java.util.Date;
  *
  * @author Fargol Azimi
  */
-public class PersonDAL extends GenericDAL<Person>  {
-    
+public class PersonDAL extends GenericDAL<Person> {
+
     public PersonDAL() {
-        super( Person.class );
+        super(Person.class);
     }
 
     @Override
     public List<Person> findAll() {
-        return findResults( "Person.findAll", null );
+        return findResults("Person.findAll", null);
     }
 
     @Override
     public Person findById(int id) {
         Map<String, Object> map = new HashMap<>();
-        map.put( "id", id );
-        return findResult( "Person.findById", map );
+        map.put("id", id);
+        return findResult("Person.findById", map);
     }
-    
-    public List<Person>  findByFirstName(String firstName) {
+
+    public List<Person> findByFirstName(String firstName) {
         Map<String, Object> map = new HashMap<>();
-        map.put( "firstname", firstName );
-        return findResults( "Person.findByFirstName", map );
+        map.put("firstname", firstName);
+        return findResults("Person.findByFirstName", map);
     }
-    
-    public List<Person>  findByLastName(String lastName) {
+
+    public List<Person> findByLastName(String lastName) {
         Map<String, Object> map = new HashMap<>();
-        map.put( "lastname", lastName );
-        return findResults( "Person.findByLastName", map );
+        map.put("lastname", lastName);
+        return findResults("Person.findByLastName", map);
     }
-    
-        public List<Person>  findByPhone(String phone) {
+
+    public List<Person> findByPhone(String phone) {
         Map<String, Object> map = new HashMap<>();
-        map.put( "lastname", phone );
-        return findResults( "Person.findByLastName", map );
+        map.put("lastname", phone);
+        return findResults("Person.findByLastName", map);
     }
-        
-        
-        public List<Person>  findByAddress(String address) {
+
+    public List<Person> findByAddress(String address) {
         Map<String, Object> map = new HashMap<>();
-        map.put( "lastname", address );
-        return findResults( "Person.findByLastName", map );
+        map.put("lastname", address);
+        return findResults("Person.findByLastName", map);
     }
-        
-        
-        public List<Person>  findByBirth(Date birth) {
+
+    public List<Person> findByBirth(Date birth) {
         Map<String, Object> map = new HashMap<>();
-        map.put( "lastname", birth );
-        return findResults( "Person.findByLastName", map );
+        map.put("lastname", birth);
+        return findResults("Person.findByLastName", map);
     }
-    
+
+    public List<Person> findContaining(String search) {
+        Map<String, Object> map = new HashMap<>();
+        map.put("search", search);
+        return findResults("Person.findContaining", map);
+    }
+
 }

@@ -63,5 +63,9 @@ public class DonationRecordDAL extends GenericDAL<DonationRecord>{
         return findResults( "DonationRecord.findCreated", map );
     }
     
-    
+    public List<DonationRecord> findContaining( String search ) {
+        Map<String, Object> map = new HashMap<>();
+        map.put( "search", search );
+        return findResults( "DonationRecord.findContaining", map );
+    }
 }

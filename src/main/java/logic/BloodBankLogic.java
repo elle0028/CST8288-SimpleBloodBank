@@ -112,34 +112,34 @@ public class BloodBankLogic extends GenericLogic <BloodBank, BloodBankDAL> {
      * @param parameterMap  updated BloodBank parameters
      * @return  the updated BloodBank
      */
-    public BloodBank updateBloodBank(Map<String, String[]> parameterMap) {
-         BloodBankLogic bbLogic = LogicFactory.getFor("BloodBank");
+    @Override
+    public BloodBank updateEntity(Map<String, String[]> parameterMap) {
          PersonLogic pLogic = LogicFactory.getFor("Person");
          
          //get the bloodbank we are intended to update
-         int originalID = Integer.parseInt(parameterMap.get(BloodBankLogic.ID)[0]);
-         BloodBank bbToUpdate = bbLogic.getWithId(originalID);
+         int originalID = Integer.parseInt(parameterMap.get(ID)[0]);
+         BloodBank bbToUpdate = getWithId(originalID);
          
          // update the name if it has changed
-         String updatedName = parameterMap.get(BloodBankLogic.NAME)[0];
+         String updatedName = parameterMap.get(NAME)[0];
          if(!updatedName.equals(bbToUpdate.getName()))
             bbToUpdate.setName(updatedName);         
          
-        int newEmployeeCount = Integer.parseInt(parameterMap.get(BloodBankLogic.EMPLOYEE_COUNT)[0]);
+        int newEmployeeCount = Integer.parseInt(parameterMap.get(EMPLOYEE_COUNT)[0]);
         if (newEmployeeCount != bbToUpdate.getEmployeeCount())
             bbToUpdate.setEmployeeCount(newEmployeeCount);         
          
          // if parameterMap established is invalid date, it should assume todays date
-         Date newEstablished = new Date(parameterMap.get(BloodBankLogic.ESTABLISHED)[0]);
+         Date newEstablished = convertStringToDate(parameterMap.get(ESTABLISHED)[0]);
          if (newEstablished.compareTo(bbToUpdate.getEstablished()) != 0)
             bbToUpdate.setEstablished(newEstablished);
          
          boolean wasPrivate = bbToUpdate.getPrivatelyOwned();
          int oldOwnerId = 0;
-         if (wasPrivate)
+         if (wasPrivate && bbToUpdate.getOwner() != null)
              oldOwnerId = bbToUpdate.getOwner().getId();
          
-         boolean isPrivate = Boolean.parseBoolean(parameterMap.get(BloodBankLogic.PRIVATELY_OWNED)[0]);
+         boolean isPrivate = Boolean.parseBoolean(parameterMap.get(PRIVATELY_OWNED)[0]);
          bbToUpdate.setPrivatelyOwned(isPrivate);
          
          // check and update dependency         
@@ -149,7 +149,7 @@ public class BloodBankLogic extends GenericLogic <BloodBank, BloodBankDAL> {
          }
          else {
              // the new ownerId
-             int newOwnerId = Integer.parseInt(parameterMap.get(BloodBankLogic.OWNER_ID)[0]);
+             int newOwnerId = Integer.parseInt(parameterMap.get(OWNER_ID)[0]);
              if (oldOwnerId != newOwnerId) {
                 // ownership has changed, set new owner
                 Person owner = pLogic.getWithId(newOwnerId);
