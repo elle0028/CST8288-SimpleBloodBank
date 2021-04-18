@@ -16,6 +16,8 @@
 <%@page import="entity.BloodGroup"%>
 <%@page import="entity.RhesusFactor"%>
 <%@page import="entity.DonationRecord"%>
+<%@page import="entity.Person"%>
+<%@page import="logic.PersonLogic"%>
 <%@page import="logic.BloodDonationLogic"%>
 <%@page import="logic.DonationRecordLogic"%>
 <%@page import="logic.BloodBankLogic"%>
@@ -35,22 +37,22 @@
                 <div class="entity">
                     <h3>Person</h3>
                     <fieldset class="field">
-                        <label for="firstname" class="lf">First name</label>
-                        <input type="text" name="firstname" value="Mickey" class="lfi" />
-                        <label for="secondname" class="rf">Last name</label>
-                        <input type="text" name="secondname" value="Mouse" class="rfi"/>
+                        <label for="${PersonLogic.FIRST_NAME}" class="lf">First name</label>
+                        <input type="text" name="${PersonLogic.FIRST_NAME}" value="Mickey" class="lfi" />
+                        <label for="${PersonLogic.LAST_NAME}" class="rf">Last name</label>
+                        <input type="text" name="${PersonLogic.LAST_NAME}" value="Mouse" class="rfi"/>
                     </fieldset>
 
                     <fieldset class="field">
-                        <label for="phone" class="lf">Phone</label>
-                        <input type="tel" name="phone" placeholder="888-888-8888" class="lfi"/>
-                        <label for="address" class="rf">Address</label>
-                        <input type="text" name="address" placeholder="123 John st." class="rfi"/>
+                        <label for="${PersonLogic.PHONE}" class="lf">Phone</label>
+                        <input type="tel" name="${PersonLogic.PHONE}" placeholder="8888888888" class="lfi"/>
+                        <label for="${PersonLogic.ADDRESS}" class="rf">Address</label>
+                        <input type="text" name="${PersonLogic.ADDRESS}" placeholder="123 John st." class="rfi"/>
                     </fieldset>
 
                     <fieldset class="field">
-                        <label for="bday" class="lf">Date of Birth</label>
-                        <input type="date" name="bday" min="1900-01-01" class="lfi">
+                        <label for="${PersonLogic.BIRTH}" class="lf">Date of Birth</label>
+                        <input type="date" name="${PersonLogic.BIRTH}" min="1900-01-01" class="lfi">
                     </fieldset>
 
                 </div>

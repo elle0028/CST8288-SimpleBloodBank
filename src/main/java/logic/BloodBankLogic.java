@@ -213,23 +213,23 @@ public class BloodBankLogic extends GenericLogic <BloodBank, BloodBankDAL> {
         
         // This Date code was adapted from Matt Ellero's BloodDonationLogic 
         // Handles an incorrectly formatted date
-        Date established = new Date();
-        try {
-           establishedStr = parameterMap.get(ESTABLISHED)[0];
-        } catch (ValidationException e) {
-            Logger.getLogger( BloodDonationLogic.class.getName() ).log( Level.SEVERE, null, e );
-            established = convertStringToDate(new SimpleDateFormat( "yyyy-MM-dd kk:mm:ss" ).format(establishedStr));
-        }
-        
-        if (!establishedStr.equals("")) {
-            try {
-                established = new Date(establishedStr);
-            }
-            catch(IllegalArgumentException e) {
-                // if the date given is invalid, make it todays date
-                established = new Date();
-            } 
-        }
+        Date established = convertStringToDate(parameterMap.get(ESTABLISHED)[0]);
+//        try {
+//           establishedStr = parameterMap.get(ESTABLISHED)[0];
+//        } catch (ValidationException e) {
+//            Logger.getLogger( BloodDonationLogic.class.getName() ).log( Level.SEVERE, null, e );
+//            established = convertStringToDate(new SimpleDateFormat( "yyyy-MM-dd kk:mm:ss" ).format(establishedStr));
+//        }
+//        
+//        if (!establishedStr.equals("")) {
+//            try {
+//                established = new Date(establishedStr);
+//            }
+//            catch(IllegalArgumentException e) {
+//                // if the date given is invalid, make it todays date
+//                established = new Date();
+//            } 
+//        }
 
         //validate the data       
         validator.accept( employeeCount, 45 );        

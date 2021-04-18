@@ -101,13 +101,13 @@ public class BloodDonationLogic extends GenericLogic<BloodDonation, BloodDonatio
         int milliliters = Integer.parseInt(parameterMap.get(MILLILITERS)[0]);
         RhesusFactor rhd = RhesusFactor.getRhesusFactor(parameterMap.get(RHESUS_FACTOR)[0]); 
         
-        Date created = new Date();
-        try {
-           created = convertStringToDate(parameterMap.get(CREATED)[0]);
-        } catch (ValidationException e) {
-            Logger.getLogger( BloodDonationLogic.class.getName() ).log( Level.SEVERE, null, e );
-            created = convertStringToDate(new SimpleDateFormat( "yyyy-MM-dd kk:mm:ss" ).format(created));
-        }
+//        Date created = new Date();
+//        try {
+           Date created = convertStringToDate(parameterMap.get(CREATED)[0]);
+//        } catch (ValidationException e) {
+//            Logger.getLogger( BloodDonationLogic.class.getName() ).log( Level.SEVERE, null, e );
+//            created = convertStringToDate(new SimpleDateFormat( "yyyy-MM-dd kk:mm:ss" ).format(created));
+//        }
 
         entity.setBloodGroup(bloodGroup);
         entity.setCreated(created);

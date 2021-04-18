@@ -4,6 +4,9 @@ import common.ValidationException;
 import dal.DataAccessLayer;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeFormatterBuilder;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
@@ -20,6 +23,7 @@ import java.util.logging.Logger;
 abstract class GenericLogic< E, T extends DataAccessLayer<E>> implements Logic<E> {
 
     private static final SimpleDateFormat FORMATTER = new SimpleDateFormat( "yyyy-MM-dd kk:mm:ss" );
+    private static final SimpleDateFormat SIMPLEDATE = new SimpleDateFormat("yyyy-MM-dd");
 
     private final T DAL;
 
@@ -89,10 +93,14 @@ abstract class GenericLogic< E, T extends DataAccessLayer<E>> implements Logic<E
      */
     public Date convertStringToDate( String date ) {
         try {
+            if (date.length() < 11) {
+                date = FORMATTER.format(SIMPLEDATE.parse(date));
+            }
             return FORMATTER.parse(date.replace("T", " "));
         } catch( ParseException ex ) {
             Logger.getLogger( GenericLogic.class.getName() ).log( Level.SEVERE, null, ex );
-            throw new ValidationException( "failed to format String=\"" + date + "\" to a date object", ex );
+            System.out.println("failed to format String=\"" + date + "\" to a date object:\n" +  ex.getMessage() );
+            return convertStringToDate(FORMATTER.format(new Date()));
         }
     }
 

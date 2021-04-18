@@ -164,16 +164,16 @@ public class DonationRecordLogic extends GenericLogic<DonationRecord, DonationRe
         validator.accept( hospital, 45 );
         //validator.accept( created, 45 );
         
-        Date creation_time = new Date();
-            //DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
-            //String formattedDate = myDateObj.format(myFormatObj);
-         try{
-             creation_time = convertStringToDate(parameterMap.get( CREATED )[ 0 ]);
-            //creation_time = new Date(parameterMap.get( CREATED )[ 0 ]);   
-         } catch(ValidationException e){
-             creation_time = convertStringToDate(new SimpleDateFormat("yyyy-MM-dd kk:mm:ss").format(creation_time));
-             // created: 
-         }
+//        Date creation_time = new Date();
+//            //DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
+//            //String formattedDate = myDateObj.format(myFormatObj);
+//         try{
+            Date creation_time = convertStringToDate(parameterMap.get( CREATED )[ 0 ]);
+//            //creation_time = new Date(parameterMap.get( CREATED )[ 0 ]);   
+//         } catch(ValidationException e){
+//             creation_time = convertStringToDate(new SimpleDateFormat("yyyy-MM-dd kk:mm:ss").format(creation_time));
+//             // created: 
+//         }
          
       // set entity parameters
         entity.setCreated(creation_time);
