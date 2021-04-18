@@ -197,4 +197,9 @@ public class DonationRecordLogic extends GenericLogic<DonationRecord, DonationRe
   
         return entity;
     }
+    
+    @Override
+    public List<DonationRecord> search( String search ) {
+        return get( () -> dal().findContaining( search ) );
+    }
 }

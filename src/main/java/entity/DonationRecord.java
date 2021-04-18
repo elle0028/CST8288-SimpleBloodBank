@@ -35,7 +35,9 @@ import javax.validation.constraints.Size;
     @NamedQuery( name = "DonationRecord.findByHospital", query = "SELECT d FROM DonationRecord d WHERE d.hospital = :hospital" ),
     @NamedQuery( name = "DonationRecord.findByPerson", query = "SELECT d FROM DonationRecord d WHERE d.person.id = :personId" ),
     @NamedQuery( name = "DonationRecord.findByDonation", query = "SELECT d FROM DonationRecord d WHERE d.bloodDonation.donationId = :donationId" ),
-    @NamedQuery( name = "DonationRecord.findByCreated", query = "SELECT d FROM DonationRecord d WHERE d.created = :created" ) } )
+    @NamedQuery( name = "DonationRecord.findByCreated", query = "SELECT d FROM DonationRecord d WHERE d.created = :created" ),
+    @NamedQuery( name = "DonationRecord.findContaining", query = "SELECT d FROM DonationRecord d WHERE d.administrator like CONCAT('%', :search, '%') or d.hospital like CONCAT('%', :search, '%') or d.person like CONCAT('%', :search, '%')" )
+} )
 public class DonationRecord implements Serializable {
 
     private static final long serialVersionUID = 1L;
