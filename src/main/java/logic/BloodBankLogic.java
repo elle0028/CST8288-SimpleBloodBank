@@ -4,16 +4,12 @@ import common.ValidationException;
 import dal.BloodBankDAL;
 import entity.BloodBank;
 import entity.Person;
-import java.text.SimpleDateFormat;
-import java.time.LocalDate;
 import java.util.Date;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.function.ObjIntConsumer;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *  Contains the logic for creating an entity and interfacing with the DAL
@@ -101,52 +97,59 @@ public class BloodBankLogic extends GenericLogic <BloodBank, BloodBankDAL> {
         return get( () -> dal().findByEmployeeCount( count ) );
     }    
     
+    /** Search for bloodbanks based on search term
+     * 
+     * @param search  string containing term to search for
+     * @return All bloodbanks that match the search term
+     */
     @Override
     public List<BloodBank> search( String search ) {
         return get( () -> dal().findContaining( search ) );
     }    
     
-    public BloodBank updateBloodBank(Map<String, String[]> parameterMap) {
-         BloodBankLogic bbLogic = LogicFactory.getFor("BloodBank");
+    /**
+     *  Update the BloodBank through the JSP
+     * @param parameterMap  updated BloodBank parameters
+     * @return  the updated BloodBank
+     */
+    @Override
+    public BloodBank updateEntity(Map<String, String[]> parameterMap) {
          PersonLogic pLogic = LogicFactory.getFor("Person");
          
          //get the bloodbank we are intended to update
-         int originalID = Integer.parseInt(parameterMap.get(BloodBankLogic.ID)[0]);
-         BloodBank bbToUpdate = bbLogic.getWithId(originalID);
+         int originalID = Integer.parseInt(parameterMap.get(ID)[0]);
+         BloodBank bbToUpdate = getWithId(originalID);
          
          // update the name if it has changed
-         String updatedName = parameterMap.get(BloodBankLogic.NAME)[0];
+         String updatedName = parameterMap.get(NAME)[0];
          if(!updatedName.equals(bbToUpdate.getName()))
-            bbToUpdate.setName(updatedName);
+            bbToUpdate.setName(updatedName);         
          
-         
-        int newEmployeeCount = Integer.parseInt(parameterMap.get(BloodBankLogic.EMPLOYEE_COUNT)[0]);
+        int newEmployeeCount = Integer.parseInt(parameterMap.get(EMPLOYEE_COUNT)[0]);
         if (newEmployeeCount != bbToUpdate.getEmployeeCount())
-            bbToUpdate.setEmployeeCount(newEmployeeCount);
-         
+            bbToUpdate.setEmployeeCount(newEmployeeCount);         
          
          // if parameterMap established is invalid date, it should assume todays date
-         Date newEstablished = new Date(parameterMap.get(BloodBankLogic.ESTABLISHED)[0]);
+         Date newEstablished = convertStringToDate(parameterMap.get(ESTABLISHED)[0]);
          if (newEstablished.compareTo(bbToUpdate.getEstablished()) != 0)
             bbToUpdate.setEstablished(newEstablished);
          
          boolean wasPrivate = bbToUpdate.getPrivatelyOwned();
          int oldOwnerId = 0;
-         if (wasPrivate)
+         if (wasPrivate && bbToUpdate.getOwner() != null)
              oldOwnerId = bbToUpdate.getOwner().getId();
          
-         boolean isPrivate = Boolean.parseBoolean(parameterMap.get(BloodBankLogic.PRIVATELY_OWNED)[0]);
+         boolean isPrivate = Boolean.parseBoolean(parameterMap.get(PRIVATELY_OWNED)[0]);
          bbToUpdate.setPrivatelyOwned(isPrivate);
          
-         // check and update dependency
-         
+         // check and update dependency         
          // if not privately owned we simply set the owner to null
          if (!isPrivate) {
              bbToUpdate.setOwner(null);
          }
          else {
              // the new ownerId
-             int newOwnerId = Integer.parseInt(parameterMap.get(BloodBankLogic.OWNER_ID)[0]);
+             int newOwnerId = Integer.parseInt(parameterMap.get(OWNER_ID)[0]);
              if (oldOwnerId != newOwnerId) {
                 // ownership has changed, set new owner
                 Person owner = pLogic.getWithId(newOwnerId);
@@ -157,8 +160,7 @@ public class BloodBankLogic extends GenericLogic <BloodBank, BloodBankDAL> {
             }             
         }
         
-        return bbToUpdate;
-        
+        return bbToUpdate;        
     }   
     
     /**
@@ -209,27 +211,9 @@ public class BloodBankLogic extends GenericLogic <BloodBank, BloodBankDAL> {
         // ------------------------------------------------------
         String privatelyOwned = parameterMap.get(PRIVATELY_OWNED)[0];
         String name = parameterMap.get(NAME)[0];  
-        String establishedStr = "";
-        
-        // This Date code was adapted from Matt Ellero's BloodDonationLogic 
-        // Handles an incorrectly formatted date
-        Date established = new Date();
-        try {
-           establishedStr = parameterMap.get(ESTABLISHED)[0];
-        } catch (ValidationException e) {
-            Logger.getLogger( BloodDonationLogic.class.getName() ).log( Level.SEVERE, null, e );
-            established = convertStringToDate(new SimpleDateFormat( "yyyy-MM-dd kk:mm:ss" ).format(establishedStr));
-        }
-        
-        if (!establishedStr.equals("")) {
-            try {
-                established = new Date(establishedStr);
-            }
-            catch(IllegalArgumentException e) {
-                // if the date given is invalid, make it todays date
-                established = new Date();
-            } 
-        }
+        String establishedStr = parameterMap.get(ESTABLISHED)[0];
+            
+        Date established = convertStringToDate(establishedStr);//        
 
         //validate the data       
         validator.accept( employeeCount, 45 );        

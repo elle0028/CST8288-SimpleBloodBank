@@ -6,7 +6,6 @@ import entity.BloodBank;
 import entity.BloodDonation;
 import entity.BloodGroup;
 import entity.RhesusFactor;
-import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
@@ -77,9 +76,6 @@ public class BloodDonationLogic extends GenericLogic<BloodDonation, BloodDonatio
 
     @Override
     public BloodDonation createEntity( Map<String, String[]> parameterMap ) {
-        //do not create any logic classes in this method.
-
-//        return new BloodDonationBuilder().SetData( parameterMap ).build();
         Objects.requireNonNull( parameterMap, "parameterMap cannot be null" );
 
         //create a new Entity object
@@ -100,15 +96,8 @@ public class BloodDonationLogic extends GenericLogic<BloodDonation, BloodDonatio
         BloodGroup bloodGroup = BloodGroup.valueOf(parameterMap.get(BLOOD_GROUP)[0]);
         int milliliters = Integer.parseInt(parameterMap.get(MILLILITERS)[0]);
         RhesusFactor rhd = RhesusFactor.getRhesusFactor(parameterMap.get(RHESUS_FACTOR)[0]); 
+        Date created = convertStringToDate(parameterMap.get(CREATED)[0]);
         
-        Date created = new Date();
-        try {
-           created = convertStringToDate(parameterMap.get(CREATED)[0]);
-        } catch (ValidationException e) {
-            Logger.getLogger( BloodDonationLogic.class.getName() ).log( Level.SEVERE, null, e );
-            created = convertStringToDate(new SimpleDateFormat( "yyyy-MM-dd kk:mm:ss" ).format(created));
-        }
-
         entity.setBloodGroup(bloodGroup);
         entity.setCreated(created);
         entity.setMilliliters(milliliters);
@@ -118,9 +107,9 @@ public class BloodDonationLogic extends GenericLogic<BloodDonation, BloodDonatio
     }
     
     /**
-     * this method is only needed for bonus. this method needs to be overridden if the entity has dependencies. within
-     * the method other logic's can be created to manipulate the dependencies. by default this method does the exact
-     * same thing as createEntity method.
+     * This method has been implemented for bonus.
+     * Takes a map of data to update and checks it against the current entity data in the database.
+     * Updates whichever values needs to be updated and returns the entity to be merged
      *
      * @param parameterMap - new data with which to update an entity
      *

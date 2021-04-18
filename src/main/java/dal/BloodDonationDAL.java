@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
- *
+ * BONUS: This class implements the search functionality bonus
  * @author Shariar (Shawn) Emami, Matthew Ellero
  */
 public class BloodDonationDAL extends GenericDAL<BloodDonation> {

@@ -94,7 +94,6 @@ public class DonationRecordTest {
             em.persist(bd);
         }
         
-        
         testBloodDonationId = bd.getId();
         // get dependancy person n put it in the db
         Person p = em.find(Person.class, testPersonId);
@@ -172,7 +171,6 @@ public class DonationRecordTest {
         assertEquals( originalSize - 1, list.size() );
     }
    
-
     /**
      * helper method for testing all DonationRecord fields
      *
@@ -208,7 +206,6 @@ public class DonationRecordTest {
         }
     }     
     
-
     @Test
     final void testGetDonationRecordWithHospital() {
          List<DonationRecord> returnedDonationRecord = logic.getDonationRecordWithHospital( expectedEntity.getHospital());
@@ -217,8 +214,6 @@ public class DonationRecordTest {
          returnedDonationRecord.forEach( dr -> assertEquals( expectedEntity.getHospital() , dr.getHospital()));        
         //the two accounts (testAcounts and returnedAccounts) must be the same
     }
-    
-
     
      @Test
     final void testGetDonationRecordWithAdministrator() {
@@ -243,7 +238,6 @@ public class DonationRecordTest {
         
     }
 
-    
      @Test
     final void testGetDonationRecordWithTested(){
          List<DonationRecord> returnedDonationRecord = logic.getDonationRecordWithTested( expectedEntity.getTested());
@@ -281,8 +275,6 @@ public class DonationRecordTest {
         logic.delete( returnedDonationRecord );
     }
     
-
-
     @Test
     final void testCreateEntity() {
         Map<String, String[]> sampleMap = new HashMap<>();
@@ -368,7 +360,7 @@ public class DonationRecordTest {
     }
     
     @Test
-    final void testCreateEntityBadPersonValue() {
+    final void testCreateEntityBadTestedValue() {
         Map<String, String[]> sampleMap = new HashMap<>();
         Consumer<Map<String, String[]>> fillMap = ( Map<String, String[]> map ) -> {
             map.clear();
@@ -382,13 +374,13 @@ public class DonationRecordTest {
         };
 
         fillMap.accept( sampleMap );
-        sampleMap.replace( DonationRecordLogic.PERSON_ID, new String[]{ "ASD" } );
-        assertThrows( IllegalArgumentException.class, () -> logic.createEntity( sampleMap ) );
+        sampleMap.replace( DonationRecordLogic.TESTED, new String[]{ "" } );
+        assertThrows( ValidationException.class, () -> logic.createEntity( sampleMap ) );
         
     }
     
      @Test
-    final void testCreateEntityBadBloodDonationValue() {
+    final void testCreateEntityBadIdValue() {
         Map<String, String[]> sampleMap = new HashMap<>();
         Consumer<Map<String, String[]>> fillMap = ( Map<String, String[]> map ) -> {
             map.clear();
@@ -402,13 +394,11 @@ public class DonationRecordTest {
         };
 
         fillMap.accept( sampleMap );
-        sampleMap.replace( DonationRecordLogic.DONATION_ID, new String[]{ "ASD" } );
-        assertThrows( IllegalArgumentException.class, () -> logic.createEntity( sampleMap ) );
+        sampleMap.replace( DonationRecordLogic.ID, new String[]{ "" } );
+        assertThrows( ValidationException.class, () -> logic.createEntity( sampleMap ) );
         
     }
     
-    
-  
         @Test
     final void testCreateEntityBadHospitalValue() {
         Map<String, String[]> sampleMap = new HashMap<>();
@@ -426,51 +416,6 @@ public class DonationRecordTest {
         sampleMap.replace( DonationRecordLogic.HOSPITAL, new String[]{ "" } );
         assertThrows( ValidationException.class, () -> logic.createEntity( sampleMap ) );
     }
-     
-    
-  /*  
-   
-
-    @Test
-    final void testCreateEntityEdgeValues() {
-        IntFunction<String> generateString = ( int length ) -> {
-            //https://www.baeldung.com/java-random-string#java8-alphabetic
-            return new Random().ints( 'a', 'z' + 1 ).limit( length )
-                    .collect( StringBuilder::new, StringBuilder::appendCodePoint, StringBuilder::append )
-                    .toString();
-        };
-
-        Map<String, String[]> sampleMap = new HashMap<>();
-        sampleMap.put( DonationRecordLogic.ID, new String[]{ Integer.toString( 1 ) } );
-        sampleMap.put( DonationRecordLogic.ADMINISTRATOR, new String[]{ generateString.apply( 1 ) } );
-        sampleMap.put( DonationRecordLogic.CREATED, new String[]{ generateString.apply( 1 ) } );
-        sampleMap.put( DonationRecordLogic.HOSPITAL, new String[]{ generateString.apply( 1 ) } );
-        sampleMap.put( DonationRecordLogic.NAME, new String[]{ generateString.apply( 1 ) } );
-
-        //idealy every test should be in its own method
-        DonationRecord returnedAccount = logic.createEntity( sampleMap );
-        assertEquals( Integer.parseInt( sampleMap.get( DonationRecordLogic.ID )[ 0 ] ), returnedAccount.getId() );
-        assertEquals( sampleMap.get( DonationRecordLogic.ADMINISTRATOR )[ 0 ], returnedAccount.getNickname() );
-        assertEquals( sampleMap.get( DonationRecordLogic.CREATED )[ 0 ], returnedAccount.getUsername() );
-        assertEquals( sampleMap.get( DonationRecordLogic.HOSPITAL )[ 0 ], returnedAccount.getPassword() );
-        assertEquals( sampleMap.get( DonationRecordLogic.NAME )[ 0 ], returnedAccount.getName() );
-
-        sampleMap = new HashMap<>();
-        sampleMap.put( DonationRecordLogic.ID, new String[]{ Integer.toString( 1 ) } );
-        sampleMap.put( DonationRecordLogic.ADMINISTRATOR, new String[]{ generateString.apply( 45 ) } );
-        sampleMap.put( DonationRecordLogic.CREATED, new String[]{ generateString.apply( 45 ) } );
-        sampleMap.put( DonationRecordLogic.HOSPITAL, new String[]{ generateString.apply( 45 ) } );
-        sampleMap.put( DonationRecordLogic.NAME, new String[]{ generateString.apply( 45 ) } );
-
-        //idealy every test should be in its own method
-        returnedAccount = logic.createEntity( sampleMap );
-        assertEquals( Integer.parseInt( sampleMap.get( DonationRecordLogic.ID )[ 0 ] ), returnedAccount.getId() );
-        assertEquals( sampleMap.get( DonationRecordLogic.ADMINISTRATOR )[ 0 ], returnedAccount.getNickname() );
-        assertEquals( sampleMap.get( DonationRecordLogic.CREATED )[ 0 ], returnedAccount.getUsername() );
-        assertEquals( sampleMap.get( DonationRecordLogic.HOSPITAL )[ 0 ], returnedAccount.getPassword() );
-        assertEquals( sampleMap.get( DonationRecordLogic.NAME )[ 0 ], returnedAccount.getName() );
-    }
-*/
 
     @Test
     final void testGetColumnNames() {

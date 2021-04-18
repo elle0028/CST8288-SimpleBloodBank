@@ -96,6 +96,7 @@ public class DonationRecordLogic extends GenericLogic<DonationRecord, DonationRe
         
         return Arrays.asList(e.getId(), personId, bloodDonationId, e.getTested(), e.getAdministrator(), e.getHospital(), e.getCreated());
     }
+    
     @Override
     public DonationRecord createEntity(Map<String, String[]> parameterMap) {
 
@@ -164,16 +165,16 @@ public class DonationRecordLogic extends GenericLogic<DonationRecord, DonationRe
         validator.accept( hospital, 45 );
         //validator.accept( created, 45 );
         
-        Date creation_time = new Date();
-            //DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
-            //String formattedDate = myDateObj.format(myFormatObj);
-         try{
-             creation_time = convertStringToDate(parameterMap.get( CREATED )[ 0 ]);
-            //creation_time = new Date(parameterMap.get( CREATED )[ 0 ]);   
-         } catch(ValidationException e){
-             creation_time = convertStringToDate(new SimpleDateFormat("yyyy-MM-dd kk:mm:ss").format(creation_time));
-             // created: 
-         }
+//        Date creation_time = new Date();
+//            //DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
+//            //String formattedDate = myDateObj.format(myFormatObj);
+//         try{
+            Date creation_time = convertStringToDate(parameterMap.get( CREATED )[ 0 ]);
+//            //creation_time = new Date(parameterMap.get( CREATED )[ 0 ]);   
+//         } catch(ValidationException e){
+//             creation_time = convertStringToDate(new SimpleDateFormat("yyyy-MM-dd kk:mm:ss").format(creation_time));
+//             // created: 
+//         }
          
       // set entity parameters
         entity.setCreated(creation_time);
@@ -184,17 +185,124 @@ public class DonationRecordLogic extends GenericLogic<DonationRecord, DonationRe
         
         if(person_id == null || person_id.equals("")){
             entity.setPerson(null);
-        } else {
-            entity.setPerson(new Person(Integer.parseInt(person_id)));
         }
-        
+//        } else {
+//            entity.setPerson(new Person(Integer.parseInt(person_id)));
+//        }
+//        
         if(donation_id == null || donation_id.equals("")){
             entity.setBloodDonation(null);
-        } else {
-            entity.setBloodDonation(new BloodDonation(Integer.parseInt(donation_id)));
-        }
+        } 
+//else {
+//            entity.setBloodDonation(new BloodDonation(Integer.parseInt(donation_id)));
+//        }
         
   
         return entity;
+    }
+    
+    @Override
+    public DonationRecord updateEntity(Map<String, String[]> parameterMap) {
+
+        Objects.requireNonNull( parameterMap, "parameterMap cannot be null" );
+        
+        // Get dependencies
+        PersonLogic pLogic = LogicFactory.getFor("PersonLogic");
+        BloodDonationLogic bdLogic = LogicFactory.getFor("BloodDonationLogic");
+ 
+        // Get current entity
+        DonationRecord entityToUpdate = getWithId(Integer.parseInt(parameterMap.get(ID)[0]));
+
+        ObjIntConsumer< String> validator = ( value, length ) -> {
+            if( value == null || value.trim().isEmpty() || value.length() > length ){
+                // GIVING AN ERROR WHEN I LEAVE THE STRING EMPTY
+                String error = "";
+                if( value == null || value.trim().isEmpty() ){
+                    error = "value cannot be null or empty: " + value;
+                }
+                if( value.length() > length ){
+                    error = "string length is " + value.length() + " > " + length;
+                }
+                throw new ValidationException( error );
+            }
+        };
+  
+        
+        int person_id = -1;
+        if (entityToUpdate.getPerson() != null) {
+            person_id = entityToUpdate.getPerson().getId();
+        }
+        if( parameterMap.containsKey( PERSON_ID ) && !parameterMap.get( PERSON_ID )[ 0 ].equals("")){
+            int newPerson_id = Integer.parseInt(parameterMap.get( PERSON_ID )[ 0 ]);
+            if(newPerson_id != person_id){
+                person_id = newPerson_id;
+            } 
+        }
+        
+        
+        int donation_id = -1;
+        if (entityToUpdate.getBloodDonation() != null) {
+            donation_id = entityToUpdate.getBloodDonation().getId();
+        }
+        if( parameterMap.containsKey( DONATION_ID ) && !parameterMap.get( DONATION_ID )[ 0 ].equals("")){
+            int newDonation_id = Integer.parseInt(parameterMap.get( DONATION_ID )[ 0 ]);
+            if(newDonation_id != donation_id){
+                donation_id = newDonation_id;
+            } 
+        } 
+        
+        Boolean tested = entityToUpdate.getTested();
+        if( parameterMap.containsKey( TESTED ) ){
+            Boolean newTested = Boolean.parseBoolean(parameterMap.get( TESTED )[ 0 ]);
+            if(newTested != tested){
+                tested = newTested;
+            } 
+        }
+        
+        String administrator = entityToUpdate.getAdministrator();
+        if (parameterMap.containsKey(ADMINISTRATOR)) {
+            String newAdministrator = parameterMap.get( ADMINISTRATOR )[ 0 ];
+            if (!newAdministrator.equals(administrator)) {
+                administrator = newAdministrator;
+            }
+        }
+        
+        String hospital = entityToUpdate.getHospital();
+        if (parameterMap.containsKey(HOSPITAL)) {
+            String newHospital = parameterMap.get( HOSPITAL )[ 0 ];
+            if (!newHospital.equals(hospital)) {
+                hospital = newHospital;
+            }
+        }
+
+        validator.accept( administrator, 45 );
+        validator.accept( hospital, 45 );
+
+       Date creation_time = entityToUpdate.getCreated();
+       if (parameterMap.containsKey(CREATED)) {
+           Date newCreated = convertStringToDate(parameterMap.get( CREATED )[ 0 ]);
+           if (newCreated.compareTo(creation_time) != 0) {
+               creation_time = newCreated;
+           }
+       }
+
+      // set entity parameters
+        entityToUpdate.setCreated(creation_time);
+        entityToUpdate.setAdministrator(administrator );
+        entityToUpdate.setTested(tested);
+        entityToUpdate.setHospital(hospital);
+        if (person_id != -1) {
+            entityToUpdate.setPerson(pLogic.getWithId(person_id));
+        }
+        if (donation_id != -1) {
+            entityToUpdate.setBloodDonation(bdLogic.getWithId(donation_id));
+        }
+        
+        return entityToUpdate;
+    }
+    
+    @Override
+    public List<DonationRecord> search( String search ) {
+        return get( () -> dal().findContaining( search ) );
     }
 }

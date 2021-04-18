@@ -2,7 +2,6 @@ package logic;
 
 import common.EMFactory;
 import common.TomcatStartUp;
-
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
@@ -15,22 +14,17 @@ import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static org.junit.jupiter.api.Assertions.assertFalse;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import entity.BloodBank;
 import entity.BloodDonation;
 import entity.Person;
-import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
-import javax.validation.ValidationException;
 import org.hibernate.Hibernate;
 import static org.junit.jupiter.api.Assertions.assertThrows;
-import org.junit.jupiter.api.Disabled;
 
 public class BloodBankTest {
     private BloodBankLogic logic;
@@ -48,7 +42,7 @@ public class BloodBankTest {
     final static void tearDownAfterClass() throws Exception {
         TomcatStartUp.stopAndDestroyTomcat();
     }
-    
+        
     @BeforeEach
     final void setUp() throws Exception {
 
@@ -59,6 +53,7 @@ public class BloodBankTest {
         //start a Transaction
         em.getTransaction().begin();         
         
+        // set up person dependency
         testPerson = em.find( Person.class, personID );
         //if result is null create the entity and persist it
         if( testPerson == null ){
@@ -68,19 +63,21 @@ public class BloodBankTest {
             testPerson.setLastName("Kent");
             testPerson.setPhone("613-316-1361");
             testPerson.setAddress("123 Road Street"); 
-            testPerson.setBirth(new Date("2020/3/1"));
+            testPerson.setBirth(logic.convertStringToDate("2020-3-1"));
             em.persist( testPerson );
         }       
 
+        // keep personID aligned with current testPerson
         personID = testPerson.getId();
         // add two empty donations to the donation set
         donations = new HashSet<BloodDonation>();
         donations.add(new BloodDonation());        
         
+        // create entity
         BloodBank entity = new BloodBank();
         entity.setName( "test name" );
         entity.setPrivatelyOwned(true);
-        entity.setEstablished(new Date("Wed Dec 12 00:00:00 EST 1212"));
+        entity.setEstablished(logic.convertStringToDate("1212-12-12"));
         entity.setEmployeeCount(5);
         entity.setOwner(testPerson);        
         entity.setBloodDonationSet(donations);
@@ -99,9 +96,6 @@ public class BloodBankTest {
             logic.delete( expectedEntity );
         }
         
-        if( expectedEntity != null ){
-            logic.delete( expectedEntity );
-        }
         //get an instance of EntityManager
         EntityManager em = EMFactory.getEMF().createEntityManager();
         //start a Transaction
@@ -136,7 +130,7 @@ public class BloodBankTest {
     final void testGetEstablished() {
         assertNotNull( expectedEntity );
         // ensure the date string is the same as entered
-        assertEquals(expectedEntity.getEstablished().toString(), "Wed Dec 12 00:00:00 EST 1212");
+        assertEquals(expectedEntity.getEstablished(), logic.convertStringToDate("1212-12-12"));
     }
     
     @Test
@@ -291,7 +285,7 @@ public class BloodBankTest {
         assertEquals( false, returnedBloodbank.getPrivatelyOwned() );
         assertEquals( 5, returnedBloodbank.getEmployeeCount() );
         // if the dates are the same compareTo will return 0
-        assertEquals(returnedBloodbank.getEstablished().compareTo(new Date(sampleMap.get(BloodBankLogic.ESTABLISHED)[0])), 0);
+        assertEquals(returnedBloodbank.getEstablished().compareTo(logic.convertStringToDate(sampleMap.get(BloodBankLogic.ESTABLISHED)[0])), 0);
       
         assertEquals( null, returnedBloodbank.getOwner() ); 
         assertEquals( sampleMap.get( BloodBankLogic.NAME )[ 0 ], returnedBloodbank.getName() );
@@ -304,7 +298,7 @@ public class BloodBankTest {
         Map<String, String[]> sampleMap = new HashMap<>();
         sampleMap.put( BloodBankLogic.ID, new String[]{ Integer.toString(expectedEntity.getId()) } );
         sampleMap.put( BloodBankLogic.PRIVATELY_OWNED, new String[]{ Boolean.toString(expectedEntity.getPrivatelyOwned()) } );
-        sampleMap.put( BloodBankLogic.ESTABLISHED, new String[]{ expectedEntity.getEstablished().toString() } );
+        sampleMap.put( BloodBankLogic.ESTABLISHED, new String[]{ logic.convertDateToString(expectedEntity.getEstablished()) } );
         if (expectedEntity.getOwner() != null) 
             sampleMap.put( BloodBankLogic.OWNER_ID, new String[]{ expectedEntity.getOwner().getId().toString() } );
         sampleMap.put( BloodBankLogic.NAME, new String[]{ expectedEntity.getName() } );
@@ -394,7 +388,6 @@ public class BloodBankTest {
         assertThrows( ValidationException.class, () -> logic.createEntity( sampleMap ) );
         sampleMap.replace( BloodBankLogic.ID, new String[]{ "12b" } );
         assertThrows( ValidationException.class, () -> logic.createEntity( sampleMap ) );
-
         */
        
         // Test PRIVATELY_OWNED with bad string lengths
@@ -435,8 +428,7 @@ public class BloodBankTest {
        assertEquals( expectedEntity.getEstablished(), list.get( 3 ) );
        assertEquals( expectedEntity.getPrivatelyOwned(), list.get( 4 ) );        
        if (expectedEntity.getOwner() != null)
-           assertEquals( expectedEntity.getOwner().getId(), list.get( 5 ) );
-        
+           assertEquals( expectedEntity.getOwner().getId(), list.get( 5 ) );        
     }
     
     @Test

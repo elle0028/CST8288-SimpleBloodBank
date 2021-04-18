@@ -111,13 +111,13 @@ public class PersonLogic extends GenericLogic<Person, PersonDAL> {
         String lastname = parameterMap.get( LAST_NAME )[ 0 ];
         String phone = parameterMap.get( PHONE )[ 0 ];
         String address = parameterMap.get( ADDRESS )[ 0 ];
-        Date birthDate = new Date();
-        try {
-           birthDate = convertStringToDate(parameterMap.get(BIRTH)[0]);
-        } catch (ValidationException e) {
-            Logger.getLogger( BloodDonationLogic.class.getName() ).log( Level.SEVERE, null, e );
-            birthDate = convertStringToDate(new SimpleDateFormat( "yyyy-MM-dd kk:mm:ss" ).format(birthDate));
-        }
+//        Date birthDate = new Date();
+//        try {
+           Date birthDate = convertStringToDate(parameterMap.get(BIRTH)[0]);
+//        } catch (ValidationException e) {
+//            Logger.getLogger( BloodDonationLogic.class.getName() ).log( Level.SEVERE, null, e );
+//            birthDate = convertStringToDate(new SimpleDateFormat( "yyyy-MM-dd kk:mm:ss" ).format(birthDate));
+//        }
 //        String id = null;
 //        if( parameterMap.containsKey( FIRST_NAME ) ){
 //            id = parameterMap.get(ID)[0];
@@ -157,4 +157,8 @@ public class PersonLogic extends GenericLogic<Person, PersonDAL> {
         return Arrays.asList( e.getId(), e.getFirstName(), e.getLastName(), e.getPhone(), e.getAddress(), e.getBirth() );
     }
         
+    @Override
+    public List<Person> search( String search ) {
+        return get( () -> dal().findContaining( search ) );
+    }
 }
