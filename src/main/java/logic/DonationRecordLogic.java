@@ -185,15 +185,17 @@ public class DonationRecordLogic extends GenericLogic<DonationRecord, DonationRe
         
         if(person_id == null || person_id.equals("")){
             entity.setPerson(null);
-        } else {
-            entity.setPerson(new Person(Integer.parseInt(person_id)));
         }
-        
+//        } else {
+//            entity.setPerson(new Person(Integer.parseInt(person_id)));
+//        }
+//        
         if(donation_id == null || donation_id.equals("")){
             entity.setBloodDonation(null);
-        } else {
-            entity.setBloodDonation(new BloodDonation(Integer.parseInt(donation_id)));
-        }
+        } 
+//else {
+//            entity.setBloodDonation(new BloodDonation(Integer.parseInt(donation_id)));
+//        }
         
   
         return entity;

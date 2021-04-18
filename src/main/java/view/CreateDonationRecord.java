@@ -163,7 +163,7 @@ public class CreateDonationRecord extends HttpServlet {
         DonationRecordLogic drLogic = LogicFactory.getFor("DonationRecord");
 
         String record_id = request.getParameter(DonationRecordLogic.ID);
-        // if( drLogic.getWithId(Integer.parseInt(record_id)) == null  ){
+
         try {
             DonationRecord donation_record = drLogic.createEntity(request.getParameterMap());
             if (donation_record.getPerson() != null) {
@@ -183,7 +183,6 @@ public class CreateDonationRecord extends HttpServlet {
         } catch (IllegalArgumentException ex) {
             errorMessage = ex.getMessage();
         }
-        
         
         if( request.getParameter( "add" ) != null ){
             //if add button is pressed return the same page
