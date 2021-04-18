@@ -17,7 +17,8 @@ import logic.BloodDonationLogic;
 import logic.LogicFactory;
 
 /**
- * BONUS: This class also allows for updating and deleting of entities from the JSP view.
+ * BONUS: This class also allows for updating and deleting of entities from the JSP view, as well as searching
+ * through RHD, BloodGroup, and Milliliters.
  * @author Shariar (Shawn) Emami, Matthew Ellero
  */
 @WebServlet( name = "BloodDonationTableJSP", urlPatterns = { "/BloodDonationTableJSP" } )
@@ -151,6 +152,7 @@ public class BloodDonationTableViewJSP extends HttpServlet {
 
     private static final boolean DEBUG = true;
 
+    @Override
     public void log( String msg ) {
         if( DEBUG ){
             String message = String.format( "[%s] %s", getClass().getSimpleName(), msg );
@@ -158,6 +160,7 @@ public class BloodDonationTableViewJSP extends HttpServlet {
         }
     }
 
+    @Override
     public void log( String msg, Throwable t ) {
         String message = String.format( "[%s] %s", getClass().getSimpleName(), msg );
         getServletContext().log( message, t );

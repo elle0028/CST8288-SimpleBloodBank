@@ -10,7 +10,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import logic.BloodBankLogic;
 import logic.BloodDonationLogic;
 import logic.Logic;
 import logic.LogicFactory;
@@ -102,9 +101,6 @@ public class BloodDonationTableView extends HttpServlet {
     protected void doPost( HttpServletRequest request, HttpServletResponse response )
             throws ServletException, IOException {
         log( "POST" );
-        
-        // Dependency logic
-        BloodBankLogic bbLogic = LogicFactory.getFor("BloodBank");
         // Main logic
         BloodDonationLogic logic = LogicFactory.getFor( "BloodDonation" );
         
@@ -125,6 +121,7 @@ public class BloodDonationTableView extends HttpServlet {
 
     private static final boolean DEBUG = true;
 
+    @Override
     public void log( String msg ) {
         if( DEBUG ){
             String message = String.format( "[%s] %s", getClass().getSimpleName(), msg );
@@ -132,6 +129,7 @@ public class BloodDonationTableView extends HttpServlet {
         }
     }
 
+    @Override
     public void log( String msg, Throwable t ) {
         String message = String.format( "[%s] %s", getClass().getSimpleName(), msg );
         getServletContext().log( message, t );

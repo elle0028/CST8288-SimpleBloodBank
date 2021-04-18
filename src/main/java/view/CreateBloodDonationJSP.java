@@ -2,13 +2,10 @@ package view;
 
 import entity.BloodBank;
 import entity.BloodDonation;
-import entity.Person;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -18,7 +15,6 @@ import logic.BloodBankLogic;
 import logic.BloodDonationLogic;
 
 import logic.LogicFactory;
-import logic.PersonLogic;
 
 /**
  *
@@ -47,6 +43,7 @@ public class CreateBloodDonationJSP extends HttpServlet {
         return builder.toString();
     }
 
+    @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         log( "POST" );
@@ -79,6 +76,7 @@ public class CreateBloodDonationJSP extends HttpServlet {
         }
     }
 
+    @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
         log("GET");
@@ -133,6 +131,7 @@ public class CreateBloodDonationJSP extends HttpServlet {
 
     private static final boolean DEBUG = true;
 
+    @Override
     public void log(String msg) {
         if (DEBUG) {
             String message = String.format("[%s] %s", getClass().getSimpleName(), msg);
@@ -140,6 +139,7 @@ public class CreateBloodDonationJSP extends HttpServlet {
         }
     }
 
+    @Override
     public void log(String msg, Throwable t) {
         String message = String.format("[%s] %s", getClass().getSimpleName(), msg);
         getServletContext().log(message, t);
