@@ -112,7 +112,8 @@ public class BloodBankLogic extends GenericLogic <BloodBank, BloodBankDAL> {
      * @param parameterMap  updated BloodBank parameters
      * @return  the updated BloodBank
      */
-    public BloodBank updateBloodBank(Map<String, String[]> parameterMap) {
+    @Override
+    public BloodBank updateEntity(Map<String, String[]> parameterMap) {
          BloodBankLogic bbLogic = LogicFactory.getFor("BloodBank");
          PersonLogic pLogic = LogicFactory.getFor("Person");
          
@@ -130,13 +131,13 @@ public class BloodBankLogic extends GenericLogic <BloodBank, BloodBankDAL> {
             bbToUpdate.setEmployeeCount(newEmployeeCount);         
          
          // if parameterMap established is invalid date, it should assume todays date
-         Date newEstablished = new Date(parameterMap.get(BloodBankLogic.ESTABLISHED)[0]);
+         Date newEstablished = bbLogic.convertStringToDate(parameterMap.get(BloodBankLogic.ESTABLISHED)[0]);
          if (newEstablished.compareTo(bbToUpdate.getEstablished()) != 0)
             bbToUpdate.setEstablished(newEstablished);
          
          boolean wasPrivate = bbToUpdate.getPrivatelyOwned();
          int oldOwnerId = 0;
-         if (wasPrivate)
+         if (wasPrivate && bbToUpdate.getOwner() != null)
              oldOwnerId = bbToUpdate.getOwner().getId();
          
          boolean isPrivate = Boolean.parseBoolean(parameterMap.get(BloodBankLogic.PRIVATELY_OWNED)[0]);
