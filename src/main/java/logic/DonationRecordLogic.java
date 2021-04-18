@@ -7,11 +7,9 @@ import entity.DonationRecord;
 import entity.Person;
 
 import java.util.Date;
-import java.sql.Timestamp;
-import java.text.ParseException;
+
 import java.text.SimpleDateFormat;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
+
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
@@ -159,20 +157,20 @@ public class DonationRecordLogic extends GenericLogic<DonationRecord, DonationRe
         String administrator = parameterMap.get( ADMINISTRATOR )[ 0 ];
         String hospital = parameterMap.get( HOSPITAL )[ 0 ];
         
-        // MIGHT NOT NEED TO VALIDATE CHECK MATT'S CODE 
+        
         //validate the data
-        //validator.accept( tested, 45 );
-        //validator.accept( hospital, 45 );
-       // validator.accept( hospital, 45 );
+        validator.accept( tested, 45 );
+        validator.accept( hospital, 45 );
+        validator.accept( hospital, 45 );
         //validator.accept( created, 45 );
         
         Date creation_time = new Date();
             //DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
             //String formattedDate = myDateObj.format(myFormatObj);
          try{
-             creation_time = convertStringToDate(parameterMap.get( CREATED )[ 0 ]);   
+             creation_time = convertStringToDate(parameterMap.get( CREATED )[ 0 ]);
+            //creation_time = new Date(parameterMap.get( CREATED )[ 0 ]);   
          } catch(ValidationException e){
-             
              creation_time = convertStringToDate(new SimpleDateFormat("yyyy-MM-dd kk:mm:ss").format(creation_time));
              // created: 
          }
@@ -184,13 +182,13 @@ public class DonationRecordLogic extends GenericLogic<DonationRecord, DonationRe
         entity.setTested(Boolean.parseBoolean(tested));
         entity.setHospital(hospital);
         
-        if(person_id.equals("")){
+        if(person_id == null || person_id.equals("")){
             entity.setPerson(null);
         } else {
             entity.setPerson(new Person(Integer.parseInt(person_id)));
         }
         
-        if(donation_id.equals("")){
+        if(donation_id == null || donation_id.equals("")){
             entity.setBloodDonation(null);
         } else {
             entity.setBloodDonation(new BloodDonation(Integer.parseInt(donation_id)));
