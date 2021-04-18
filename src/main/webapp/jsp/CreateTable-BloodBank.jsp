@@ -1,7 +1,7 @@
 <%-- 
     Document   : CreateBloodBankJSP
-    Created on : Apr 17, 2021, 3:27:57 PM
-    Author     : Matt Ellero
+    Created on : Apr 18, 2021, 9:35 AM
+    Author     : Andrew O'Hara  adapted from code written by Matt Ellero
 --%>
 
 
@@ -29,40 +29,35 @@
     </head>
     <body>
         <div style="display: flex; text-align: left;flex-direction: column; margin: 0 50px">
-            <form action="CreateBloodDonationJSP" method="post">
+            <form action="CreateBloodBankJSP" method="post">
                 <div class="entity">
-                    <h3>Blood Donation</h3>
+                    <h3>Blood Bank</h3>
                     <fieldset class="field">
-                        <label for="${BloodDonationLogic.BLOOD_GROUP}" class="lf">Blood Group</label>
-                        <select name="${BloodDonationLogic.BLOOD_GROUP}" class="lfi">
-                            <c:forEach var="bg" items="${BloodGroup.values()}">
-                                <option>${bg.toString()}</option>
-                            </c:forEach>
-                        </select>
-                        <label for="${BloodDonationLogic.RHESUS_FACTOR}" class="rf">RHD</label>
-                        <select name="${BloodDonationLogic.RHESUS_FACTOR}" class="lfi">
-                            <c:forEach var="rhd" items="${RhesusFactor.values()}">
-                                <option>${rhd.toString()}</option>
-                            </c:forEach>
-                        </select>
+                        <label for="${BloodBankLogic.NAME}" class="lf">Name</label>
+                        <input type="text" name="${BloodBankLogic.NAME}" class="lfi"/>                        
                     </fieldset>
 
                     <fieldset class="field">
-                        <label for="${BloodDonationLogic.MILLILITERS}" class="lf">Milliliters</label>
-                        <input type="number" name="${BloodDonationLogic.MILLILITERS}" class="lfi"/>
-                        <label for="bloodbank" class="rf">Blood Bank</label>
-                        <select name="${BloodBankLogic.NAME}" class="rfi">
-                            <!--For each bloodbank get all we create an option with the name? -->
-                            <c:forEach var="bb" items="${banks}">                                
-                                <option>${bb.getName()}</option>
-                            </c:forEach>
-
-                        </select>
+                        <label for="${BloodBankLogic.EMPLOYEE_COUNT}" class="lf">Employee Count</label>
+                        <input type="number" name="${BloodBankLogic.EMPLOYEE_COUNT}" class="lfi"/>                                               
                     </fieldset>
 
                     <fieldset class="field">
-                        <label for="${BloodDonationLogic.CREATED}" class="lf">Date</label>
-                        <input type="datetime-local" step="1" name="${BloodDonationLogic.CREATED}" min="1900-01-01" class="lfi">
+                        <label for="${BloodBankLogic.PRIVATELY_OWNED}" class="lf">Ownership</label>
+                        <select name="${BloodBankLogic.PRIVATELY_OWNED}" class="rfi">
+                        	<option>Private</option>
+                        	<option>Public</option>
+                        </select>
+                    </fieldset>
+                                
+                    <fieldset class="field">
+                        <label for="${BloodBankLogic.OWNER_ID}" class="lf">Owner ID</label>
+                        <input type="number" name="${BloodBankLogic.OWNER_ID}" class="lfi"/>                        
+                    </fieldset>    
+
+                    <fieldset class="field">
+                        <label for="${BloodBankLogic.ESTABLISHED}" class="lf">Date Established</label>
+                        <input type="datetime-local" step="1" name="${BloodBankLogic.ESTABLISHED}" min="1900-01-01" class="lfi">
                     </fieldset>
                 </div>
                 <br />
