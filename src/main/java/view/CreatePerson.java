@@ -129,8 +129,6 @@ public class CreatePerson  extends HttpServlet  {
         log( "POST" );
         
         PersonLogic pLogic = LogicFactory.getFor( "Person" );
-        String firstName = request.getParameter( PersonLogic.LAST_NAME );
-     //   if( pLogic.getPersonWithLastName( firstName ).isEmpty()){
             try {
                 Person person = pLogic.createEntity( request.getParameterMap() );
                 pLogic.add( person );
@@ -138,10 +136,7 @@ public class CreatePerson  extends HttpServlet  {
                 errorMessage = ex.getMessage();
                 ex.printStackTrace();
             }
-//        } else {
-//            //if duplicate print the error message
-//            errorMessage = "First Name: \"" + firstName + "\" already exists";
-//        }
+
         if( request.getParameter( "add" ) != null ){
             //if add button is pressed return the same page
             processRequest( request, response );

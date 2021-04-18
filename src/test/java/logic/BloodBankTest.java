@@ -68,7 +68,7 @@ public class BloodBankTest {
             testPerson.setLastName("Kent");
             testPerson.setPhone("613-316-1361");
             testPerson.setAddress("123 Road Street"); 
-            testPerson.setBirth(new Date("2020/3/1"));
+            testPerson.setBirth(logic.convertStringToDate("2020-3-1"));
             em.persist( testPerson );
         }       
 
@@ -80,7 +80,7 @@ public class BloodBankTest {
         BloodBank entity = new BloodBank();
         entity.setName( "test name" );
         entity.setPrivatelyOwned(true);
-        entity.setEstablished(new Date("Wed Dec 12 00:00:00 EST 1212"));
+        entity.setEstablished(logic.convertStringToDate("1212-12-12"));
         entity.setEmployeeCount(5);
         entity.setOwner(testPerson);        
         entity.setBloodDonationSet(donations);
@@ -133,7 +133,7 @@ public class BloodBankTest {
     final void testGetEstablished() {
         assertNotNull( expectedEntity );
         // ensure the date string is the same as entered
-        assertEquals(expectedEntity.getEstablished().toString(), "Wed Dec 12 00:00:00 EST 1212");
+        assertEquals(expectedEntity.getEstablished().toString(), "1212-12-12");
     }
     
     @Test
@@ -288,7 +288,7 @@ public class BloodBankTest {
         assertEquals( false, returnedBloodbank.getPrivatelyOwned() );
         assertEquals( 5, returnedBloodbank.getEmployeeCount() );
         // if the dates are the same compareTo will return 0
-        assertEquals(returnedBloodbank.getEstablished().compareTo(new Date(sampleMap.get(BloodBankLogic.ESTABLISHED)[0])), 0);
+        assertEquals(returnedBloodbank.getEstablished().compareTo(logic.convertStringToDate(sampleMap.get(BloodBankLogic.ESTABLISHED)[0])), 0);
       
         assertEquals( null, returnedBloodbank.getOwner() ); 
         assertEquals( sampleMap.get( BloodBankLogic.NAME )[ 0 ], returnedBloodbank.getName() );

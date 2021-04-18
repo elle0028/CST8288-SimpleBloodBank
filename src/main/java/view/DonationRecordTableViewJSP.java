@@ -1,6 +1,6 @@
 package view;
 
-import entity.Account;
+import entity.DonationRecord;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -13,15 +13,15 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import logic.AccountLogic;
+import logic.DonationRecordLogic;
 import logic.LogicFactory;
 
 /**
  *
- * @author Shariar (Shawn) Emami
+ * @author akshay gokani
  */
-@WebServlet( name = "AccountTableJSP", urlPatterns = { "/AccountTableJSP" } )
-public class AccountTableViewJSP extends HttpServlet {
+@WebServlet( name = "DonationRecordTableJSP", urlPatterns = { "/DonationRecordTableJSP" } )
+public class DonationRecordTableViewJSP extends HttpServlet {
 
     private void fillTableData( HttpServletRequest req, HttpServletResponse resp )
             throws ServletException, IOException {
@@ -31,14 +31,14 @@ public class AccountTableViewJSP extends HttpServlet {
         req.setAttribute( "path", path );
         req.setAttribute( "title", path.substring( 1 ) );
         req.getRequestDispatcher( "/jsp/ShowTable-Entity.jsp" ).forward( req, resp );
-    }  
+    }
 
     private List<?> extractTableData( HttpServletRequest req ) {
         String search = req.getParameter( "searchText" );
-        AccountLogic logic = LogicFactory.getFor( "Account" );
+        DonationRecordLogic logic = LogicFactory.getFor( "DonationRecord" );
         req.setAttribute( "columnName", logic.getColumnNames() );
         req.setAttribute( "columnCode", logic.getColumnCodes() );
-        List<Account> list;
+        List<DonationRecord> list;
         if( search != null ){
             list = logic.search( search );
         } else {
@@ -79,10 +79,10 @@ public class AccountTableViewJSP extends HttpServlet {
     protected void doPost( HttpServletRequest req, HttpServletResponse resp )
             throws ServletException, IOException {
         log( "POST" );
-        AccountLogic logic = LogicFactory.getFor( "Account" );
+        DonationRecordLogic logic = LogicFactory.getFor( "DonationRecord" );
         if( req.getParameter( "edit" ) != null ){
-            Account account = logic.updateEntity( req.getParameterMap() );
-            logic.update( account );
+            DonationRecord donation_record = logic.updateEntity( req.getParameterMap() );
+            logic.update( donation_record );
         } else if( req.getParameter( "delete" ) != null ){
             String[] ids = req.getParameterMap().get( "deleteMark" );
             for( String id: ids ) {
@@ -144,7 +144,7 @@ public class AccountTableViewJSP extends HttpServlet {
      */
     @Override
     public String getServletInfo() {
-        return "Smaple of Account Table using JSP";
+        return "Smaple of DonationRecord Table using JSP";
     }
 
     private static final boolean DEBUG = true;
