@@ -2,13 +2,9 @@ package view;
 
 import entity.BloodBank;
 import entity.BloodDonation;
-import entity.BloodGroup;
 import entity.DonationRecord;
 import entity.Person;
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.util.Arrays;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import javax.servlet.ServletException;
@@ -29,8 +25,6 @@ import logic.PersonLogic;
 @WebServlet(name = "DonateBloodForm", urlPatterns = {"/DonateBloodForm"})
 public class DonateBloodForm extends HttpServlet {
 
-    private String errorMessage = null; // TODO: Needed?
-
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -44,15 +38,6 @@ public class DonateBloodForm extends HttpServlet {
             throws ServletException, IOException {
 
         request.getRequestDispatcher("/jsp/donateblood.jsp").forward(request, response);
-    }
-
-    private String toStringMap(Map<String, String[]> values) {
-        StringBuilder builder = new StringBuilder();
-        values.forEach((k, v) -> builder.append("Key=").append(k)
-                .append(", ")
-                .append("Value/s=").append(Arrays.toString(v))
-                .append(System.lineSeparator()));
-        return builder.toString();
     }
 
     /**
@@ -88,7 +73,6 @@ public class DonateBloodForm extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         log("POST");
-        //you can add your logic here
         Map<String, String[]> map = request.getParameterMap();
 
         try {
@@ -97,7 +81,7 @@ public class DonateBloodForm extends HttpServlet {
             BloodDonation bloodDonation = createBloodDonation(request, bloodBank);
             createDonationRecord(request, person, bloodDonation);
         } catch (IllegalArgumentException e) {
-            // TODO: STUFF
+            log("Error Creating Donation: \n", e);
         }
 
         if (map.containsKey("view")) {
@@ -116,7 +100,7 @@ public class DonateBloodForm extends HttpServlet {
             donation_record.setBloodDonation(bloodDonation);
             drLogic.add(donation_record);
         } catch (IllegalArgumentException ex) {
-            errorMessage = ex.getMessage();
+            log("Error Creating Donation Record: \n", ex);
         }
     }
 
@@ -126,9 +110,8 @@ public class DonateBloodForm extends HttpServlet {
         try {
             person = pLogic.createEntity(request.getParameterMap());
             pLogic.add(person);
-        } catch (Exception ex) {
-            errorMessage = ex.getMessage();
-            ex.printStackTrace();
+        } catch (IllegalArgumentException ex ) {
+            log("Error Creating Person: \n", ex);
         }
         return person;
     }
@@ -142,7 +125,7 @@ public class DonateBloodForm extends HttpServlet {
             bloodDonation.setBloodBank(bloodBank);
             bdLogic.add(bloodDonation);
         } catch (NumberFormatException ex) {
-            errorMessage = ex.getMessage(); // TODO: what to do with error
+            log("Error Creating Blood Donation \n", ex);
         }
         return bloodDonation;
     }
@@ -170,6 +153,7 @@ public class DonateBloodForm extends HttpServlet {
 
     private static final boolean DEBUG = true;
 
+    @Override
     public void log(String msg) {
         if (DEBUG) {
             String message = String.format("[%s] %s", getClass().getSimpleName(), msg);
@@ -177,6 +161,7 @@ public class DonateBloodForm extends HttpServlet {
         }
     }
 
+    @Override
     public void log(String msg, Throwable t) {
         String message = String.format("[%s] %s", getClass().getSimpleName(), msg);
         getServletContext().log(message, t);
