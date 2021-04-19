@@ -1,6 +1,7 @@
 package view;
 
 import entity.BloodBank;
+import entity.Person;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Arrays;
@@ -129,7 +130,13 @@ public class CreateBloodBank extends HttpServlet {
                 if (bloodbank.getPrivatelyOwned() == true) {
                     int ownerID = Integer.parseInt(request.getParameter(BloodBankLogic.OWNER_ID));
                     PersonLogic pl = LogicFactory.getFor("Person");
-                    bloodbank.setOwner(pl.getWithId(ownerID));
+                    Person owner = pl.getWithId(ownerID);
+                    if (owner == null) {
+                        // user said privatelyOwned = true but provided an invalid owner id
+                        //TODO: what to do about invalid input!!??
+                    }
+                    // TODO: setting to null is ok, but privatelyOwned is still true!!!
+                    bloodbank.setOwner(owner);  
                 }
                 bbLogic.add( bloodbank );
                 
