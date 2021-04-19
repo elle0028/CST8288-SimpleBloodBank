@@ -132,10 +132,12 @@ public class CreateBloodBank extends HttpServlet {
                     PersonLogic pl = LogicFactory.getFor("Person");
                     Person owner = pl.getWithId(ownerID);
                     if (owner == null) {
-                        // user said privatelyOwned = true but provided an invalid owner id
-                        //TODO: what to do about invalid input!!??
+                        // user said privatelyOwned = true but provided an invalid owner id                        
+                        log("Invalid owner id! Forcing privatelyOwned to false");
+                        bloodbank.setPrivatelyOwned(false);
+                        // NOTE : BloodBank will still be created but will not have private ownership
                     }
-                    // TODO: setting to null is ok, but privatelyOwned is still true!!!
+                    
                     bloodbank.setOwner(owner);  
                 }
                 bbLogic.add( bloodbank );

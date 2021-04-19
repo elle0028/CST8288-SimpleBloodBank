@@ -75,20 +75,17 @@ public class CreateBloodBankJSP extends HttpServlet {
                 if(bloodbank.getPrivatelyOwned() == true) {
                     int personId = Integer.parseInt(request.getParameterMap().get(BloodBankLogic.OWNER_ID)[0]); 
                     Person owner = pLogic.getWithId(personId);
-                    if (owner != null) {
-                        bloodbank.setOwner(owner);
-                    }
-                    else {  
+                    if (owner == null) {
                         // private owner was true but the given id of the owner was invalid
                         // TODO: right now it will add the BloodBank with null owner 
-                        log("Ownership true but owner id is invalid");
-                        validOwnership = false;
-                    }
+                        log("Ownership true but owner id is invalid! Forcing privatelyOwned to false");
+                        bloodbank.setPrivatelyOwned(false);
+                    } 
+                    
+                    bloodbank.setOwner(owner);
                 }
-            
-                // only add the BloodBank if ownership input was valid
-                if (validOwnership)
-                    bbLogic.add( bloodbank );
+                
+                bbLogic.add( bloodbank );
             } catch( NumberFormatException ex ) {
                 log("Error creating BloodBank: \n", ex);        }
         } else {
