@@ -85,7 +85,7 @@ public class DonateBloodForm extends HttpServlet {
         }
 
         if (map.containsKey("view")) {
-            response.sendRedirect("PersonTableView");
+            response.sendRedirect("PersonTable");
         } else if (map.containsKey("submit")) {
             processRequest(request, response);
         }

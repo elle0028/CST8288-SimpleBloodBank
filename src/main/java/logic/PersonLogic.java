@@ -160,4 +160,8 @@ public class PersonLogic extends GenericLogic<Person, PersonDAL> {
         return Arrays.asList( e.getId(), e.getFirstName(), e.getLastName(), e.getPhone(), e.getAddress(), e.getBirth() );
     }
         
+    @Override
+    public List<Person> search( String search ) {
+        return get( () -> dal().findContaining( search ) );
+    }
 }
