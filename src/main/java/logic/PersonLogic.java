@@ -3,7 +3,6 @@ package logic;
 import common.ValidationException;
 import dal.PersonDAL;
 import entity.Person;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import java.util.Date;
@@ -15,11 +14,11 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- *
+ * CST8288
  * @author Fargol Azimi
  */
 public class PersonLogic extends GenericLogic<Person, PersonDAL> {
-    
+    //Creating column names to use as column id and http elements
     public static final String FIRST_NAME = "first_name";
     public static final String LAST_NAME = "last_name";
     public static final String PHONE = "phone";
@@ -111,25 +110,20 @@ public class PersonLogic extends GenericLogic<Person, PersonDAL> {
         String lastname = parameterMap.get( LAST_NAME )[ 0 ];
         String phone = parameterMap.get( PHONE )[ 0 ];
         String address = parameterMap.get( ADDRESS )[ 0 ];
-//        Date birthDate = new Date();
-//        try {
-           Date birthDate = convertStringToDate(parameterMap.get(BIRTH)[0]);
-//        } catch (ValidationException e) {
-//            Logger.getLogger( BloodDonationLogic.class.getName() ).log( Level.SEVERE, null, e );
-//            birthDate = convertStringToDate(new SimpleDateFormat( "yyyy-MM-dd kk:mm:ss" ).format(birthDate));
-//        }
-//        String id = null;
-//        if( parameterMap.containsKey( FIRST_NAME ) ){
-//            id = parameterMap.get(ID)[0];
-//            validator.accept( id, 45 );
-//        }
+        Date birthDate = new Date();
+        //converting date to string, if not successful putting it in a known format
+        try {
+           birthDate = convertStringToDate(parameterMap.get(BIRTH)[0]);
+        } catch (ValidationException e) {
+            Logger.getLogger( BloodDonationLogic.class.getName() ).log( Level.SEVERE, null, e );
+            birthDate = convertStringToDate(new SimpleDateFormat( "yyyy-MM-dd kk:mm:ss" ).format(birthDate));
+        }
 
         //validate the data
         validator.accept( firstname, 45 );
         validator.accept( lastname, 45 );
         validator.accept( phone, 45 );
         validator.accept( address, 45 );
-        //validator.accept( id, 45 );
 
         //set values on entity
         entity.setFirstName( firstname );
@@ -137,28 +131,33 @@ public class PersonLogic extends GenericLogic<Person, PersonDAL> {
         entity.setPhone( phone );
         entity.setAddress( address );
         entity.setBirth( birthDate );
-        //entity.setId( Integer.parseInt(id) );
 
         return entity;
     }
-    
+    /**
+     * set column header names
+     * @return List<String>
+     */
     @Override
     public List<String> getColumnNames() {
         return Arrays.asList( "ID", "FirstName", "LastName", "Phone", "Address", "Birth" );
     }
-
+    /**
+     * returns the names of column names that match the database
+     * @return List<String>
+     */
     @Override
     public List<String> getColumnCodes() {
         return Arrays.asList( ID, FIRST_NAME, LAST_NAME, PHONE, ADDRESS, BIRTH );    
     }
-
+    /**
+     * returns values of all columns
+     * @param e
+     * @return List<?>
+     */
     @Override
     public List<?> extractDataAsList(Person e) {
         return Arrays.asList( e.getId(), e.getFirstName(), e.getLastName(), e.getPhone(), e.getAddress(), e.getBirth() );
     }
         
-    @Override
-    public List<Person> search( String search ) {
-        return get( () -> dal().findContaining( search ) );
-    }
 }

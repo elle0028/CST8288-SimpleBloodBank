@@ -385,7 +385,6 @@ public class BloodBankTest {
        /* This code seemingly does throw ValidationExceptions from createEntity, but the assert still fails */
         fillMap.accept( sampleMap );
         sampleMap.replace( BloodBankLogic.ID, new String[]{ "" } );
-//        logic.createEntity( sampleMap );
         assertThrows( ValidationException.class, () -> logic.createEntity( sampleMap ) );
         sampleMap.replace( BloodBankLogic.ID, new String[]{ "12b" } );
         assertThrows( ValidationException.class, () -> logic.createEntity( sampleMap ) );
