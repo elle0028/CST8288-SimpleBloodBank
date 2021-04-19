@@ -1,9 +1,7 @@
 package view;
 
-import entity.Account;
 import entity.BloodBank;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -15,13 +13,13 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import logic.AccountLogic;
 import logic.BloodBankLogic;
 import logic.LogicFactory;
 
 /**
- *
- * @author dynonomous
+ * BloodBankTableViewJSP
+ * @author Andrew O'Hara
+ *  April 2021
  */
 @WebServlet(name = "BloodBankTableJSP", urlPatterns = {"/BloodBankTableJSP"})
 public class BloodBankTableViewJSP extends HttpServlet {
@@ -100,8 +98,8 @@ public class BloodBankTableViewJSP extends HttpServlet {
     /**
      * Handles the HTTP <code>PUT</code> method.
      *
-     * @param req servlet request
-     * @param resp servlet response
+     * @param request servlet request
+     * @param response servlet response
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
@@ -115,8 +113,8 @@ public class BloodBankTableViewJSP extends HttpServlet {
     /**
      * Handles the HTTP <code>DELETE</code> method.
      *
-     * @param req servlet request
-     * @param resp servlet response
+     * @param request servlet request
+     * @param response servlet response
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
