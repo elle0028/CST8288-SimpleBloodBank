@@ -344,19 +344,6 @@ public class DonationRecordTest {
         assertThrows( NullPointerException.class, () -> logic.createEntity( sampleMap ) );
         sampleMap.replace( DonationRecordLogic.CREATED, new String[]{} );
         assertThrows( IndexOutOfBoundsException.class, () -> logic.createEntity( sampleMap ) );
-        
-        fillMap.accept( sampleMap );
-        sampleMap.replace( DonationRecordLogic.PERSON_ID, null );
-        assertThrows( NullPointerException.class, () -> logic.createEntity( sampleMap ) );
-        sampleMap.replace( DonationRecordLogic.PERSON_ID, new String[]{} );
-        assertThrows( IndexOutOfBoundsException.class, () -> logic.createEntity( sampleMap ) );
-        
-        fillMap.accept( sampleMap );
-        sampleMap.replace( DonationRecordLogic.DONATION_ID , null );
-        assertThrows( NullPointerException.class, () -> logic.createEntity( sampleMap ) );
-        sampleMap.replace( DonationRecordLogic.DONATION_ID, new String[]{} );
-        assertThrows( IndexOutOfBoundsException.class, () -> logic.createEntity( sampleMap ) );
-        
     }
     
     @Test
