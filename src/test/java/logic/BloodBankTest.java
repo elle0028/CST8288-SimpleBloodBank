@@ -182,7 +182,7 @@ public class BloodBankTest {
     
     private void assertBloodBanksEqual( BloodBank expected, BloodBank actual ) {
         //assert all field to guarantee they are the same
-        assertEquals( expected.getId(), actual.getId() ); //TODO: something up with ID
+        assertEquals( expected.getId(), actual.getId() ); 
         assertEquals(expected.getName(), actual.getName() );
         assertEquals(expected.getPrivatelyOwned(), actual.getPrivatelyOwned() );
         assertEquals(expected.getOwner(), actual.getOwner() );

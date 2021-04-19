@@ -15,7 +15,7 @@ import logic.Logic;
 import logic.LogicFactory;
 
 /**
- *
+ * BloodBankTableView
  * @author Andrew O'Hara
  */
 @WebServlet(name = "BloodBankTableView", urlPatterns = {"/BloodBankTable"})
@@ -110,7 +110,7 @@ public class BloodBankTableView extends HttpServlet {
      */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {        
+            throws ServletException, IOException {    
         BloodBankLogic logic = LogicFactory.getFor( "BloodBank" );
         BloodBank bloodbank = logic.updateEntity( request.getParameterMap() );
         logic.update( bloodbank );       
@@ -125,7 +125,7 @@ public class BloodBankTableView extends HttpServlet {
     @Override
     public String getServletInfo() {
         return "BloodBank Table View";
-    }// </editor-fold>
+    }
     
     private static final boolean DEBUG = true;
 
