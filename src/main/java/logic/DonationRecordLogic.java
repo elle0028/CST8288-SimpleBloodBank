@@ -2,21 +2,14 @@ package logic;
 
 import common.ValidationException;
 import dal.DonationRecordDAL;
-import entity.BloodDonation;
 import entity.DonationRecord;
-import entity.Person;
 
 import java.util.Date;
-
-import java.text.SimpleDateFormat;
-
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.function.ObjIntConsumer;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
@@ -136,66 +129,23 @@ public class DonationRecordLogic extends GenericLogic<DonationRecord, DonationRe
         //converted to appropriate type. have in mind that values are
         //stored in an array of String; almost always the value is at
         //index zero unless you have used duplicated key/name somewhere.
-                
-        String person_id = null;
-        
-        if( parameterMap.containsKey( PERSON_ID ) ){
-            person_id = parameterMap.get( PERSON_ID )[ 0 ];
-            if(!person_id.equals("")){
-                validator.accept( person_id, 45 );
-            } 
-        }
-        
-        String donation_id = null;
-        if( parameterMap.containsKey( DONATION_ID ) ){
-            donation_id = parameterMap.get( DONATION_ID )[ 0 ];
-            if(!donation_id.equals("")){
-                validator.accept( donation_id, 45 );
-            } 
-        } 
         
         String tested = parameterMap.get( TESTED )[ 0 ];
         String administrator = parameterMap.get( ADMINISTRATOR )[ 0 ];
         String hospital = parameterMap.get( HOSPITAL )[ 0 ];
         
-        
         //validate the data
         validator.accept( tested, 45 );
         validator.accept( hospital, 45 );
         validator.accept( hospital, 45 );
-        //validator.accept( created, 45 );
-        
-//        Date creation_time = new Date();
-//            //DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
-//            //String formattedDate = myDateObj.format(myFormatObj);
-//         try{
-            Date creation_time = convertStringToDate(parameterMap.get( CREATED )[ 0 ]);
-//            //creation_time = new Date(parameterMap.get( CREATED )[ 0 ]);   
-//         } catch(ValidationException e){
-//             creation_time = convertStringToDate(new SimpleDateFormat("yyyy-MM-dd kk:mm:ss").format(creation_time));
-//             // created: 
-//         }
-         
-      // set entity parameters
+        Date creation_time = convertStringToDate(parameterMap.get( CREATED )[ 0 ]);
+
         entity.setCreated(creation_time);
         entity.setAdministrator(administrator );
     
         entity.setTested(Boolean.parseBoolean(tested));
         entity.setHospital(hospital);
-        
-        if(person_id == null || person_id.equals("")){
-            entity.setPerson(null);
-        } else {
-            entity.setPerson(new Person(Integer.parseInt(person_id)));
-        }
-        
-        if(donation_id == null || donation_id.equals("")){
-            entity.setBloodDonation(null);
-        } else {
-            entity.setBloodDonation(new BloodDonation(Integer.parseInt(donation_id)));
-        }
-        
-  
+
         return entity;
     }
     
@@ -205,8 +155,8 @@ public class DonationRecordLogic extends GenericLogic<DonationRecord, DonationRe
         Objects.requireNonNull( parameterMap, "parameterMap cannot be null" );
         
         // Get dependencies
-        PersonLogic pLogic = LogicFactory.getFor("PersonLogic");
-        BloodDonationLogic bdLogic = LogicFactory.getFor("BloodDonationLogic");
+        PersonLogic pLogic = LogicFactory.getFor("Person");
+        BloodDonationLogic bdLogic = LogicFactory.getFor("BloodDonation");
  
         // Get current entity
         DonationRecord entityToUpdate = getWithId(Integer.parseInt(parameterMap.get(ID)[0]));

@@ -162,28 +162,28 @@ public class CreateDonationRecord extends HttpServlet {
         // Main logic
         DonationRecordLogic drLogic = LogicFactory.getFor("DonationRecord");
 
-        String record_id = request.getParameter(DonationRecordLogic.ID);
-        // if( drLogic.getWithId(Integer.parseInt(record_id)) == null  ){
         try {
             DonationRecord donation_record = drLogic.createEntity(request.getParameterMap());
-            if (donation_record.getPerson() != null) {
+            
+            // Person can be null, so check if blank before setting dependency
+            if (!request.getParameterMap().get( DonationRecordLogic.PERSON_ID )[ 0 ].equals("")) {
                 int personId = Integer.parseInt(request.getParameterMap().get(DonationRecordLogic.PERSON_ID)[0]);
                 Person person = pLogic.getWithId(personId);
                 // user PeronsId to get the person associated with the DonationRecord
                 donation_record.setPerson(person);
             }
 
-            if (donation_record.getBloodDonation() != null) {
-                // use DonationId to get the bloodDonation associated witht the record
+            // BloodDonation can be null, so check if blank before setting dependency
+            if (!request.getParameterMap().get( DonationRecordLogic.DONATION_ID )[ 0 ].equals("")) {
                 int donationId = Integer.parseInt(request.getParameterMap().get(DonationRecordLogic.DONATION_ID)[0]);
                 BloodDonation blood_donation = bdLogic.getWithId(donationId);
                 donation_record.setBloodDonation(blood_donation);
             }
-            drLogic.update(donation_record);
+            
+            drLogic.add(donation_record);
         } catch (IllegalArgumentException ex) {
             errorMessage = ex.getMessage();
         }
-        
         
         if( request.getParameter( "add" ) != null ){
             //if add button is pressed return the same page

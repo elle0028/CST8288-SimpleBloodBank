@@ -2,6 +2,7 @@ package logic;
 
 import common.EMFactory;
 import common.TomcatStartUp;
+import common.ValidationException;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
@@ -381,14 +382,13 @@ public class BloodBankTest {
                     .toString();
         };        
                
-       /* TODO :  This code seemingly does throw ValidationExceptions from createEntity, but the assert still fails
+       /* This code seemingly does throw ValidationExceptions from createEntity, but the assert still fails */
         fillMap.accept( sampleMap );
         sampleMap.replace( BloodBankLogic.ID, new String[]{ "" } );
-        logic.createEntity( sampleMap );
         assertThrows( ValidationException.class, () -> logic.createEntity( sampleMap ) );
         sampleMap.replace( BloodBankLogic.ID, new String[]{ "12b" } );
         assertThrows( ValidationException.class, () -> logic.createEntity( sampleMap ) );
-        */
+        
        
         // Test PRIVATELY_OWNED with bad string lengths
         fillMap.accept( sampleMap );
